@@ -1,0 +1,98 @@
+<html><head><title>Cube Tools | 3x3 Beginner Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="basic1.html">Introduction</option>
+<option value="basic2.html">The Cross</option>
+<option value="basic3.html">The White Corners</option>
+<option value="basic4.html">The Second Layer</option>
+<option value="basic5.html">Orient Final Edges</option>
+<option value="basic6.html" selected>Orient Final Corners</option>
+<option value="basic7.html">Position Final Corners</option>
+<option value="basic8.html">Position Final Edges</option>
+</select>
+
+<p>The next step is to make the top of the cube solid yellow. We will use an algorithm called the Sune (&quot;soo-nay&quot;): (RUR'U)(RU2R'). We will also use its mirror, the Anti-Sune: (L'U'LU')(L'U2L). You can think of these as Right Sune and Left Sune. Here is how they work:</p>
+
+<div align="center">
+<table>
+<tr>
+<td><img src="tutorials/3b/coll Sune.png"></td>
+<td>Right Sune:<br>(RUR'U)(RU2R')</td>
+</tr>
+<tr>
+<td><img src="tutorials/3b/coll Anti-Sune.png"></td>
+<td>Left Sune:<br>(L'U'LU')(L'U2L)</td>
+</tr></table></div>
+
+<p>The bold edges represent yellow stickers on the side. If the above scenarios occur, the Sune will orient all the corners, making the top solid yellow.</p>
+
+<p>There are five other possible scenarios you may encounter:</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/coll bowtie.png"><br>Bowtie
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/coll blinkers.png"><br>Blinkers
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/coll headlights.png"><br>Headlights
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/coll pi.png"><br>Pi
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/coll double headlights.png"><br>Double Headlights
+  </div>
+</div>
+
+<p>If one of the above five scenarios occurs, do the Right Sune. (Make sure you are facing the side shown above.) This should give you one correctly oriented corner. You can then finish orienting the third layer using either the Right Sune or Left Sune.</p>
+
+<p>Once the top is solid yellow, you are ready to <a href="basic7.html">position the last layer corners</a>.</p>
+
+<img src="tutorials/3b/LL yellow top.png" class="auto">
+
+<div class="flexrow">
+  <div class="box"><a href="basic5.html">Back to: Orient Final Edges</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="basic7.html">Next: Position Final Corners</a></div>
+</div>
+
+</main>
+
+</body></html>

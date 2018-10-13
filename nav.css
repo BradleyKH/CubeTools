@@ -1,0 +1,139 @@
+/* Small Screens */
+@media only screen and (max-width: 650px) {
+
+  .logo {
+    display: none;
+  }
+
+  .menuButton {
+    cursor: hand;
+    margin: 5px;
+    font-size: 36px;
+  }
+
+  .navbar {
+    background-color: #303030;
+    display: none;
+  }
+
+  UL.nav {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+
+  UL.nav LI {
+    padding: 10px;
+    width: 100%;
+  }
+ 
+  UL.subnav {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+  }
+
+  UL.subnav LI {
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 10px
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .submenu {
+    display: none;
+    position: absolute;
+  }
+
+  .drop {
+    display: none;
+  }
+ }
+ 
+/* Large Screens */
+@media only screen and (min-width: 651px) {
+ 
+  .logo {
+    width: 75px;
+    height: 75px;
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+    align: left;
+    vertical-align: middle;
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .navbar {
+    background-color: #303030;
+  }
+
+  UL.nav {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+  }
+
+  UL.nav LI {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  UL.subnav {
+    list-style-type: none;
+    padding: 1px;
+    margin: 0px;
+    margin-top: 10px;
+  }
+
+  UL.subnav LI {
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 5px;
+    position: relative;
+    display: block;
+  }
+  
+  UL.subnav LI A {
+    padding: 0px;
+  }
+  
+  UL.subnav A LI:hover {
+      background-color: #FFFFFF;
+      color: #303030;
+  }
+  
+  .submenu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .drop {
+    height: 1em;
+    vertical-align: top;
+  }
+}
+
+/* All screens */
+
+.navbar A {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.subnav {
+  background-color: #303030;
+}

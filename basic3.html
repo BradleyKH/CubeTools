@@ -1,0 +1,130 @@
+<html><head><title>Cube Tools | 3x3 Beginner Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="basic1.html">Introduction</option>
+<option value="basic2.html">The Cross</option>
+<option value="basic3.html" selected>The White Corners</option>
+<option value="basic4.html">The Second Layer</option>
+<option value="basic5.html">Orient Final Edges</option>
+<option value="basic6.html">Orient Final Corners</option>
+<option value="basic7.html">Position Final Corners</option>
+<option value="basic8.html">Position Final Edges</option>
+</select>
+
+<p>In this step, we will move the four corner pieces with white stickers down to their proper place in the bottom layer. There is a short algorithm that helps us do this: (RUR') and its mirror (L'U'L).</p>
+
+<p>Identify a corner in the top layer with a white sticker, preferably one with the white sticker on the side rather than on the very top of the cube.</p>
+
+<h4>Corner on Top, White Sticker on Side</h4>
+
+<p>If the white sticker is on the side, turn the top to align the other side color with its center (e.g. red with red), then face that side color.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/white corner1.png">
+  </div>
+  <div class="box">
+    If the white corner is on the right side of the cube, use (RUR').
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/white corner2.png">
+  </div>
+  <div class="box">
+    If the white corner is on the left side of the cube, use (L'U'L).
+  </div>
+</div>
+
+<h4>Corner on Top, White Sticker on Top</h4>
+
+<p>If the white sticker is on the very top of the cube, turn the top until the white corner is over an empty slot (that is, over a bottom-layer corner that is not yet solved).</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/white corner3.png">
+  </div>
+  <div class="box">
+    If the white corner is on the right side of the cube, use (RU2R'). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/white corner4.png">
+  </div>
+  <div class="box">
+    If the white corner is on the left side of the cube, use (L'U2L). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.
+  </div>
+</div>
+
+<h4>Corner on Bottom</h4>
+
+<p>Sometimes there will be no white corners in the top layer, but the bottom layer is not solved. When this happens, turn the cube so that an incorrect white corner is on the bottom front, preferably with the white sticker facing sideways. (This avoids creating a top-facing white sticker.) If the incorrect white sticker is facing down, then it doesn’t matter if it is on the bottom front left or bottom front right.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/white corner5.png">
+  </div>
+  <div class="box">
+    If the white corner is on the right side of the cube, use (RUR'). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/white corner6.png">
+  </div>
+  <div class="box">
+    If the white corner is on the left side of the cube, use (L'U'L). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.
+  </div>
+</div>
+
+<p>After all corners are placed correctly around the white cross, the first layer will be complete. Next we will solve the <a href="basic4.html">second layer</a>.</p>
+<img src="tutorials/3b/first layer complete.png" class="auto">
+
+<div class="flexrow">
+  <div class="box"><a href="basic2.html">Back to: The Cross</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="basic4.html">Next: The Second Layer</a></div>
+</div>
+
+</main>
+
+</body></html>

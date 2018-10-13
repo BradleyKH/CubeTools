@@ -1,0 +1,80 @@
+<html><head><title>Cube Tools | 3x3 Beginner Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="basic1.html">Introduction</option>
+<option value="basic2.html">The Cross</option>
+<option value="basic3.html">The White Corners</option>
+<option value="basic4.html">The Second Layer</option>
+<option value="basic5.html">Orient Final Edges</option>
+<option value="basic6.html">Orient Final Corners</option>
+<option value="basic7.html">Position Final Corners</option>
+<option value="basic8.html" selected>Position Final Edges</option>
+</select>
+
+<p>This is the last step! Turn the cube so that yellow is once again on top.</p>
+
+<p>Look to see how many of the four sides of the cube (other than yellow and white) are completely solved. If you are very lucky, all four will be solved, and you're finished! Usually there will be 1 or 0 completed sides. (In other words, there will be 1 or 0 correct edges in the top layer.)</p>
+
+<h4>One Correct Side</h4>
+
+If there is 1 correct edge, face the completed side and use this algorithm: (M2U')(M'U2M)(U'M2)</p>
+
+<img src="tutorials/3b/epll1.png">
+<img src="tutorials/3b/LL edge1.png">
+
+<p>The algorithm shuffles the 3 incorrect edges clockwise. Note that you can change the direction of the shuffle by turning the top clockwise instead of counterclockwise: (M2U)(M'U2M)(UM2)</p>
+
+<img src="tutorials/3b/epll2.png">
+<img src="tutorials/3b/LL edge2.png">
+
+<h4>No Correct Sides</h4>
+
+<p>If there are no correct edges, do the 3-edge shuffle facing any side, and after that you should have one correct edge. Now you can solve the cube using one more 3-edge shuffle.</p>
+
+<p>Congratulations, you have solved the Rubik's Cube! If you memorize these steps, you can solve it consistently with a little practice.</p>
+
+<img src="tutorials/3b/solved.png" class="auto">
+
+<div class="flexrow">
+  <div class="box"><a href="basic7.html">Back to: Position Final Corners</a></div>
+  <span class="spacer"></span>
+</div>
+
+</main>
+
+</body></html>

@@ -1,0 +1,173 @@
+/* All screens */
+
+BODY {
+margin: 0px;
+font-family: arial;
+background-color: #FFFFFF;
+}
+
+A {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+A:hover {
+    text-decoration: underline;
+}
+
+MAIN IMG {
+  padding: 5px;
+}
+
+SPAN.title {
+  display: inline;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+A.title {
+  color: #303030;
+  text-decoration: none;
+  margin-bottom: 0px;
+}
+
+.flexpermrow {
+  display: flex;
+}
+
+.sidetable {
+  border: 1px solid #808080;
+  border-collapse: collapse;
+}
+
+.sidetable TH {
+  border: 1px solid #808080;
+  background-color: #DDDDDD;
+  padding: 8px;
+}
+
+.sidetable TD {
+  border: 1px solid #808080;
+  padding: 8px;
+}
+
+.auto {
+  margin: auto;
+  display: block;
+}
+
+.center {
+  text-align: center;
+  display: block;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+/* Small Screens */
+
+@media only screen and (max-width: 650px) {
+
+  HEADER {
+    width: 100%;
+  }
+
+  MAIN {
+    margin: 5px;
+  }
+
+  .flexrow {
+    display: block;
+  }
+  
+  .box {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .bigcube {
+      border-spacing: 2px;
+  }
+  
+  .bigcube TD {
+      width: 20vw;
+      height: 20vw;
+      border: 0px;
+      margin: 0px;
+  }
+
+  .smallonly {
+    display: inline;
+  }
+ 
+  .largeonly {
+    display: none;
+  }
+}
+ 
+/* Large Screens */
+
+@media only screen and (min-width: 651px) {
+ 
+  HEADER {
+    margin: 0px;
+  }
+
+  MAIN {
+    margin: 30px;
+    max-width: 1000px;
+  }
+
+
+  .flexrow {
+    display: flex;
+  }
+
+  .box {
+    display: block;
+    margin: 10px;
+  }
+
+  .quarter {
+    min-width: 25vw;
+  }
+  
+  .bigcube {
+      border-spacing: 5px;
+  }
+  
+  .bigcube TD {
+      width: 20vh;
+      height: 20vh;
+      border: 0px;
+  }
+  
+  .smallcube {
+      border-collapse: collapse;
+      border: 0px solid black;
+      table-layout: fixed;
+      margin: 0px;
+      padding: 0px;
+  }
+  
+  .smallcube TD {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      max-width: 10px;
+      border: 1px solid white;
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+  }
+
+  .smallonly {
+    display: none;
+  }
+ 
+  .largeonly {
+    display: inline;
+  }
+}

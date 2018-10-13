@@ -1,0 +1,49 @@
+/* Small Screens */
+@media only screen and (max-width: 650px) {
+
+ #scr {
+     font-size: 16px;
+     font-weight: bold;
+     display: block;
+ }
+}
+ 
+/* Large Screens */
+@media only screen and (min-width: 651px) {
+ 
+ #scr {
+     font-size: 24px;
+ }
+ 
+}
+
+/* All screens */
+.diagram {
+    border: 1px solid #808080;
+}
+
+ .diagram TH {
+     font-weight: normal;
+     font-size: 12px;
+ }
+ 
+ .face {
+     border-collapse: collapse;
+     border: 1px solid black;
+ }
+ 
+ .face TD {
+     height: 12px;
+     width: 12px;
+     padding: 0px;
+     border: 1px solid black;
+ }
+ 
+  #time {
+     font-size: 24px;
+     font-weight: bold;
+ }
+ 
+.button {
+    width: 112px;
+}

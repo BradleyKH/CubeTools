@@ -1,0 +1,88 @@
+<html><head><title>Cube Tools | 3x3 Beginner Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Beginner Tutorial</h3>
+<select onchange="window.location.href=this.value;">
+<option value="basic1.html" selected>Introduction</option>
+<option value="basic2.html">The Cross</option>
+<option value="basic3.html">The White Corners</option>
+<option value="basic4.html">The Second Layer</option>
+<option value="basic5.html">Orient Final Edges</option>
+<option value="basic6.html">Orient Final Corners</option>
+<option value="basic7.html">Position Final Corners</option>
+<option value="basic8.html">Position Final Edges</option>
+</select>
+
+<p>You can solve the Rubik's Cube. It is simply a matter of breaking the puzzle down into smaller steps and understanding how to approach each step.</p>
+
+<p>This tutorial is for beginners. You can <a href="beginner.pdf" target="_blank">download</a> it as a PDF. More experienced cubers may be interested in the <a href="cfop1.html">CFOP</a> and <a href="roux1.html">Roux</a> tutorials.</p>
+
+<h4>Cube Anatomy</h4>
+
+<p>The first task in solving the cube is understanding what it is. Inside the cube is an unmoving structure that holds six pieces in place. These six pieces are the center squares on each of the six sides of the cube. Take your cube apart to see for yourself! Around this structure, there are 20 movable pieces: 8 corners and 12 edges. Each corner piece has 3 colors, and each edge piece has 2 colors. Solving the cube entails arranging these 20 pieces correctly around the central axes.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/core.png" height="175"><br>6 centers
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/corners.png" height="175"><br>8 corners
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/edges.png" height="175"><br>12 edges
+  </div>
+</div>
+
+<p>Once you understand how the cube is made, you can see why solving the cube one side at a time would be inefficient. You could solve a side alright, but the relative positions of those 8 pieces (around the unmoving center) could be completely incorrect. It is better to solve the cube layer by layer. This means that as you solve one side, you are simultaneously beginning to solve other sides.</p>
+
+<h4>Algorithms</h4>
+
+<p>The &quot;trick&quot; to solving the cube is the use of algorithms, or specific sequences of turns. Algorithms do certain things to the pieces of the cube without disrupting other parts of the cube. The more algorithms you memorize, the more tools you have to solve the cube efficiently.</p>
+
+<p>A layer-by-layer approach uses only 6 algorithms (1 for the first layer, 1 for the second layer, 2 for orienting last layer, 2 for positioning last layer) plus their mirrored equivalents on occasion. This method can solve the cube using roughly 110 turns on average.</p>
+
+<h4>Onward!</h4>
+
+<p>Before moving on to the first step, be sure to learn the <a href="notation.html">notation</a> for single-face rotations. Once you feel comfortable with that, then let's tackle <a href="basic2.html">the cross</a>!</p>
+
+<div class="flexrow">
+  <span class="spacer"></span>
+  <div class="box"><a href="basic2.html">Next: The Cross</a></div>
+</div>
+
+</main>
+
+</body></html>

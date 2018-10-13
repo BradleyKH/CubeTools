@@ -1,0 +1,274 @@
+<html><head><title>Cube Tools | Notation Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+<script type="text/javascript" src="scripts/notation.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+<h3>Notation</h3>
+
+<h4>Single face rotations</h4>
+
+<div class="flexrow">
+	<div class="box quarter">
+		<p>Capital letters show which side of the cube to turn:
+			<ul>
+				<li><u>F</u>ront, <u>B</u>ack, <u>R</u>ight, <u>L</u>eft, <u>U</u>p (top), or <u>D</u>own (bottom).</li>
+			</ul>
+		</p>
+		<p>A plain capital letter represents a single (90-degree) turn clockwise.
+			<ul>
+				<li>A prime mark (e.g. R') makes it counterclockwise.</li>
+				<li>A &quot;2&quot; (e.g. R2) makes it a double turn (180 degrees).</li>
+			</ul>
+		</p>
+	</div>
+
+	<div class="box">
+		<p>Tap/hover over the table cells to see that turn.</p>
+		<table class="sidetable" onmouseout="turn('start');">
+		<tr>
+		<th>Side</th>
+		<th>Clockwise</th>
+		<th>Counter-<br>clockwise</th>
+		<th>Double</th>
+		<th>Example</th>
+		</tr>
+		<tr>
+		<td>Left</td>
+		<td onmouseover="turn('l');">L</td>
+		<td onmouseover="turnp('l');">L'</td>
+		<td onmouseover="turn2('l');">L2</td>
+		<td rowspan="6" style="text-align:center;vertical-align:middle;">
+		<span id="move" style="font-weight:bold"></span><br><br>
+		<img src="tutorials/notation/start.png" id="diagram">
+		</td>
+		</tr>
+		<tr>
+		<td>Right</td>
+		<td onmouseover="turn('r');">R</td>
+		<td onmouseover="turnp('r');">R'</td>
+		<td onmouseover="turn2('r');">R2</td>
+		</tr>
+		<tr>
+		<td>Front</td>
+		<td onmouseover="turn('f');">F</td>
+		<td onmouseover="turnp('f');">F'</td>
+		<td onmouseover="turn2('f');">F2</td>
+		</tr>
+		<tr>
+		<td>Back</td>
+		<td onmouseover="turn('b');">B</td>
+		<td onmouseover="turnp('b');">B'</td>
+		<td onmouseover="turn2('b');">B2</td>
+		</tr>
+		<tr>
+		<td>Top</td>
+		<td onmouseover="turn('u');">U</td>
+		<td onmouseover="turnp('u');">U'</td>
+		<td onmouseover="turn2('u');">U2</td>
+		</tr>
+		<tr>
+		<td>Bottom</td>
+		<td onmouseover="turn('d');">D</td>
+		<td onmouseover="turnp('d');">D'</td>
+		<td onmouseover="turn2('d');">D2</td>
+		</tr>
+		</table>
+	</div>
+</div>
+
+<h4>Double face rotations</h4>
+
+<div class="flexrow">
+	<div class="box quarter">
+		<p>Lowercase letters indicate that you turn two layers instead of one.</p>
+	</div>
+
+	<div class="box">
+		<table class="sidetable" onmouseout="turnw('start');">
+		<tr>
+		<th>Two layers</th>
+		<th>Clockwise</th>
+		<th>Counter-<br>clockwise</th>
+		<th>Double</th>
+		<th>Example</th>
+		</tr>
+		<tr>
+		<td>Left</td>
+		<td onmouseover="turnw('l');">l</td>
+		<td onmouseover="turnwp('l');">l'</td>
+		<td onmouseover="turnw2('l');">l2</td>
+		<td rowspan="6" style="text-align:center;vertical-align:middle;">
+		<span id="move2" style="font-weight:bold"></span><br><br>
+		<img src="tutorials/notation/start.png" id="diagram2">
+		</td>
+		</tr>
+		<tr>
+		<td>Right</td>
+		<td onmouseover="turnw('r');">r</td>
+		<td onmouseover="turnwp('r');">r'</td>
+		<td onmouseover="turnw2('r');">r2</td>
+		</tr>
+		<tr>
+		<td>Front</td>
+		<td onmouseover="turnw('f');">f</td>
+		<td onmouseover="turnwp('f');">f'</td>
+		<td onmouseover="turnw2('f');">f2</td>
+		</tr>
+		<tr>
+		<td>Back</td>
+		<td onmouseover="turnw('b');">b</td>
+		<td onmouseover="turnwp('b');">b'</td>
+		<td onmouseover="turnw2('b');">b2</td>
+		</tr>
+		<tr>
+		<td>Top</td>
+		<td onmouseover="turnw('u');">u</td>
+		<td onmouseover="turnwp('u');">u'</td>
+		<td onmouseover="turnw2('u');">u2</td>
+		</tr>
+		<tr>
+		<td>Bottom</td>
+		<td onmouseover="turnw('d');">d</td>
+		<td onmouseover="turnwp('d');">d'</td>
+		<td onmouseover="turnw2('d');">d2</td>
+		</tr>
+		</table>
+	</div>
+</div>
+
+<h4>Middle slice rotations</h4>
+
+<div class="flexrow">
+	<div class="box quarter">
+		<p>Some algorithms use the inner layers:
+			<ul>
+				<li><u>M</u>iddle, <u>E</u>quator, and <u>S</u>lice</li>
+			</ul>
+		</p>
+	</div>
+
+	<div class="box">
+		<table class="sidetable" onmouseout="turnslice('start');">
+		<tr>
+		<th>Symbol</th>
+		<th>Equivalent</th>
+		<th>Middle moves like...</th>
+		<th>Example</th>
+		</tr>
+		<tr onmouseover="turnslice('m');">
+		<td>M</td>
+		<td>r'R</td>
+		<td> L (down)</td>
+		<td rowspan="6" style="text-align:center;vertical-align:middle;">
+		<span id="move3" style="font-weight:bold"></span><br><br>
+		<img src="tutorials/notation/start.png" id="diagram3">
+		</td>
+		</tr>
+		<tr onmouseover="turnslicep('m');">
+		<td>M'</td>
+		<td>rR'</td>
+		<td>L' (up)</td>
+		</tr>
+		<tr onmouseover="turnslice('e');">
+		<td>E</td>
+		<td>dD'</td>
+		<td>D (right)</td>
+		</tr>
+		<tr onmouseover="turnslicep('e');">
+		<td>E'</td>
+		<td>d'D</td>
+		<td>D' (left)</td>
+		</tr>
+		<tr onmouseover="turnslice('s');">
+		<td>S</td>
+		<td>fF'</td>
+		<td>F (clockwise)</td>
+		</tr>
+		<tr onmouseover="turnslicep('s');">
+		<td>S'</td>
+		<td>f'F</td>
+		<td>F' (counterclockwise)</td>
+		</tr>
+		</table>
+	</div>
+</div>
+
+<h4>Cube rotations</h4>
+<div class="flexrow">
+	<div class="box quarter">
+		<p>Cube rotations are rare, but y and y' are the most common.</p>
+	</div>
+
+	<div class="box">
+		<table class="sidetable" onmouseout="turncube('start');">
+		<tr>
+		<th>Symbol</th>
+		<th>Whole cube rotates like...</th>
+		<th>Example</th>
+		</tr>
+		<tr onmouseover="turncube('x');">
+		<td>x</td>
+		<td>R</td>
+		<td rowspan="6" style="text-align:center;vertical-align:middle;">
+		<span id="move4" style="font-weight:bold"></span><br><br>
+		<img src="tutorials/notation/start.png" id="diagram4">
+		</td>
+		</tr>
+		<tr onmouseover="turncubep('x');">
+		<td>x'</td>
+		<td>R'</td>
+		</tr>
+		<tr onmouseover="turncube('y');">
+		<td>y</td>
+		<td>U</td>
+		</tr>
+		<tr onmouseover="turncubep('y');">
+		<td>y'</td>
+		<td>U'</td>
+		</tr>
+		<tr onmouseover="turncube('z');">
+		<td>z</td>
+		<td>F</td>
+		</tr>
+		<tr onmouseover="turncubep('z');">
+		<td>z'</td>
+		<td>F'</td>
+		</tr>
+		</table>
+	</div>
+</div>
+
+</main>
+
+</body></html>

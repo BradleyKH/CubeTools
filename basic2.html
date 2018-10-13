@@ -1,0 +1,128 @@
+<html><head><title>Cube Tools | 3x3 Beginner Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="basic1.html">Introduction</option>
+<option value="basic2.html" selected>The Cross</option>
+<option value="basic3.html">The White Corners</option>
+<option value="basic4.html">The Second Layer</option>
+<option value="basic5.html">Orient Final Edges</option>
+<option value="basic6.html">Orient Final Corners</option>
+<option value="basic7.html">Position Final Corners</option>
+<option value="basic8.html">Position Final Edges</option>
+</select>
+
+<h4>Get Your Bearings</h4>
+
+<p>The center squares of the cube never move with respect to each other, so they serve as a reference point. We will think of the side with the yellow center as the top. The side with the white center is the bottom, which is the first layer we will solve. By solving the cube from the bottom up, the unsolved portions of the cube remain clearly visible during the solving process.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/centers.png">
+  </div>
+  <div class="box">
+    In this diagram, the blue center is on front, the red center is on the right, and the yellow center is on top.
+  </div>
+</div>
+
+<h4>The Cross</h4>
+
+<p>The first step is to make a cross on the bottom layer. You can use any color you like, but many people choose white because it is so easy to see. This tutorial will start with white, so we will make a cross by moving the 4 edges with white stickers around the white center square.</p>
+
+<p>When we make the cross, the four side color stickers should align with the center sticker on each of the four sides (red with red, blue with blue, etc.). The completed cross is shown in the following two diagrams.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/cross1.png"><br>(front)
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/cross2.png"><br>(back)
+  </div>
+</div>
+
+<h4>The Bad News</h4>
+
+<p>There are no set algorithms used to form the white cross. Here are some situations you may encounter and some ideas which may help you in making the cross.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/cross3.png">
+  </div>
+  <div class="box">
+    Red is already aligned with red. Simply use (R') to move the white sticker in place.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/cross4.png">
+  </div>
+  <div class="box">
+    The red/white edge piece is on the top next to the blue center. Use (U'R2) to move it into place. U’ aligns the red sticker, and R2 aligns the white sticker.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/cross5.png">
+  </div>
+  <div class="box">
+    The white/blue and white/red edge pieces need to switch places. One way to fix this is (D'F'D2F). D'F' aligns the blue/white edge and moves it out of the way to the middle layer. D2 aligns the red/white edge, and F restores the blue/white edge. If other cross pieces are in place, (RDR'D'R) works.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/3b/cross6.png">
+  </div>
+  <div class="box">
+    This is not as bad as it looks. Use (D'FD). D' moves the blue/white edge out of our way. F moves the red/white edge to the bottom layer, aligning the white sticker. D aligns red with the red center while restoring the blue/white edge.
+  </div>
+</div>
+
+<h4>The Good News</h4>
+<p>Because this step is entirely intuitive (without algorithms to help) it is actually the hardest step of solving the cube. Once you can make the cross, the rest will seem easier with a little practice! Next we will <a href="basic3.html">solve the white corners</a> around the cross.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="basic1.html">Back to: Introduction</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="basic3.html">Next: The White Corners</a></div>
+</div>
+
+</main>
+
+</body></html>

@@ -1,0 +1,94 @@
+<html><head><title>Cube Tools | 3x3 Beginner Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="basic1.html">Introduction</option>
+<option value="basic2.html">The Cross</option>
+<option value="basic3.html">The White Corners</option>
+<option value="basic4.html">The Second Layer</option>
+<option value="basic5.html" selected>Orient Final Edges</option>
+<option value="basic6.html">Orient Final Corners</option>
+<option value="basic7.html">Position Final Corners</option>
+<option value="basic8.html">Position Final Edges</option>
+</select>
+
+<p>The next step is to make a yellow cross on the top of the cube. The algorithm we use for this is (F RUR'U' F').</p>
+
+<p>After you finish the first two layers, there are four possible configurations of the top edges (ignoring the corners):</p>
+
+<table>
+<tr>
+<th style="text-align:center;">Yellow Edges</th>
+<th style="text-align:center;">Top View</th>
+<th>Do This</th>
+</tr>
+<tr>
+<td style="text-align:center;">4</td>
+<td style="text-align:center;"><img src="tutorials/3b/LL eo1.png"></td>
+<td>You already have a yellow cross!<br>Skip to the next step.</td>
+</tr>
+<tr>
+<td style="text-align:center;">2<br>opposite</td>
+<td style="text-align:center;"><img src="tutorials/3b/LL eo2.png"></td>
+<td>F (RUR'U') F'</td>
+</tr>
+<tr>
+<td style="text-align:center;">2<br>adjacent</td>
+<td style="text-align:center;"><img src="tutorials/3b/LL eo3.png"></td>
+<td>F (RUR'U')*2 F'</td>
+</tr>
+<tr>
+<td style="text-align:center;">None</td>
+<td style="text-align:center;"><img src="tutorials/3b/LL eo4.png"></td>
+<td>F (RUR'U') F'<br>This gives you two adjacent yellow edges.</td>
+</tr></table>
+
+<p>Note: Be sure to orient the top as shown above before using the algorithm.</p>
+
+<p>Once you have a yellow cross on top, you are ready to <a href="basic6.html">orient the last layer corners</a>.</p>
+
+<img src="tutorials/3b/LL yellow cross.png" class="auto">
+
+<div class="flexrow">
+  <div class="box"><a href="basic4.html">Back to: The Second Layer</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="basic6.html">Next: Orient Final Corners</a></div>
+</div>
+
+</main>
+
+</body></html>

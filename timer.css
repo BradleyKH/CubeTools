@@ -1,0 +1,27 @@
+/* Small Screens */
+@media only screen and (max-width: 650px) {
+
+
+}
+ 
+/* Large Screens */
+@media only screen and (min-width: 651px) {
+ 
+ 
+}
+
+/* All screens */
+
+.results TH {
+    text-align: left;
+}
+
+.results TD {
+    vertical-align: top;
+}
+
+.buttonList {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
