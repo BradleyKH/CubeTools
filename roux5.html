@@ -1,0 +1,272 @@
+<html><head><title>Cube Tools | 3x3 Roux Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Roux Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="roux1.html">Introduction</option>
+<option value="roux2.html">First Block</option>
+<option value="roux3.html">Second Block</option>
+<option value="roux4.html">CMLL (Top Corners)</option>
+<option value="roux5.html" selected>LSE: Edge Orientation</option>
+<option value="roux6.html">LSE: Permute UL/UR</option>
+<option value="roux7.html">LSE: Permute M Slice</option>
+<option value="roux8.html">Example Solves</option>
+<option value="roux9.html">Advanced Roux</option>
+</select>
+
+<p>All that remains is to solve the last six edges. We can generally do this turning only the M slice and the U slice, which helps our speed considerably. A common approach is for the left fingers to control U - primarily the index finger but also the middle finger for U2 turns - while the right fingers control M - primarily the ring finger for M', the middle finger for M, and both for M2.</p>
+
+<p>In this step, we will orient the last six edges (the 4 on top plus the bottom 2 between the blocks).</p>
+
+<h4>Taking Inventory</h4>
+
+<p>First, turn the M slice so that the white or yellow center is facing up. Only then can we easily see if an edge is oriented (good) or disoriented (bad).</p>
+
+<p>Second, count the bad edges:
+<ul>
+<li><strong>An edge is oriented correctly if its yellow or white sticker is on the top or bottom of the cube.</strong> Otherwise, it is a bad edge that needs to be flipped. In other words, when all the edges are oriented, the top and the bottom of the cube will have only yellow or white stickers. Edges are always flipped in pairs, so there will be 0, 2, 4, or 6 bad edges.
+<li><strong>Don't look at the DB edge.</strong> Five of the six edges are immediately visible, so the state of the hidden DB edge can be inferred without rotating the cube to look at it. If there is an odd number of bad edges visible, DB is also bad. If there is an even number of bad edges visible, DB is good.
+</ul>
+</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/eo example1.png">
+  </div>
+  <div class="box">
+    In this example, there are 3 bad edges on the top (UL, UF, UR). The UB and DF edges are good. Since the total number of bad edges must be even, then we know that the DB edge is bad even without seeing it.
+  </div>
+</div>
+
+<h4>Arrows and the Burden of Freedom</h4>
+
+<p>Orienting the edges is a flexible process. If you like, you can simply memorize the 11 cases and some algorithms that will solve them (chart below), and move on. However, if you understand how these algorithms work, it will help you solve the LSE more efficiently <a href="roux8.html">later on</a>.</p>
+
+<p>The case that is easiest to solve is an Arrow case: 3 bad edges on the top and 1 bad edge on the bottom. It is solved in just three moves.</p>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o3 arrow f.png"><br>Front Arrow<br>(M'U'M')
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/lse o10 arrow b.png"><br>Back Arrow<br>(MU'M')
+  </div>
+</div>
+
+<p>When you get an Arrow, the bad bottom edge can be on the front or the back. In either case, you turn the U slice so that the top &quot;arrow&quot; points to the bad bottom edge, bring the bad bottom edge up with M or M', then orient all edges with any U turn move followed by any M turn.
+<ul>
+<li>A Front Arrow can be solved (M'U'M') or (M'UM') or a similar sequence that begins with M'.
+<li>A Back Arrow can be solved with (MU'M') or a similar sequence that begins with M.
+</ul>
+</p>
+
+<h4>Arrow Example</h4>
+
+<p>In our earlier example, we have a Back Arrow case which can be solved (U2 MU'M'). The result is shown below.</p>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/roux/eo example1.png">
+  </div>
+  <div class="box center">
+    <img src="tutorials/3b/arrow.png"><br>(U2 MU'M')
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/eo example2.png">
+  </div>
+</div>
+
+<p>Our five visible edges are all good, so we know the DB edge is also good. This completes edge orientation.</p>
+
+<h4>Other Cases</h4>
+
+<p>We solve the other cases by cycling through the various cases until we get an Arrow case. We use two algorithmic tools to do this:
+
+<ul>
+  <li>(M'UM') flips the orientation of the UL, UF, UR, and DF edges
+  <li>(M'U2M) switches the position of the UF and DF edges
+</ul>
+
+These tools are the building blocks of algorithms used to solve edge orientation. The chart below lists the 11 cases for edge orientation, along with the cycles and algorithms for each case.</p>
+
+<h4>Edge Orientation Cases</h4>
+
+<p>After counting the bad edges, turn the U layer until your edges match one of the 11 cases below. The purple edges are bad.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o5 cradle.png"><br>Cradle
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'U2M' cycles to Back Arrow
+    <li>Algorithm: (MU2)(M'U2)(M'U'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o6 cross.png"><br>Cross
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'U2M' cycles to Front Arrow
+    <li>Algorithm: (M'U2)(M'U2)(M'U'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o9 stinger.png"><br>Stinger
+  </div>
+  <div class="box">
+    <ul>
+    <li>M2 cycles to Front Arrow
+    <li>Algorithm: (M2U')(M'U'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o4 neighbors.png"><br>Neighbors
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'UM' cycles to Front Arrow
+    <li>Algorithm: (M'UM') U2 (M'U'M')<br>Alt: U (M'U'M') U2 (M'U'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o11 diagonal f.png"><br>Front Diagonal
+  </div>
+  <div class="box">
+    <ul>
+    <li>MU'M cycles to Front Arrow
+    <li>Algorithm: (M'U'M) U' (M'U'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o7 diagonal b.png"><br>Back Diagonal
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'UM' cycles to Back Arrow
+    <li>Algorithm: (M'U'M') U' (MU'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o8 top pair.png"><br>Top Pair
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'UM' cycles to Stinger
+    <li>Algorithm: (M'UM) U' (M'U'M')<br>Alt: (RUR'U') M' (URU'r')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o2 bottom pair.png"><br>Bottom Pair
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'UM' cycles to Back Arrow
+    <li>Algorithm: (M'UM') U' (MU'M')<br>Alt: (M'U'M') U (MU'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o1 all bad.png"><br>All Bad
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'UM' cycles to Front Diagonal
+    <li>Algorithm: (M'U'M') U2 (M'U'M) U' (M'U'M')<br>Alt: (RU'r'U') M' (UrUr')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o3 arrow f.png"><br>Front Arrow
+  </div>
+  <div class="box">
+    <ul>
+    <li>M'UM' solves
+    <li>Algorithm: (M'U'M')
+    </ul>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/lse o10 arrow b.png"><br>Back Arrow
+  </div>
+  <div class="box">
+    <ul>
+    <li>MU'M' solves
+    <li>Algorithm: (MU'M')
+    </ul>
+  </div>
+</div>
+
+<p>Edge orientation is complete when the top and bottom of the cube have only yellow or white stickers. You are then ready to start permuting the last six edges, starting with <a href="roux6.html">UL and UR</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="roux4.html">Back: CMLL (Top Corners)</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="roux6.html">Next: Permute UL/UR</a></div>
+</div>
+
+</main>
+
+</body></html>

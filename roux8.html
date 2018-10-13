@@ -1,0 +1,195 @@
+<html><head><title>Cube Tools | 3x3 Roux Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Roux Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="roux1.html">Introduction</option>
+<option value="roux2.html">First Block</option>
+<option value="roux3.html">Second Block</option>
+<option value="roux4.html">CMLL (Top Corners)</option>
+<option value="roux5.html">LSE: Edge Orientation</option>
+<option value="roux6.html">LSE: Permute UL/UR</option>
+<option value="roux7.html">LSE: Permute M Slice</option>
+<option value="roux8.html" selected>Example Solves</option>
+<option value="roux9.html">Advanced Roux</option>
+</select>
+
+<h4>Example 1</h4>
+
+<p>Face green with white on top, and do this scramble:<br>
+F R L' F R' U L U2 D' B' U F L' U' D L F U2 D' R U2 B' U' L' B</p>
+
+<img src="tutorials/roux/rouxexample1.png" class="auto">
+
+<p>Now face the blue center with the orange center on top. This puts the blue/white edge in its DL spot, so we already have a head start on the first block.</p>
+
+<p>1st block: RuF' r'DB'D'B
+<ul>
+<li>R gets the blue/red pieces out of the way so we can move the blue center without separating them
+<li>uF' corrects the blue center and inserts the blue/red pieces
+<li>r'D aligns the blue/orange pieces. We do r' instead of R' to preserve the connected green/red pieces on top
+<li>B' makes room for the whole block to come together
+<li>D'B finishes the 1st block
+</ul>
+</p>
+
+<p>2nd block: rUr' U' r'U'r
+<ul>
+<li>The green/white edge is already in place at DR
+<li>rUr' is a standard insert for the red/green pieces, and it also paired up the green orange pieces
+<li>U' r'U'r inserts the green/orange pieces
+<li>This was an unusually easy 2nd block
+</ul>
+</p>
+
+<p>CMLL: U R'U' RUR'F' RUR'U' R'FR2</p>
+
+<p>EO: U MU'M
+<ul>
+<li>Back Arrow case. The last turn is M rather than M' because we want the UL/UR edges on the bottom.
+</ul>
+</p>
+
+<p>UL/UR: U M2 U'
+<ul>
+<li>Since UL/UR were on the bottom, this is a quick solve. Note that the BU color is orange.
+</ul>
+</p>
+
+<p>M Slice: M' U2 M U2 M2
+<ul>
+<li>This is a 3-edge cycle. Since FU & BU are the same, we know we'll start with M or M'. Here it is M' because it keeps the unique edge on top.
+</ul>
+
+(41 moves total)</p>
+
+<h4>Example 2</h4>
+<p>Face green with white on top, and do this scramble:<br>
+L B' R' L B F' U L D' L2 R2 U2 L D2 B R2 D2 F2 B U B L R' U R</p>
+
+<img src="tutorials/roux/rouxexample2.png" class="auto">
+
+<p>Now face the red center with the yellow center on top. This puts blue center in place, and the blue/white edge is only a D2 away from its DL spot.</p>
+
+<p>1st block: D'B D'rF U'r U2rB'
+<ul>
+<li>D'B pairs up the blue/red pieces
+<li>D' inserts the blue/white edge
+<li>rF inserts the blue/red pieces
+<li>U'r pairs up the blue/orange pieces
+<li>U2rB' inserts the blue/orange pieces, completing the 1st block
+</ul>
+</p>
+
+<p>2nd block: R2U'r'U'r2 R'U'R2U'r' U2rUr'
+<ul>
+<li>R2U'r'U'r2 inserts the green/white edge
+<li>R'U' inserts the green/orange pieces
+<li>R2U'r' pairs up the green/red pieces
+<li>U2 rUr' inserts the green/red pieces, completing the 2nd block
+</ul>
+</p>
+
+<p>CMLL: U' R'F2RU2 rU'r' F</p>
+
+<p>EO: M'U M'U'M U' M'U'M'
+<ul>
+<li>Front Diagonal case. We end with UL/UR on the bottom.
+</ul>
+</p>
+
+<p>UL/UR: U M2 U'</p>
+
+<p>M Slice: skip</p>
+
+<p>(45 moves total)</p>
+
+<h4>Example 3</h4>
+<p>Face green with white on top, and do this scramble:<br>
+L' U L R2 F2 U' F' U' F B' L' R' U2 R2 U' B' L B2 F2 R' D2 L' R2 U2 F</p>
+
+<img src="tutorials/roux/rouxexample3.png" class="auto">
+
+<p>Now face the green center with the yellow center on top. This puts the blue/white edge in its DL spot.</p>
+
+<p>1st block: r'D2 r'R'U FUr'f
+<ul>
+<li>r'D2 pairs up the blue/orange pieces while shuffling the blue/red pieces around
+<li>r' pairs up the blue/red pieces. I don't normally recommend pairing up both pairs before inserting either of them.
+<li>R'U re-inserts the blue/white edge next to the blue center
+<li>FU inserts the blue/red pieces
+<li>r'f inserts the blue/orange pieces and anchors the block in the lower left
+</ul>
+</p>
+
+<p>2nd block: U'r'U' rU'r RUR2U'R UrU'r'
+<ul>
+<li>U'r'U' prepares to insert the green/white edge
+<li>rU'r inserts the green/white edge, and the U' in the middle prevents the red/green corner from being stuck in the BR slot
+<li>RUR2 pairs up the green/orange pair
+<li>U'R inserts the green/orange pair
+<li>U prepares the green/red pair for a standard insertion
+<li>rU'r' inserts the green/red pair
+</ul>
+</p>
+
+<p>CMLL: U' RUR'U' R'FR2U'R'U RUR'F'</p>
+
+<p>EO: M'U'M' U2 M'UM'
+<ul>
+<li>Neighbors case. M'U'M' gives us an arrow. U2 points the arrow toward the bad D edge.
+<li>We end with M'UM' instead of M'U'M' so that the UL/UD edges end up on the bottom.
+</ul>
+</p>
+
+<p>UL/UR: U M2 U</p>
+
+<p>M slice: U2 M2 U2 M2</p>
+
+<p>(53 moves total)</p>
+
+<p>I've covered the basics of the Roux method, but this rabbit hole goes <a href="roux9.html">deeper</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="roux7.html">Back: Permute M Slice</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="roux9.html">Next: Advanced Roux</a></div>
+</div>
+
+</main>
+
+</body></html>

@@ -1,0 +1,108 @@
+<html><head><title>Cube Tools | 3x3 Roux Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Roux Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="roux1.html">Introduction</option>
+<option value="roux2.html">First Block</option>
+<option value="roux3.html">Second Block</option>
+<option value="roux4.html">CMLL (Top Corners)</option>
+<option value="roux5.html">LSE: Edge Orientation</option>
+<option value="roux6.html" selected>LSE: Permute UL/UR</option>
+<option value="roux7.html">LSE: Permute M Slice</option>
+<option value="roux8.html">Example Solves</option>
+<option value="roux9.html">Advanced Roux</option>
+</select>
+
+<h4>What Goes Down...</h4>
+
+<p>In our color scheme, the UL and UR edges are the blue/yellow and green/yellow edges, respectively. To solve these two edges, we first move them both to the bottom layer. As we do this, we must make moves that preserve the edge orientation we just fixed. Permitted moves are:
+<ul>
+<li>U, U', U2, and M2
+<li>M and M' only if they are followed with U2M or U2M'
+</ul>
+
+There are not many cases in this step. We will use moves like M'U2M to move edges between layers. The basic idea is to get one edge on the bottom, then insert the other edge across from it.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/LR1.png"><br>1 on top, 1 on DF<br>(U' MU2M')
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/LR4.png"><br>1 on top, 1 on DB<br>(U M'U2M)
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/LR3.png"><br>2 on top, opposite<br>(U M2)
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/LR2.png"><br>2 on top, adjacent<br>(M2 U M'U2M)
+  </div>
+</div>
+
+<h4>...Must Come Up</h4>
+
+<p>Once the UL and UR edges are in the bottom layer, you will be able to see one of them on the front face. Note the color of this edge (in our case, blue or green), then turn the top layer so that the corner stickers facing you are the opposite color from the edge. In other words, if you can see a blue edge, you want to see green corners, and vice versa.</p>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/roux/LR5.png">
+  </div>
+  <div class="box center">
+    OR
+  </div>
+  <div class="box">
+    <img src="tutorials/roux/LR6.png">
+  </div>
+</div>
+
+<p>Now simply use M2 to bring the UL and UR edges to the top layer, then use U or U' to solve the L and R sides. As you make the final U turn, note the color of the sticker that will be in the BU position when UL/UR are solved. (BU is the back sticker in the middle of the top layer.) Knowing that color will probably come in handy for the final step.</p>
+
+<h4>Almost There!</h4>
+
+<p>You are only 3-5 turns away! All that remains is to solve the last 4 edges around their centers in the <a href="roux7.html">middle slice</a>.</p>
+
+<img src="tutorials/roux/LR7.png" class="auto">
+
+<div class="flexrow">
+  <div class="box"><a href="roux5.html">Back: Edge Orientation</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="roux7.html">Next: Permute M Slice</a></div>
+</div>
+
+</main>
+
+</body></html>

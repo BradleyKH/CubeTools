@@ -37,10 +37,10 @@
 <h3>3x3 Roux Tutorial</h3>
 
 <select onchange="window.location.href=this.value;">
-<option value="roux1.html" selected>Introduction</option>
+<option value="roux1.html">Introduction</option>
 <option value="roux2.html">First Block</option>
 <option value="roux3.html">Second Block</option>
-<option value="roux4.html">CMLL (Top Corners)</option>
+<option value="roux4.html" selected>CMLL (Top Corners)</option>
 <option value="roux5.html">LSE: Edge Orientation</option>
 <option value="roux6.html">LSE: Permute UL/UR</option>
 <option value="roux7.html">LSE: Permute M Slice</option>
@@ -48,21 +48,22 @@
 <option value="roux9.html">Advanced Roux</option>
 </select>
 
-<p>The Roux method, invented by Gilles Roux, is an alternative to the CFOP method. It begins by building two 1x2x3 blocks on opposite sides of the cube. This leaves the U and M slices free to turn. Next, the top layer corners are solved. The remaining six edges are oriented and positioned using U and M turns.</p>
+<p>Once the two 1x2x3 blocks are in place, we solve the top corners. This is the only step in Roux for which algorithms are required.</p>
 
-<p>Roux is an efficient, intuitive method. It requires fewer turns than CFOP (48 vs. 55) because almost all the moves are constructive rather than destructive. Once the blocks are built they are only broken once to solve the top corners. In contrast, CFOP solves the last layer by breaking up the F2L twice and putting it back together a different way, which increases the move count.</p>
+<h4>2-Look CMLL</h4>
 
-<p>Roux also uses fewer algorithms than CFOP (42 vs. 78), and it requires no cube rotations after the first step. It's also fast. Its inventor has achieved sub-15 times with it, and its top practitioners have achieved sub-6 averages.</p>
+<p>I recommend starting with 2-look CMLL, which requires only 9 algorithms, many of which will already be familiar to CFOP solvers. 2-look CMLL first orients and then permutes the corners. Here is a <a href="2lookcmll.pdf" target="_blank">PDF</a> and <a href="flashcards.html#5">flashcards</a> to help you get started.</p>
 
-<p>So why doesn't everybody use Roux? Beginners may struggle with the block building involved in Roux, and the heavy reliance on M turns may be unappealing to some, but I think Roux is an elegant way to solve the cube.</p>
+<h4>Full CMLL</h4>
 
-<p>If needed, go ahead and brush up on <a href="notation.html">cube notation</a> before we dive into the <a href="roux2.html">first block</a>.</p>
+<p>CMLL solves the top corners in one step using 42 algorithms. Here is a <a href="cmll.pdf" target="_blank">PDF</a> and <a href="flashcards.html#6">flashcards</a> to help you memorize them.</p>
 
-
+<p>Once the corners are solved, we can move on to the final step: the <a href="roux5.html">last six edges</a>.</p>
 
 <div class="flexrow">
+  <div class="box"><a href="roux3.html">Back: Second Block</a></div>
   <span class="spacer"></span>
-  <div class="box"><a href="roux2.html">Next: First Block</a></div>
+  <div class="box"><a href="roux5.html">Next: Edge Orientation</a></div>
 </div>
 
 

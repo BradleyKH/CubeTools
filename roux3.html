@@ -37,9 +37,9 @@
 <h3>3x3 Roux Tutorial</h3>
 
 <select onchange="window.location.href=this.value;">
-<option value="roux1.html" selected>Introduction</option>
+<option value="roux1.html">Introduction</option>
 <option value="roux2.html">First Block</option>
-<option value="roux3.html">Second Block</option>
+<option value="roux3.html" selected>Second Block</option>
 <option value="roux4.html">CMLL (Top Corners)</option>
 <option value="roux5.html">LSE: Edge Orientation</option>
 <option value="roux6.html">LSE: Permute UL/UR</option>
@@ -48,21 +48,44 @@
 <option value="roux9.html">Advanced Roux</option>
 </select>
 
-<p>The Roux method, invented by Gilles Roux, is an alternative to the CFOP method. It begins by building two 1x2x3 blocks on opposite sides of the cube. This leaves the U and M slices free to turn. Next, the top layer corners are solved. The remaining six edges are oriented and positioned using U and M turns.</p>
+<p>Next, we form another 1x2x3 block on the opposite side of the cube without disrupting the first block.</p>
 
-<p>Roux is an efficient, intuitive method. It requires fewer turns than CFOP (48 vs. 55) because almost all the moves are constructive rather than destructive. Once the blocks are built they are only broken once to solve the top corners. In contrast, CFOP solves the last layer by breaking up the F2L twice and putting it back together a different way, which increases the move count.</p>
+<img src="tutorials/roux/SB.png" class="auto">
 
-<p>Roux also uses fewer algorithms than CFOP (42 vs. 78), and it requires no cube rotations after the first step. It's also fast. Its inventor has achieved sub-15 times with it, and its top practitioners have achieved sub-6 averages.</p>
-
-<p>So why doesn't everybody use Roux? Beginners may struggle with the block building involved in Roux, and the heavy reliance on M turns may be unappealing to some, but I think Roux is an elegant way to solve the cube.</p>
-
-<p>If needed, go ahead and brush up on <a href="notation.html">cube notation</a> before we dive into the <a href="roux2.html">first block</a>.</p>
-
-
+<p>As with the first block, there are no set algorithms. F2L techniques can be helpful in forming the second block while preserving the first one, but there may be more efficient ways to form the block by utilizing the M slice (M turns and r turns). Here are some example ideas.</p>
 
 <div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/SB1.png"><br>(rUr')
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/SB2.png"><br>(U'MU2)(rU'r')
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/SB3.png"><br>(MU)(rU'r')
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/SB4.png"><br>(U'M2U2)(rU'r')
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/SB5.png"><br>(rU'r') U2 (rUr')
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/SB6.png"><br>(U'rU')(MUr')
+  </div>
+</div>
+
+<p>Solving the second block in 12-14 moves is a good goal.</p>
+
+<p>Once the second block is complete, we are ready to solve the top corners using <a href="roux4.html">CMLL</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="roux2.html">Back: First Block</a></div>
   <span class="spacer"></span>
-  <div class="box"><a href="roux2.html">Next: First Block</a></div>
+  <div class="box"><a href="roux4.html">Next: CMLL (Top Corners)</a></div>
 </div>
 
 

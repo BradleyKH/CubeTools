@@ -35,6 +35,7 @@ code += '       <a href="tutorials.html">Tutorials <img src="images/drop.png" cl
 code += '       <div class="submenu" id="tutorials" onmouseout="hideMenu(\'tutorials\')">';
 code += '         <ul class="subnav">';
 code += '           <a href="notation.html"><li>&emsp; Notation</li></a>';
+code += '           <a href="triggers.html"><li>&emsp; Common Triggers</li></a>';
 code += '           <li><b>3x3</b></li>';
 code += '           <a href="basic1.html"><li>&emsp; Beginner</li></a>';
 code += '           <a href="cfop1.html"><li>&emsp; CFOP</li></a>';

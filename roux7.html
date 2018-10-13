@@ -1,0 +1,137 @@
+<html><head><title>Cube Tools | 3x3 Roux Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<link rel="stylesheet" href="roux.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 Roux Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="roux1.html">Introduction</option>
+<option value="roux2.html">First Block</option>
+<option value="roux3.html">Second Block</option>
+<option value="roux4.html">CMLL (Top Corners)</option>
+<option value="roux5.html">LSE: Edge Orientation</option>
+<option value="roux6.html">LSE: Permute UL/UR</option>
+<option value="roux7.html" selected>LSE: Permute M Slice</option>
+<option value="roux8.html">Example Solves</option>
+<option value="roux9.html">Advanced Roux</option>
+</select>
+
+<p>There are 3 basic cases for this last step: 2 dots, 4 dots, and 3-edge cycles.</p>
+
+<h4>2 Dots (Bars)</h4>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/roux/2 dots a.png"><br>(U2 M2 U2)
+  </div>
+  <div class="box">
+    <img src="tutorials/roux/2 dots b.png"><br>(M2 U2 M2 U2)
+  </div>
+</div>
+
+<p>These can be solved very quickly.</p>
+
+<h4>4 Dots</h4>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/roux/4 dots a.png"><br>(E2 M' E2 M)
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/4 dots b.png"><br>(E2 M' E2 M')
+  </div>
+</div>
+
+<p>This is the awkward case. One could solve it conventionally with M and U turns, but using the E slice is faster with practice.</p>
+
+<h4>3-Edge Cycles</h4>
+
+<p>3-edge cycles are a common case requiring only 4 or 5 turns to solve, but recognizing their best solution takes practice.</p>
+
+<p>First, find the &quot;unique edge&quot; whose stickers do not align with its neighboring centers in the M slice. Make sure that the unique edge is in the top layer, using M2 if necessary.</p>
+
+<p>Next, look at the FU and BU stickers. (Actually, to save time, you'll want to track the BU in advance so you already know what it is.) They will be either the same color (e.g. red) or opposite colors (e.g. red and orange).
+<ul>
+  <li>Same color: do (MU2 MU2) or (M'U2 M'U2), whichever keeps the unique edge on top. A final M2 may be required to solve the cube.
+  <li>Opposite color: do (U2 M U2) or (U2 M' U2), whichever keeps the unique edge on top. A final M or M' turn solves the cube.
+</ul>
+
+<p>This can be a challenging step, so here are some cases to help. The solution to 3-edge cycles depends on the color (orange or red) of the BU edge sticker, which I've indicated with O or R.</p>
+
+<span class="color1"><b>FU/BU Same</span><br>
+<span class="color2">FU/BU Different</b></span>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/3c1.png"><br><span class="color1">O: M'U2M'U2M2</span><br><span class="color2">R: U2MU2M'</span>
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/3c2.png"><br><span class="color1">O: M'U2MU2M2</span><br><span class="color2">R: M2U2MU2M'</span>
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/3c7.png"><br><span class="color2">O: U2M'U2M'</span><br><span class="color1">R: MU2M'U2M2</span>
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/3c8.png"><br><span class="color2">O: M2U2M'U2M'</span><br><span class="color1">R: MU2MU2M2</span>
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/roux/3c3.png"><br><span class="color2">O: U2MU2M</span><br><span class="color1">R: M'U2M'U2</span>
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/3c4.png"><br><span class="color2">O: M2U2MU2M</span><br><span class="color1">R: M'U2MU2</span>
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/3c5.png"><br><span class="color1">O: MU2M'U2</span><br><span class="color2">R: U2M'U2M</span>
+  </div>
+  <div class="box center">
+    <img src="tutorials/roux/3c6.png"><br><span class="color1">O: MU2MU2</span><br><span class="color2">R: M2U2M'U2M</span>
+  </div>
+</div>
+
+<p>Let's bring it all together with some <a href="roux8.html">example solves</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="roux6.html">Back: Permute UL/UR</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="roux8.html">Next: Example Solves</a></div>
+</div>
+
+</main>
+
+</body></html>
