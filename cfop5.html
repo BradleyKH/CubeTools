@@ -1,0 +1,70 @@
+<html><head><title>Cube Tools | 3x3 CFOP Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 CFOP Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="cfop1.html">Introduction</option>
+<option value="cfop2.html">The Cross</option>
+<option value="cfop3.html">First Two Layers (F2L)</option>
+<option value="cfop4.html">Orient Last Layer (OLL)</option>
+<option value="cfop5.html" selected>Permute Last Layer (PLL)</option>
+<option value="cfop6.html">Beyond CFOP</option>
+</select>
+
+<p>PLL permutes the last layer corners and edges in one algorithm. There is nothing intuitive about PLL. You recognize which case you have, and you execute the algorithm for it as fluidly and quickly as you can. Sound familiar?</p>
+
+<p>2-look PLL has only 6 algorithms. I have <a href="flashcards.html#3">flashcards</a> for them. My guide to the <a href="4lookll.pdf" target="_blank">4-look last layer</a> also includes 2-look PLL.</p>
+
+<p>Full PLL has 21 cases. I have <a href="flashcards.html#4">flashcards</a> for all them, and my <a href="3lookll.pdf" target="_blank">3-look last layer guide</a> has all of them on one page.</p>
+
+<h4>Tips</h4>
+
+<p>The tips I gave for <a href="cfop4.html">OLL</a> also apply to PLL. Learn to recognize the case immediately, but AUF if needed.</p>
+
+<p>There are many possible algorithms for each case, so please explore to find the ones you like best. There are good lists of them <a href="https://www.speedsolving.com/wiki/index.php/PLL" target="_blank">here</a> and <a href="http://algdb.net/puzzle/333/pll" target="_blank">here</a>.</p>
+
+<p>Once you become familiar with CFOP, your journey is far from over. There are many <a href="cfop6.html">supplements, variants, and alternate methods</a> which await.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="cfop4.html">Back to: Orient Last Layer</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="cfop6.html">Next: Beyond CFOP</a></div>
+</div>
+
+</main>
+
+</body></html>

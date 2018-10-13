@@ -1,0 +1,79 @@
+<html><head><title>Cube Tools | 3x3 CFOP Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 CFOP Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="cfop1.html">Introduction</option>
+<option value="cfop2.html">The Cross</option>
+<option value="cfop3.html">First Two Layers (F2L)</option>
+<option value="cfop4.html">Orient Last Layer (OLL)</option>
+<option value="cfop5.html">Permute Last Layer (PLL)</option>
+<option value="cfop6.html" selected>Beyond CFOP</option>
+</select>
+
+<h4>CFOP Variants</h4>
+
+<p>Because CFOP is so popular, it is very well studied, and many variants have arisen to supplement its core idea.</p>
+
+<p>Some CFOP solvers start with an <a href="https://www.speedsolving.com/wiki/index.php/Extended_cross" target="_blank">extended cross</a> when it is convenient. The extended cross refers to a cross plus one CE pair. This is essentially a 2x2x2 block plus two edges.</p>
+
+<p>The <a href="https://www.speedsolving.com/wiki/index.php/ZB_method" target="_blank">ZB method</a>, invented by Zbigniew Zborowski and Ron van Bruchem, uses few moves but relies on a large number of algorithms. After solving the F2L minus the last CE pair, there are two steps: <a href="https://www.speedsolving.com/wiki/index.php/ZBLS" target="_blank">ZBLS</a>, which solves the last CE pair and orients the LL edges, and <a href="https://www.speedsolving.com/wiki/index.php/ZBLL" target="_blank">ZBLL</a>, which finishes the last layer in one algorithm. The full ZB method has 795 algorithms (302 in ZBLS, 493 in ZBLL), so it is not popular despite its efficiency.</p>
+
+<p>There is a simplified version of ZBLS called <a href="https://www.speedsolving.com/wiki/index.php/VHLS" target="_blank">VHLS</a>, part of the <a href="https://www.speedsolving.com/wiki/index.php/VH_method" target="_blank">VH method</a> by Lars Vandenbergh and Dan Harris. VHLS restricts the conditions for inserting the last CE pair, reducing its algorithms to only 32 compared to 302 in ZBLS.</p>
+
+<p><a href="https://www.speedsolving.com/wiki/index.php/OLS" target="_blank">OLS</a> (Orientation of the Last Slot) is a set of algorithms that solve OLL when the last F2L slot is filled. It is divided into two groups: <a href="https://www.speedsolving.com/wiki/index.php/VLS" target="_blank">VLS</a> (Valk Last Slot), which uses a connected CE pair, and <a href="https://www.speedsolving.com/wiki/index.php/HLS" target="_blank">HLS</a> (Hessler Last Slot), which uses a CE pair which can be connected in one move. There is a subset of VLS called the <a href="https://www.speedsolving.com/wiki/index.php/Winter_Variation" target="_blank">Winter Variation</a> (WV) which uses 27 algorithms (plus mirrors) to skip OLL when the LL edges are already oriented. There is a corresponding subset of HLS called the <a href="https://www.speedsolving.com/wiki/index.php/Summer_Variation" target="_blank">Summer Variation</a> (SV).</p>
+
+<p><a href="https://www.speedsolving.com/wiki/index.php/COLL" target="_blank">COLL</a> (Corners of Last Layer, or Corners and Orient Last Layer) is a set of algorithms that solve LL corner permutation and orientation simultaneously. Including mirrored cases, there are 42 COLL cases (24 without). COLL can be useful when the completed F2L ends with oriented LL edges (as in ZBLS or VHLS); in such cases, COLL and a simple edge permutation solve the cube.</p>
+
+<h4>Other Methods</h4>
+
+<p>There are also entirely different approaches to solving the cube. The <a href="https://www.speedsolving.com/wiki/index.php/Petrus_method" target="_blank">Petrus method</a> begins by building a 2x2x2 block on one corner, then extending that to a 2x2x3 block, then finishing the first two layers after twisting edges. LL edges are automatically oriented, so the cube is finished after positioning LL corners, orienting LL corners, and positioning LL edges. Petrus is an intuitive approach that uses fewer moves than other methods, but it is not a popular approach for those aiming for speed.</p>
+
+<p>The <a href="https://www.speedsolving.com/wiki/index.php/ZZ_Method" target="_blank">ZZ method</a>, invented by Zbigniew Zborowski, is designed to make turns very quickly. First, all the edges are oriented. Then the right and left layers are solved, followed by the middle layer. This approach uses roughly the same number of moves as the Petrus method.</p>
+
+<p>The <a href="https://www.speedsolving.com/wiki/index.php/Roux_method" target="_blank">Roux method</a>, invented by Gilles Roux, begins by building two 1x2x3 blocks on opposite sides of the cube. This leaves the U and M slices free to turn. Next, the top layer corners are solved. The remaining six edges are oriented and positioned using U and M turns. See my <a href="roux1.html">Rouxtorial</a>.</p>
+
+<p>...and these only scratch the surface. With such a variety of approaches out there, even the most experienced cubers have opportunities to learn and grow.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="cfop5.html">Back to: Permute Last Layer</a></div>
+  <span class="spacer"></span>
+</div>
+
+</main>
+
+</body></html>

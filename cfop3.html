@@ -1,0 +1,156 @@
+<html><head><title>Cube Tools | 3x3 CFOP Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 CFOP Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="cfop1.html">Introduction</option>
+<option value="cfop2.html">The Cross</option>
+<option value="cfop3.html" selected>First Two Layers (F2L)</option>
+<option value="cfop4.html">Orient Last Layer (OLL)</option>
+<option value="cfop5.html">Permute Last Layer (PLL)</option>
+<option value="cfop6.html">Beyond CFOP</option>
+</select>
+
+<p>In CFOP, solving the first two layers entails pairing up each of the four corner-edge (CE) pairs and inserting them around the cross. This is best learned intuitively, but learning algorithms will increase efficiency later on.</p>
+
+<h4>Setup and Insert</h4>
+
+<p>There are two basic steps for solving a CE pair: setup the CE pair, and insert the CE pair. There are two main setups to keep in mind:</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l1.png">
+  </div>
+  <div class="box">
+    The corner and edge are positioned a knight's move apart. This is common when the top colors of the two pieces are different. They are inserted with (RUR').
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l2.png">
+  </div>
+  <div class="box">
+    The corner and edge are combined in a block. This is common when the top colors of the two pieces are the same. They are inserted with (U RU'R') or (R'FRF').
+  </div>
+</div>
+
+<p>So what's the big deal with F2L? Several things.</p>
+
+<h4>The Big Deal, Part I</h4>
+
+<p>First, the process of setting up the CE pair varies depending on where the pieces happen to be. Ideally, the pieces are either in the top layer or already in the correct slot. There are 41 of these standard cases. Most of these cases are very short and intuitive, and many are mirrors of another case. Here are some examples:</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l3.png">
+  </div>
+  <div class="box">
+    d (R'U'R) U2 (R'UR)<br>The top colors are the same, so we make a block and insert it in the back.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l4.png">
+  </div>
+  <div class="box">
+    U2 (RUR') U (RU'R')<br>Here we can make the block on the side and insert.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l5.png">
+  </div>
+  <div class="box">
+    y (L'U'LU)(L'U'L)<br>Here we position the pieces a knight's move apart, then insert.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l6.png">
+  </div>
+  <div class="box">
+    (RUR'U')(RU2R'U')(RUR')<br>This time it takes 8 moves to setup the knight's move before inserting.
+  </div>
+</div>
+
+<h4>The Big Deal, Part II</h4>
+
+<p>Second, sometimes an edge or corner (or both) will be in an incorrect slot. The basic way to deal with this situation is to bring the wayward piece to the top layer with something like (RU'R') or (LUL'). Keep an eye out for which slots are still empty and use those to your advantage.</p>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l7.png">
+  </div>
+  <div class="box">
+    (R'U'R2UR')<br>The edge is in the wrong slot, so we bring it to the top layer, setup a knight's move, and insert.
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/cfop/f2l8.png">
+  </div>
+  <div class="box">
+    U (RU'R')(L'UL)<br>The corner is in the wrong slot. We first move the top to prepare a block, then insert as usual.
+  </div>
+</div>
+
+<h4>The Big Deal, Part III</h4>
+
+<p>Third, slow down and look ahead. This is the golden rule of speedcubing. It is better to move fluidly without pausing, even if that means moving more slowly at first. Then you can gradually increase your speed.</p>
+
+<p>Once you get comfortable with solving CE pairs, you will be able to execute each one automatically. This means that you do not need to look at the CE pair you are currently solving. Instead, you are free to look elsewhere on the cube for the next pair. Looking ahead is how you can reduce pauses between CE pairs and dramatically improve your solve time.</p>
+
+<p>When convenient, insert pairs into the back slots; this gives you a better view of the other pieces around the cube.</p>
+
+<p>Increasing your speed will feel uncomfortable at first, but your brain will adapt to tracking the CE pairs at a faster speed. Once you get to 4 turns per second, the cross and F2L can be done in 10-12 seconds.</p>
+
+<p>Next comes <a href="cfop4.html">OLL</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="cfop2.html">Back to: The Cross</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="cfop4.html">Next: Orient Last Layer</a></div>
+</div>
+
+</main>
+
+</body></html>

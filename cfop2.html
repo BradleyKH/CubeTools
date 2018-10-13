@@ -1,0 +1,87 @@
+<html><head><title>Cube Tools | 3x3 CFOP Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>3x3 CFOP Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="cfop1.html">Introduction</option>
+<option value="cfop2.html" selected>The Cross</option>
+<option value="cfop3.html">First Two Layers (F2L)</option>
+<option value="cfop4.html">Orient Last Layer (OLL)</option>
+<option value="cfop5.html">Permute Last Layer (PLL)</option>
+<option value="cfop6.html">Beyond CFOP</option>
+</select>
+
+<p>In my beginner tutorial, I cover the <a href="basic2.html">basics of making the cross</a>. Here I will cover some more advanced concepts.</p>
+
+<h4>Efficiency</h4>
+
+<p>Try to make the cross in 8 moves or less. It can be made in 7 moves or less over 99% of the time, with an average of 6.5 moves. Even at only 2 turns per second (tps), the cross should take no more than 4 seconds to make. With practice, a consistent 2-second cross (or faster) is viable.</p>
+
+<p>For example, face green with white on top, and do this scramble:<br>L2 U D B' U' B' F L B' D' F2 B2 R' U2 B2 U' F D B2 R D F' D2 B R'</p>
+
+<img src="tutorials/cfop/cfopscramble1.png" class="auto">
+
+<p>If you face the red center with the yellow center on top, one possible cross solution is (D'U2L2R). Another (perhaps preferable) solution is (DR2D2R').</p>
+
+<h4>Relative Positioning</h4>
+
+<p>Beginners will often put the cross pieces in place one at a time (aligned with the white center and the red/green/orange/blue center). Sometimes it is more efficient to put the cross pieces in place around the white center, correctly positioned in relation to each other but incorrectly positioned in relation to the sides. Then a simple D/D'/D2 will fix the cross.</p>
+
+<p>For example, face green with white on top, and do this scramble:<br>U' B' L' D2 L2 D B' R D R2 U B' U D' F U2 F D2 R D' L' R' U L2 B</p>
+
+<img src="tutorials/cfop/cfopscramble1.png" class="auto">
+
+<p>If you face the red center with the yellow center on top, one possible cross solution is (L'BDR'B'D). The initial L'B puts the green and red cross pieces in position with respect to each other. D prepares to receive the other two cross pieces into the bottom layer, and R'B' puts them there. The final D move moves all four cross pieces into position, completing the cross. If we had tried first to align the cross pieces with their corresponding side colors, the solution would be much longer, something like (LU2RFLF2U'RB2).</p>
+
+<h4>Planning</h4>
+
+<p>In a competitive setting, you typically get 15 seconds inspection time before solving. During this time, plan your cross moves in advance so that you can begin making the cross without thinking. That way, while making the cross, you can be looking for your first CE pair. This helps you to transition smoothly from the cross to F2L. After planning the cross becomes a habit, you can even start to plan your first CE pair during inspection.</p>
+ 
+<h4>Color Neutrality</h4>
+ 
+<p>Some people like to practice making the cross with different colors. If you become equally comfortable starting with any of the six colors, you are &quot;color neutral&quot;, and you can choose the most convenient color to start with. The benefit of color neutrality decreases as one becomes more efficient at making the cross. Because color neutrality can arguably hinder look-ahead, some recommend being &quot;dual color neutral&quot; - comfortable starting with either of two colors, such as white and yellow. That way if you get an awkward cross case in white, you can fall back to yellow.</p>
+
+<p>Next is the most important phase of CFOP: the <a href="cfop3.html">first two layers</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="cfop1.html">Back to: Introduction</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="cfop3.html">Next: First Two Layers</a></div>
+</div>
+
+</main>
+
+</body></html>
