@@ -1,0 +1,176 @@
+<html><head><title>Cube Tools | 2x2 Ortega/Varasano Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>2x2 Ortega/Varasano Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="ortega1.html">Introduction</option>
+<option value="ortega2.html">First Side</option>
+<option value="ortega3.html">Opposite Side</option>
+<option value="ortega4.html" selected>Permute Both Layers (PBL)</option>
+<option value="ortega5.html">Example Solves</option>
+<option value="ortega6.html">Advanced 2x2</option>
+</select>
+
+<p>Finally, we permute both layers (PBL). This may sound intimidating, but there are only five cases, shown below. The top and bottom layers are shown from the perspective above the cube. You may need to use a U move to match one of the cases before using an algorithm.</p>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/plladj1.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/pllblock.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    (RU2R'U') (RU2L'U) (R'U'R)<br>Alt: x U2 (R'U'RU2) (L'UR'U'R2)<br>*T-Perm is also possible
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/plldiag1.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/pllblock.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    (RU'R'U') F2 (U'RUR'D) R2<br>*Y-Perm is also possible
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/plladj2.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/plladj2.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    (R2U'R2'U2) (F2U'R2)
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/plladj3.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/plldiag2.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    (RU'L) U2 (R'UL')<br>Alt: y2 (R'UR'F2) (RF'R)<br>Alt: y2 (R'UL') (U2) (RU'L)
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/plldiag1.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/plldiag1.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    R2' F2 R2
+  </div>
+</div>
+
+<p>Three cases correspond to one of the above cases after rotating the cube with x2:</p>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/pllblock.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/plladj1.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    x2 (RU2R'U') (RU2L'U) (R'U'R)
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/pllblock.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/plldiag2.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    x2 (RU'R'U') F2 (U'RUR'D) R2
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="flexpermrow">
+    <div class="box center">
+      <img src="tutorials/2o/plldiag1.png"><br>(top)
+    </div>
+    <div class="box center">
+      <img src="tutorials/2o/plladj2.png"><br>(bottom)
+    </div>
+  </div>
+  <div class="box">
+    x2 (RU'L) U2 (R'UL')
+  </div>
+</div>
+
+<p>A final U move may be necessary to solve the cube after using these algorithms.</p>
+
+<p>To bring it all together, check out some <a href="ortega5.html">example solves</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="ortega3.html">Back: Opposite Side</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="ortega5.html">Next: Example Solves</a></div>
+</div>
+
+</main>
+
+</body></html>

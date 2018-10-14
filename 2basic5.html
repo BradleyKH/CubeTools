@@ -1,4 +1,4 @@
-<html><head><title>Cube Tools | 2x2 Ortega/Varasano Tutorial</title>
+<html><head><title>Cube Tools | 2x2 Basic Tutorial</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
@@ -34,34 +34,57 @@
 
 <main>
 
-<h3>2x2 Ortega/Varasano Tutorial</h3>
+<h3>2x2 Beginner Tutorial</h3>
 
 <select onchange="window.location.href=this.value;">
-<option value="ortega1.html" selected>Introduction</option>
-<option value="ortega2.html">First Side</option>
-<option value="ortega3.html">Opposite Side</option>
-<option value="ortega4.html">Permute Both Layers (PBL)</option>
-<option value="ortega5.html">Example Solves</option>
-<option value="ortega6.html">Advanced 2x2</option>
+<option value="2basic1.html">Introduction</option>
+<option value="2basic2.html">Bottom Side</option>
+<option value="2basic3.html">Bottom Layer</option>
+<option value="2basic4.html">Top Side</option>
+<option value="2basic5.html" selected>Top Layer</option>
 </select>
 
-<p>This tutorial will explain how to solve the 2x2 cube using the Ortega/Varasano method (the best name is a matter of debate). You can <a href="2x2i.pdf" target="_blank">download</a> it as a PDF. If you are new to solving cubes, you may want to look at my <a href="2basic1.html">2x2 Beginner Tutorial</a> first.</p>
+<p>With the top all yellow, we will look along the sides of the top pieces for matching corners, just like we did in the second step.</p>
 
-<p>This method has three steps:
-<ol>
-<li>Solve (orient) one side
-<li>Solve (orient) the opposite side
-<li>Permute both layers (i.e., fix everything!)
-</ol>
-</p>
+<p>If you have matching corners, turn the top so that they align with their color on the bottom layer. Put the matching corners (now a whole side) on the left side of the cube. 
 
-<p>The Ortega/Varasano method solves the 2x2 in 20 moves on average using 12 algorithms. This is most effective when you can solve it &quot;color neutral&quot; - able to begin with any of the six colors. For the purposes of this tutorial, the first side will be white, so the opposite side will be yellow.</p>
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/2b/pll1.png" height="100">
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/arrow.png"><br>(turn top)
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/pll2.png" height="100">
+  </div>
+</div>
 
-<p>If needed, review <a href="notation.html">cube notation</a> before diving into the <a href="ortega2.html">first step</a>.</p>
+<p>Now we use our old friend, the corner-switching algorithm:</p>
+
+<p>(RU2R'U') (RU2L'U) (R'U'R)</p>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/2b/pll2.png" height="100">
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/arrow.png"><br>(algorithm)
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/solved.png" height="100">
+  </div>
+</div>
+
+<p>If there are no matching corners, simply use the algorithm to make some as before.</p>
+
+<p>Congratulations! You are finished!</p>
+
+<p>Want to get faster? My <a href="ortega1.html">2x2 intermediate tutorial</a> shows you how to solve the cube more efficiently.</p>
 
 <div class="flexrow">
+  <div class="box"><a href="2basic4.html">Back: Top Side</a></div>
   <span class="spacer"></span>
-  <div class="box"><a href="ortega2.html">Next: First Side</a></div>
 </div>
 
 </main>

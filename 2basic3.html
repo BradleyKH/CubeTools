@@ -1,0 +1,90 @@
+<html><head><title>Cube Tools | 2x2 Basic Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>2x2 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="2basic1.html">Introduction</option>
+<option value="2basic2.html">Bottom Side</option>
+<option value="2basic3.html" selected>Bottom Layer</option>
+<option value="2basic4.html">Top Side</option>
+<option value="2basic5.html">Top Layer</option>
+</select>
+
+<p>Turn the cube so that white is on top. Next we will look along the sides of the top pieces for &quot;matching corners&quot; - adjacent corners that have the same color on the same side.</p>
+
+<table class="trim">
+<tr><td><img src="tutorials/2b/layer4.png" height="100"></td>
+<td>In this example, there are red matching corners.</td>
+</tr></table>
+<br>
+ 
+<h4>Matching Corners</h4>
+ 
+<p>If there are matching corners, turn the cube (or simply turn the top layer) so that the matching corners are on the left side. Then use this algorithm:</p>
+
+<p>(RU2R'U') (RU2L'U) (R'U'R)</p>
+ 
+<p>This algorithm makes the two right corners trade places, so now you should have a solved layer on top:</p>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/2b/layer1.png" height="100"><br>(front)
+  </div>
+  <div class="box">
+    <img src="tutorials/2b/layer2.png" height="100"><br>(back)
+  </div>
+</div>
+
+<h4>No Matching Corners</h4>
+ 
+<p>Sometimes there will be no matching corners.</p>
+
+<img src="tutorials/2b/layer3.png" height="100" class="auto">
+
+<p>If there are no matching corners, simply use the above algorithm with white on top. This will give you matching corners. Do the algorithm once more as described above.</p>
+
+<p>Once the entire layer is solved, turn the cube so that white is once again on the bottom, and proceed to the <a href="2basic3.html">next step</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="2basic2.html">Back: Bottom Side</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="2basic4.html">Next: Top Side</a></div>
+</div>
+
+</main>
+
+</body></html>

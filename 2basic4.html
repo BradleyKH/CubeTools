@@ -1,0 +1,94 @@
+<html><head><title>Cube Tools | 2x2 Basic Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>2x2 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="2basic1.html">Introduction</option>
+<option value="2basic2.html">Bottom Side</option>
+<option value="2basic3.html">Bottom Layer</option>
+<option value="2basic4.html" selected>Top Side</option>
+<option value="2basic5.html">Top Layer</option>
+</select>
+
+<p>Next we will make the top side all yellow.</p>
+ 
+<p>With the white side on the bottom, look at where the four yellow stickers are. Other than the solved case, there are seven possible cases, shown below.</p>
+ 
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/2b/oll1.png"><br>Sune
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/oll2.png"><br>Anti-Sune
+  </div>
+<div class="box center">
+    <img src="tutorials/2b/oll3.png"><br>Headlights
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/oll4.png"><br>Blinkers
+  </div>
+</div>
+
+<div class="flexrow">
+  <div class="box center">
+    <img src="tutorials/2b/oll5.png"><br>Bowtie
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/oll6.png"><br>Pi
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/oll7.png"><br>Double Headlights
+  </div>
+</div>
+
+<p>Fortunately, we can use one algorithm to solve all of them: (RUR'U)(RU2R'). This algorithm is called the Sune, and it solves the Sune case.</p>
+ 
+<p>If you encounter one of the other six cases, face the top in the direction shown, then do the Sune. This will give you a Sune or Anti-Sune case which you can then solve using the Sune.</p>
+ 
+<p>When the top side is all yellow, we are ready to complete the <a href="2basic5.html">top layer</a>.</p>
+
+<img src="tutorials/2b/oll.png" height="100" class="auto">
+
+<div class="flexrow">
+  <div class="box"><a href="2basic3.html">Back: Bottom Layer</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="2basic5.html">Next: Top Layer</a></div>
+</div>
+
+</main>
+
+</body></html>

@@ -1,0 +1,120 @@
+<html><head><title>Cube Tools | 2x2 Ortega/Varasano Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>2x2 Ortega/Varasano Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="ortega1.html">Introduction</option>
+<option value="ortega2.html">First Side</option>
+<option value="ortega3.html">Opposite Side</option>
+<option value="ortega4.html">Permute Both Layers (PBL)</option>
+<option value="ortega5.html" selected>Example Solves</option>
+<option value="ortega6.html">Advanced 2x2</option>
+</select>
+
+<h4>Example 1</h4>
+
+<p>Face green with white on top, and do this scramble:<br>
+R' U F2 R' U2 F' R F' U' F</p>
+
+<div class="center">
+<img src="tutorials/2o/scramble1.png">
+<img src="tutorials/2o/scramble1a.png" height="100">
+</div>
+
+<p>One possible solution is to face the cube as shown (adjacent white stickers on the upper front), and use (R2DR'U'R). R2 the puts 3rd orange in place on the bottom. D prepares to receive the last orange piece. (R'U'R) inserts the final orange piece normally.</p>
+
+<p>The full solve would be 26 moves:
+<ul>
+<li>First Side: (R2DR'U'R)
+<li>Opposite Side: U2 (RUR'U') (R'FRF')
+<li>PBL: x2 (RU'R'U') F2 (U'RUR'D) R2 U'
+</ul>
+</p>
+
+<h4>Example 2</h4>
+
+<p>Face green with white on top, and do this scramble:<br>
+R U' F2 U' R2 F2 U2 R' U2 R2</p>
+
+<div class="center">
+<img src="tutorials/2o/scramble2.png">
+<img src="tutorials/2o/scramble2a.png" height="100">
+</div>
+
+<p>One possible solution is to face the cube as shown (adjacent whites on the lower right side) and use (RUR) to complete the red side on the bottom.</p>
+
+<p>The full solve would be 22 moves:
+<ul>
+<li>First Side: (RUR)
+<li>Opposite Side: (RUR'U) (RU2R')
+<li>PBL: x2 U2 (RU2R'U') (RU2L'U) (R'U'R)
+</ul>
+</p>
+
+<h4>Example 3</h4>
+
+<p>Face green with white on top, and do this scramble:<br>
+F2 R2 U F' U' F R2 F2 U2 F2</p>
+
+<div class="center">
+<img src="tutorials/2o/scramble3.png">
+<img src="tutorials/2o/scramble3a.png" height="100">
+</div>
+
+<p>One possible solution is to face the cube as shown (orange pair on bottom, face the side with no red) and use (RUR). This completes the red side on the bottom.</p>
+
+<p>The full solve would be 19 moves:
+<ul>
+<li>First Side: (RUR)
+<li>Opposite Side: U2 (RUR'U) (RU2R)
+<li>PBL: U' (R'UR'F2) (RF'R) U2
+</ul>
+</p>
+
+<h4>Deeper Down the Rabbit Hole</h4>
+
+<p>This concludes the Ortega/Varasano tutorial. If you are interested in even more efficient methods to solve the 2x2, <a href="ortega6.html">read on</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="ortega4.html">Back: Permute Both Layers</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="ortega6.html">Next: Advanced 2x2</a></div>
+</div>
+
+</main>
+
+</body></html>

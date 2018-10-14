@@ -1,0 +1,150 @@
+<html><head><title>Cube Tools | 2x2 Basic Tutorial</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="title" content="Cube Tools - Tutorials for Solving the Rubik's Cube, Algorithm Flashcards, and More">
+<meta name="description" content="Resources for the cubing community, including tutorials, flashcards, and scramble generators. Tutorials include beginner layer-by-layer method, CFOP, and Roux. Digital flashcards for algorithm sets such as F2L, OLL, PLL, and CMLL.">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" href="nav.css" type="text/css">
+<script type="text/javascript" src="scripts/header.js" defer></script>
+<script type="text/javascript" src="scripts/navbar.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+
+</head>
+
+<body onload="loadHeader();loadNavbar();colorify('123456789');">
+
+<header>
+  <span id="headerCode"></span>
+</header>
+
+<nav>
+  <span id="navbarCode"></span>
+</nav>
+
+<main>
+
+<h3>2x2 Beginner Tutorial</h3>
+
+<select onchange="window.location.href=this.value;">
+<option value="2basic1.html">Introduction</option>
+<option value="2basic2.html" selected>Bottom Side</option>
+<option value="2basic3.html">Bottom Layer</option>
+<option value="2basic4.html">Top Side</option>
+<option value="2basic5.html">Top Layer</option>
+</select>
+
+<p>The first step is the most instinctive and intuitive step: we are going to solve a side.</p>
+ 
+<p>For those of you familiar with a layer-by-layer approach, I really do mean a side, not a layer. We will position the layer in the next step.)</p>
+ 
+<h4>The First Three Pieces</h4>
+ 
+<p>Let's start with the white pieces because they are easy to see. Solving three of the four white pieces is usually not so bad. The goal is to get something like this:</p>
+
+<img src="tutorials/2b/side1.png" height="100px" class="auto">
+
+<h4>Position the Last White Piece</h4>
+ 
+<p>Once you get three white pieces on a side, turn the cube so that that side is on the bottom.</p>
+
+<img src="tutorials/2b/side2.png" height="100px" class="auto">
+
+<p>Look to see where the last white sticker is. If the white sticker is in the top layer, spin the top until the sticker is over the unsolved bottom corner.</p>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/2b/side3.png" height="100px"><br>Sticker on front
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/side7.png" height="100px"><br>Sticker on right
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/side5.png" height="100px"><br>Sticker on top
+  </div>
+</div>
+
+<p>If the white sticker is in the bottom layer but facing sideways, that's OK too. Just turn the cube so that the unsolved corner is in the front right of the cube, as below.<br>
+
+<div class="flexpermrow">
+  <div class="box center">
+    <img src="tutorials/2b/side4.png" height="100px"><br>Sticker on front
+  </div>
+  <div class="box center">
+    <img src="tutorials/2b/side6.png" height="100px"><br>Sticker on right
+  </div>
+</div>
+
+<h4>Solve the Last White Piece</h4>
+ 
+<p>When your cube looks like one of these five pictures, you can solve the white side with this algorithm: (RUR'U'). In the cubing community, this algorithm is called &quot;Sexy Move&quot;. Repeat that algorithm until the white sticker has joined its three friends on the bottom of the cube. You won't need to use it more than five times.</p>
+ 
+<p>For the more ambitious among you, I am also including a shortcut algorithm for each of these five cases.</p>
+ 
+ 
+<div class="flexpermrow">
+  <div class="box">
+    <img src="tutorials/2b/side3.png" height="100px">
+  </div>
+  <div class="box">
+    (RUR'U')*5<br>Shortcut: (URU'R')
+  </div>
+</div>
+ 
+<div class="flexpermrow">
+  <div class="box">
+    <img src="tutorials/2b/side4.png" height="100px">
+  </div>
+  <div class="box">
+    (RUR'U')*4<br>Shortcut: (RU'R'U)(RU'R')
+  </div>
+</div>
+
+<div class="flexpermrow">
+  <div class="box">
+    <img src="tutorials/2b/side5.png" height="100px">
+  </div>
+  <div class="box">
+    (RUR'U')*3<br>Shortcut: (RU2R'U')(RUR')
+  </div>
+</div>
+
+<div class="flexpermrow">
+  <div class="box">
+    <img src="tutorials/2b/side6.png" height="100px">
+  </div>
+  <div class="box">
+    (RUR'U')*2<br>Shortcut: (RUR'U')(RUR')
+  </div>
+</div>
+
+<div class="flexpermrow">
+  <div class="box">
+    <img src="tutorials/2b/side7.png" height="100px">
+  </div>
+  <div class="box">
+    (RUR'U')<br>Shortcut: (RUR')
+  </div>
+</div>
+
+<p>When the bottom of the cube is all white, you are ready to move on to the <a href="2basic3.html">next step</a>.</p>
+
+<div class="flexrow">
+  <div class="box"><a href="2basic1.html">Back: Introduction</a></div>
+  <span class="spacer"></span>
+  <div class="box"><a href="2basic3.html">Next: Bottom Layer</a></div>
+</div>
+
+</main>
+
+</body></html>
