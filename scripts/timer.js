@@ -394,6 +394,19 @@ function toggleResults() {
 	}
 }
 
+function toggleBigTimer() {
+  var bigTime = document.getElementById('bigtimer');
+  var mains = document.getElementsByTagName("main");
+
+  if (bigTime.style.display == '') {
+    bigTime.style.display = 'block';
+    mains[0].style.display = 'none';
+  } else {
+    bigTime.style.display = '';
+    mains[0].style.display = 'block';       
+  }
+}
+
 function checkKey(e) {
 	//window.alert(event.keyCode);
 	

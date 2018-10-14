@@ -41,7 +41,7 @@
 
 <h3>Timer</h3>
 
-<p>Press Spacebar or touch screen to begin.</p>
+<p>Press Spacebar or touch green button to begin.</p>
 
 <div>
 <input type="checkbox" id="scrambleChk" onchange="updateTimerDisplay();" checked>
@@ -57,7 +57,8 @@
 <div class="flexrow">
   <div class="box center">
 
-<span id="time"></span><br>
+<p><button class="timerButton button" ontouchstart="touchBegin();" ontouchend="touchRelease();" onfocus="blur();"><span id="time"></span></button></p>
+
 <select id="inspect" onchange="updateInspection();" style="width:115px">
 <option value="0" selected>No Inspection</option>
 <option value="20">20 sec</option>
@@ -115,5 +116,7 @@ Length: <input id="movegoal" type="text" value="20" size="2" onkeydown="if(event
 </span>
 
 </main>
+
+<span id="bigtimer"></span>
 
 </body></html>
