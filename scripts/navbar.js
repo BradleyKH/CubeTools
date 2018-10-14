@@ -16,7 +16,6 @@ function hideSubs() {
   document.getElementById('flashcards').style.display='none';
 }
 
-
 function showMenu(e) {
   hideSubs();
   document.getElementById(e).style.display='inline-block';
@@ -51,14 +50,14 @@ code += '       <a href="flashcards.html">Flashcards <img src="images/drop.png" 
 code += '       <div class="submenu" id="flashcards" onmouseout="hideMenu(\'flashcards\')">';
 code += '         <ul class="subnav">';
 code += '           <li><b>3x3 CFOP</b></li>';
-code += '           <a href="flashcards.html"><li>&emsp; F2L</li></a>';
-code += '           <a href="flashcards.html"><li>&emsp; 2-Look OLL</li></a>';
-code += '           <a href="flashcards.html"><li>&emsp; OLL</li></a>';
-code += '           <a href="flashcards.html"><li>&emsp; 2-Look PLL</li></a>';
-code += '           <a href="flashcards.html"><li>&emsp; PLL</li></a>';
+code += '           <a href="flashcards.html#0"><li>&emsp; F2L</li></a>';
+code += '           <a href="flashcards.html#1"><li>&emsp; 2-Look OLL</li></a>';
+code += '           <a href="flashcards.html#2"><li>&emsp; OLL</li></a>';
+code += '           <a href="flashcards.html#3"><li>&emsp; 2-Look PLL</li></a>';
+code += '           <a href="flashcards.html#4"><li>&emsp; PLL</li></a>';
 code += '           <li><b>3x3 Roux</b></li>';
-code += '           <a href="flashcards.html"><li>&emsp; 2-Look CMLL</li></a>';
-code += '           <a href="flashcards.html"><li>&emsp; CMLL</li></a>';
+code += '           <a href="flashcards.html#5"><li>&emsp; 2-Look CMLL</li></a>';
+code += '           <a href="flashcards.html#6"><li>&emsp; CMLL</li></a>';
 code += '           <li><b>2x2</b></li>';
 code += '           <li>&emsp; Coming Soon</li>';
 code += '         </ul>';

@@ -18,10 +18,12 @@
 <link rel="stylesheet" href="nav.css" type="text/css">
 <script type="text/javascript" src="scripts/header.js" defer></script>
 <script type="text/javascript" src="scripts/navbar.js" defer></script>
-<script type="text/javascript" src="scripts/colors.js" defer></script>
+<script type="text/javascript" src="scripts/colors.js" defer></script>
+<script type="text/javascript" src="scripts/flashcardSets.js"></script>
+<script type="text/javascript" src="scripts/flashcards.js"></script>
 </head>
 
-<body onload="loadHeader();loadNavbar();colorify('123456789');">
+<body onload="loadHeader();loadNavbar();colorify('123456789');changeSet();">
 
 <header>
   <span id="headerCode"></span>
@@ -35,7 +37,57 @@
 
 <h3>Flashcards</h3>
 
-<p>Coming soon!</p>
+<select id="currentSet" onchange="changeSet();">
+<optgroup label="CFOP Method">
+	<option value="0" selected>F2L</option>
+	<option value="1">2-Look OLL</option>
+	<option value="2">OLL</option>
+	<option value="3">2-Look PLL</option>
+	<option value="4">PLL</option>
+</optgroup>
+<optgroup label="Roux Method">
+	<option value="5">2-Look CMLL</option>
+	<option value="6">CMLL</option>
+</optgroup>
+</select>
+
+<p>
+<input type="radio" name="viewoption" id="viewcards" value="card" onclick="updateView('card');" checked><label for="viewcards">Cards</label>
+<input type="radio" name="viewoption" id="viewdetails" onclick="updateView('details');"><label for="viewdetails">Details</label>
+<input type="radio" name="viewoption" id="viewsettings" value="settings" onclick="updateView('settings');"><label for="viewsettings">Settings</label>
+</p>
+
+<span id="cardDisplay">
+  <p><span id="stackLength"></span> cards <span id="randomize"></span></p>
+  <p><button id="show" onclick="show();" style="width: 112px">Show Answer</button></p>
+
+  <h4>Case</h4>
+  <img id="caseimg"><br><span id="case"></span>
+
+  <h4>Algorithm</h4>
+  <span id="alg" style="visibility:hidden;"></span>
+</span>
+
+<span id="settingsDisplay" style="display:none">
+<h4>Randomize</h4>
+<p>
+  <input type="checkbox" id="shuffle" checked onclick="updateAlgList();"><label for="shuffle">Shuffle cards</label>
+</p>
+
+<h4>Display</h4>
+<form>
+<input id="mode1" type="radio" name="mode" checked onclick="changemode(1);" onfocus="blur();"><label for="mode1">Show Case, Drill Algorithm</label><br>
+<input id="mode2" type="radio" name="mode" onclick="changemode(2);" onfocus="blur();"><label for="mode2">Show Algorithm, Drill Case</label><br>
+<input id="mode3" type="radio" name="mode" onclick="changemode(3);" onfocus="blur();"><label for="mode3">Show Both Case and Algorithm</label>
+</form>
+
+<h4>Algorithm Focus</h4>
+<button id="selectFocus" onclick="selectAllNone();">Select All/None</button><br>
+<span id="checklist" onclick="updateAlgList();"></span>
+
+</span>
+
+<span id="detailsDisplay" style="display: none;"></span>
 
 </main>
 

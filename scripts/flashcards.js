@@ -27,8 +27,7 @@ function changeSet() {
 	currentCaseSet = currentSet[3];
 	card = 0;
 	
-	document.getElementById('setName').innerHTML=currentName;
-	document.getElementById('details').innerHTML=currentSet[4];
+	document.getElementById('detailsDisplay').innerHTML=currentSet[4];
 	document.getElementById('checklist').innerHTML='';
 	
 	for (i = 0; i < currentAlgSet.length; i++) {
@@ -70,9 +69,9 @@ function updateAlgList() {
 	document.getElementById('stackLength').innerHTML=cardTotal;
 	
 	if (document.getElementById('shuffle').checked == false) {
-		document.getElementById('randomize').innerHTML='in orde<u>r</u>';
+		document.getElementById('randomize').innerHTML='in order';
 	} else {
-		document.getElementById('randomize').innerHTML='at <u>r</u>andom';
+		document.getElementById('randomize').innerHTML='at random';
 	}
 	updateCard();
 }
@@ -104,7 +103,7 @@ function updateCard(){
 
 	algID.innerHTML=stackAlgs[card];
 	caseID.innerHTML=stackCases[card];
-	caseImgID.src=currentFolder+"/"+ imgList[card] +".png";
+	caseImgID.src='flashcards/' + currentFolder + "/" + imgList[card] + ".png";
 }
 
 function show(){
@@ -164,26 +163,11 @@ function prev(){
 	updateCard();
 }
 
-function toggleSettings() {
-	if (document.getElementById('settingsDisplay').style.display == 'none') {
-		document.getElementById('settingsDisplay').style.display = 'inline';
-		document.getElementById('cardDisplay').style.display = 'none';
-		document.getElementById('settings').innerHTML = 'Hide <u>S</u>ettings';
-	} else {
-		document.getElementById('settingsDisplay').style.display = 'none';
-		document.getElementById('cardDisplay').style.display = 'inline';
-		document.getElementById('settings').innerHTML = '<u>S</u>ettings';
-	}
-}
-
-function toggleDetails() {
-	if (document.getElementById('details').style.display == 'none') {
-		document.getElementById('details').style.display = 'inline-block';
-		document.getElementById('showHideDetails').innerHTML = 'Hide <u>D</u>etails<br><br>';
-	} else {
-		document.getElementById('details').style.display = 'none';
-		document.getElementById('showHideDetails').innerHTML = 'Show <u>D</u>etails';
-	}
+function updateView(option) {
+    document.getElementById('cardDisplay').style.display = 'none';
+    document.getElementById('settingsDisplay').style.display = 'none';
+    document.getElementById('detailsDisplay').style.display = 'none';
+    document.getElementById(option + 'Display').style.display = 'inline';
 }
 
 function selectAllNone() {
@@ -204,16 +188,6 @@ function selectAllNone() {
 		for (i = 0; i < currentAlgSet.length; i++) {
 			document.getElementById('c' + i).checked = false;
 		}
-	}
-}
-
-function toggleClickToChange(showhide) {
-	if (showhide == 0) {
-		document.getElementById('currentSet').style.display='none';
-		document.getElementById('clickToChange').style.display='inline-block';
-	} else {
-		document.getElementById('currentSet').style.display='inline-block';
-		document.getElementById('clickToChange').style.display='none';
 	}
 }
 
@@ -251,12 +225,6 @@ function keyCheck(e) {
 	else if (evt == 39) { // Right Arrow
 		show();
 	}
-	else if (evt == 83) { // s
-		toggleSettings();
-	}
-	else if (evt == 68) { // d
-		toggleDetails();
-	}
 	else if (evt == 82) { // r
 		toggleRandom();
 	}
@@ -274,5 +242,5 @@ function changeSelect() {
 	}
 }
 
-//document.addEventListener("keydown", keyCheck, false);
+document.addEventListener("keydown", keyCheck, false);
 window.addEventListener("load", changeSelect, false);
