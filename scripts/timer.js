@@ -134,7 +134,10 @@ function inspectionCountdown() {
 		if (inspection > 0) {
 			$time.innerHTML=inspection;
 			if (inspection == 5 || inspection == 3 || inspection == 1) {
-				document.body.style.background='#FFFF00';
+				document.getElementById('timerButton').style.background='#FFFF00';
+			}
+            else if (inspection == 4 || inspection == 2 || inspection == 0) {
+				document.getElementById('timerButton').style.background='#FFFFFF';
 			}
 			else {
 				document.body.style.background='#FFFFFF';
@@ -144,7 +147,8 @@ function inspectionCountdown() {
 		else {
 			updateInspection();
 			$time.innerHTML="DNF";
-			document.body.style.background='#FFFFFF';
+			document.getElementById('timerButton').style.background='#FFFFFF';
+            hideBigTimer();
 			results[0][attempt] = 9999;
 			attempt += 1;
 			timerRunning = false;
@@ -164,6 +168,7 @@ function touchBegin() {
 		document.getElementById('time').style.color='#000000';
 	}
 	else {
+        showBigTimer();
 		if (inspection > 0 && !inspectionRunning) {
 		$time.innerHTML=inspection;
 		$time.style.color='#808080';
@@ -200,7 +205,8 @@ function touchRelease() {
 		timerRunning = false;
 		results[0][attempt] = Number(crunchTime(x.time()));
 		results[1][attempt] = document.getElementById('scr').innerHTML;
-				
+		hideBigTimer();
+		
 		if ($time.innerHTML != "DNF") {
 			successfulResults[successfulAttempt] = Number(crunchTime(x.time()));
 			successfulAttempt += 1;
@@ -384,27 +390,20 @@ function updateTimerDisplay() {
     }
 }
 
-function toggleResults() {
-	if (document.getElementById('results').style.display == 'none') {
-		document.getElementById('results').style.display = 'inline-block';
-		document.getElementById('showHideResults').innerHTML = 'Hide Session <u>R</u>esults<br><br>';
-	} else {
-		document.getElementById('results').style.display = 'none';
-		document.getElementById('showHideResults').innerHTML = 'Show Session <u>R</u>esults';
-	}
+function showBigTimer() {
+  document.getElementById('timerButton').className = 'bigTimer';
+  document.getElementById('bulk1').style.display = 'none';
+  document.getElementById('bulk2').style.display = 'none';
+  document.getElementById('bulk3').style.display = 'none';
+  document.getElementById('bulk4').style.display = 'none';
 }
 
-function toggleBigTimer() {
-  var bigTime = document.getElementById('bigtimer');
-  var mains = document.getElementsByTagName("main");
-
-  if (bigTime.style.display == '') {
-    bigTime.style.display = 'block';
-    mains[0].style.display = 'none';
-  } else {
-    bigTime.style.display = '';
-    mains[0].style.display = 'block';       
-  }
+function hideBigTimer() {
+  document.getElementById('timerButton').className = 'timerButton';
+  document.getElementById('bulk1').style.display = 'inline';
+  document.getElementById('bulk2').style.display = 'inline';
+  document.getElementById('bulk3').style.display = 'inline';
+  document.getElementById('bulk4').style.display = 'inline';
 }
 
 function checkKey(e) {
@@ -412,11 +411,7 @@ function checkKey(e) {
 	
 	evt = e.keyCode || e.charCode;
 	
-	if (evt == 114) { // r
-		toggleResults();
-	}
-	
-	else if (evt == 32) { // Space Bar
+	if (evt == 32) { // Space Bar
 		touchBegin();
 	}
 	

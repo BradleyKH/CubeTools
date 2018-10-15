@@ -39,6 +39,8 @@
 
 <main>
 
+<span id="bulk1">
+
 <h3>Timer</h3>
 
 <p>Press Spacebar or touch green button to begin.</p>
@@ -54,49 +56,62 @@
 
 <p><span id="scr"></span></p>
 
+</span> <!-- end bulk1 -->
+
 <div class="flexrow">
   <div class="box center">
+  
+<p>
+ <button class="timerButton" ontouchstart="touchBegin();" ontouchend="touchRelease();" onfocus="blur();" id="timerButton"><span id="time" class="time"></span></button>
+</p>
 
-<p><button class="timerButton button" ontouchstart="touchBegin();" ontouchend="touchRelease();" onfocus="blur();"><span id="time"></span></button></p>
+<span id="bulk2">
 
-<select id="inspect" onchange="updateInspection();" style="width:115px">
-<option value="0" selected>No Inspection</option>
-<option value="20">20 sec</option>
-<option value="15">15 sec (standard)</option>
-<option value="12">12 sec</option>
-<option value="10">10 sec</option>
-<option value="8">8 sec</option>
-</select><br>
+<p>
+  <select id="inspect" onchange="updateInspection();" style="width:115px">
+    <option value="0" selected>No Inspection</option>
+    <option value="20">20 sec</option>
+    <option value="15">15 sec (standard)</option>
+    <option value="12">12 sec</option>
+    <option value="10">10 sec</option>
+    <option value="8">8 sec</option>
+  </select>
+</p>
 
 <ul class="buttonList">
-<li><button class="button" onfocus="blur();" onclick="resetResults();makeDiagram();scrambleit(1);diagramScramble();"><u>N</u>ew Session</button>
-<li><button class="button" onfocus="blur();" id="initscr" onclick="makeDiagram();scrambleit(1);diagramScramble();">New <u>S</u>cramble</button>
-<li><button class="button" onfocus="blur();" onclick="lastDNF();"><u>D</u>NF Last Solve</button>
-<li><button class="button" onfocus="blur();" onclick="clearResult();"><u>C</u>lear Last Time</button>
+  <li><button class="button" onfocus="blur();" onclick="resetResults();makeDiagram();scrambleit(1);diagramScramble();"><u>N</u>ew Session</button>
+  <li><button class="button" onfocus="blur();" id="initscr" onclick="makeDiagram();scrambleit(1);diagramScramble();">New <u>S</u>cramble</button>
+  <li><button class="button" onfocus="blur();" onclick="lastDNF();"><u>D</u>NF Last Solve</button>
+  <li><button class="button" onfocus="blur();" onclick="clearResult();"><u>C</u>lear Last Time</button>
 </ul>
 
+</span> <!-- end of bulk2 -->
   </div>
+  <span id="bulk3">
   <div class="box">
   
   <span id="scrambleDetails">
-    Type:
+    Size:
 <select id="scrtype" onchange="updateLength('timer');">
 <option value="2">2x2x2</option>
 <option value="3" selected>3x3x3</option>
 <option value="4">4x4x4</option>
 <option value="5">5x5x5</option>
 </select>
-Length: <input id="movegoal" type="text" value="20" size="2" onkeydown="if(event.keyCode==13) document.getElementById('initscr').click()"><br><br>
+Scramble Length: <input id="movegoal" type="text" value="20" size="2" onkeydown="if(event.keyCode==13) document.getElementById('initscr').click()"><br><br>
 
 <span id="cubediagram"></span>
 
 </span>
   </div>
+  </span> <!-- end of bulk3 -->
 </div>
+
+<span id="bulk4">
 
 <span id="results">
 
-<table>
+<table class="results">
 <tr>
 <th>Best:</th>
 <td rowspan="3" style="width:15px"></td>
@@ -115,8 +130,8 @@ Length: <input id="movegoal" type="text" value="20" size="2" onkeydown="if(event
 
 </span>
 
+</span> <!-- end bulk4 -->
 </main>
 
-<span id="bigtimer"></span>
 
 </body></html>

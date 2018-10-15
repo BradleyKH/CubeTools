@@ -19,12 +19,6 @@ MAIN IMG {
   padding: 5px;
 }
 
-SPAN.title {
-  display: inline;
-  font-size: 36px;
-  font-weight: bold;
-}
-
 A.title {
   color: #303030;
   text-decoration: none;
@@ -77,6 +71,12 @@ A.title {
     margin: 5px;
   }
 
+  SPAN.title {
+    display: inline;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
   .flexrow {
     display: block;
   }
@@ -120,6 +120,11 @@ A.title {
     max-width: 1000px;
   }
 
+  SPAN.title {
+    display: inline;
+    font-size: 36px;
+    font-weight: bold;
+  }
 
   .flexrow {
     display: flex;

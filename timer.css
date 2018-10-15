@@ -29,15 +29,22 @@
 .timerButton {
     background-color: #20E020;
     padding: 10px;
+    width: 112px;
 }
 
-#bigtimer {
+.bigTimer {
     width: 100%;
     height: 100vh;
-    background-color: blue;
+    background-color: #FFFFFF;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
-    display: none;
+    margin: auto;
+    font-size: 36px;
+    opacity: .9;
+}
+
+.bigTimer #time {
+    font-size: 25vw;
 }
