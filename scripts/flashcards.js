@@ -69,9 +69,9 @@ function updateAlgList() {
 	document.getElementById('stackLength').innerHTML=cardTotal;
 	
 	if (document.getElementById('shuffle').checked == false) {
-		document.getElementById('randomize').innerHTML='in order';
+		document.getElementById('randomize').innerHTML='in orde<u>r</u>';
 	} else {
-		document.getElementById('randomize').innerHTML='at random';
+		document.getElementById('randomize').innerHTML='at <u>r</u>andom';
 	}
 	updateCard();
 }
