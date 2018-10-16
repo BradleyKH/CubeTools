@@ -78,19 +78,14 @@
   </select>
 </p>
 
-<ul class="buttonList">
-  <li><button class="button" onfocus="blur();" onclick="resetResults();makeDiagram();scrambleit(1);diagramScramble();"><u>N</u>ew Session</button>
-  <li><button class="button" onfocus="blur();" id="initscr" onclick="makeDiagram();scrambleit(1);diagramScramble();">New <u>S</u>cramble</button>
-  <li><button class="button" onfocus="blur();" onclick="lastDNF();"><u>D</u>NF Last Solve</button>
-  <li><button class="button" onfocus="blur();" onclick="clearResult();"><u>C</u>lear Last Time</button>
-</ul>
-
 </span> <!-- end of bulk2 -->
   </div>
   <span id="bulk3">
   <div class="box">
   
   <span id="scrambleDetails">
+	<p><button class="button" onfocus="blur();" id="initscr" onclick="makeDiagram();scrambleit(1);diagramScramble();">New <u>S</u>cramble</button></p>
+	
     Size:
 <select id="scrtype" onchange="updateLength('timer');">
 <option value="2">2x2x2</option>
@@ -111,7 +106,17 @@ Scramble Length: <input id="movegoal" type="text" value="20" size="2" onkeydown=
 
 <span id="results">
 
-<table class="results">
+
+<div class="flexpermrow">
+  <div class="box">
+    <ul class="buttonList">
+  <li><button class="button" onfocus="blur();" onclick="resetResults();makeDiagram();scrambleit(1);diagramScramble();"><u>N</u>ew Session</button>
+  <li><button class="button" onfocus="blur();" onclick="lastDNF();"><u>D</u>NF Last Solve</button>
+  <li><button class="button" onfocus="blur();" onclick="clearResult();"><u>C</u>lear Last Time</button>
+</ul>
+  </div>
+  <div class="box">
+    <table class="results">
 <tr>
 <th>Best:</th>
 <td rowspan="3" style="width:15px"></td>
@@ -124,7 +129,14 @@ Scramble Length: <input id="movegoal" type="text" value="20" size="2" onkeydown=
 <tr>
 <th>Avg. of <span id="numberattempts">0</span>:</th>
 <td><span id="avg">-</span></td>
-</tr></table><br>
+</tr></table>
+  </div>
+</div>
+
+
+
+
+
 
 <span id="sessionResults"></span>
 

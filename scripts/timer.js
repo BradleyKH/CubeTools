@@ -136,9 +136,6 @@ function inspectionCountdown() {
 			if (inspection == 5 || inspection == 3 || inspection == 1) {
 				document.getElementById('timerButton').style.background='#FFFF00';
 			}
-            else if (inspection == 4 || inspection == 2 || inspection == 0) {
-				document.getElementById('timerButton').style.background='#FFFFFF';
-			}
 			else {
 				document.getElementById('timerButton').style.background='#FFFFFF';
 			}
@@ -147,8 +144,7 @@ function inspectionCountdown() {
 		else {
 			updateInspection();
 			$time.innerHTML="DNF";
-			document.getElementById('timerButton').style.background='#FFFFFF';
-            hideBigTimer();
+      hideBigTimer();
 			results[0][attempt] = 9999;
 			attempt += 1;
 			timerRunning = false;
@@ -392,6 +388,7 @@ function updateTimerDisplay() {
 
 function showBigTimer() {
   document.getElementById('timerButton').className = 'bigTimer';
+	document.getElementById('timerButton').style.background = '#FFFFFF';
   document.getElementById('bulk1').style.display = 'none';
   document.getElementById('bulk2').style.display = 'none';
   document.getElementById('bulk3').style.display = 'none';
@@ -400,6 +397,7 @@ function showBigTimer() {
 
 function hideBigTimer() {
   document.getElementById('timerButton').className = 'timerButton';
+	document.getElementById('timerButton').style.background = '#20E020';
   document.getElementById('bulk1').style.display = 'inline';
   document.getElementById('bulk2').style.display = 'inline';
   document.getElementById('bulk3').style.display = 'inline';
