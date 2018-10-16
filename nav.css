@@ -9,7 +9,7 @@
     cursor: hand;
     margin: 5px;
     font-size: 24px;
-    color: #808080;
+    color: #303030;
   }
 
   .navbar {
@@ -39,7 +39,7 @@
   UL.subnav LI {
     font-size: 14px;
     color: #FFFFFF;
-    padding: 10px
+    padding: 10px;
     position: relative;
     display: inline-block;
     width: 100%;
@@ -47,11 +47,15 @@
 
   .submenu {
     display: none;
-    position: absolute;
+    // position: absolute;
   }
 
   .drop {
     display: none;
+  }
+  
+  .subnav {
+  background-color: #808080;
   }
  }
  
@@ -122,6 +126,10 @@
     height: 1em;
     vertical-align: top;
   }
+  
+  .subnav {
+  background-color: #303030;
+  }
 }
 
 /* All screens */
@@ -135,6 +143,3 @@
   flex: 1 1 auto;
 }
 
-.subnav {
-  background-color: #303030;
-}

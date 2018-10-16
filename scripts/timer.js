@@ -140,7 +140,7 @@ function inspectionCountdown() {
 				document.getElementById('timerButton').style.background='#FFFFFF';
 			}
 			else {
-				document.body.style.background='#FFFFFF';
+				document.getElementById('timerButton').style.background='#FFFFFF';
 			}
 			inspection -= 1;
 		}
@@ -195,7 +195,7 @@ function touchRelease() {
 		else {
 			reset();
 			start();
-			document.body.style.background='#FFFFFF';
+			document.getElementById('timerButton').style.background='#FFFFFF';
 			updateInspection();
 			document.getElementById('time').style.color='#808080';
 			timerRunning = true;

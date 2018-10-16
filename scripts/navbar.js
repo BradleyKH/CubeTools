@@ -75,3 +75,5 @@ code += '  </div>';
 function loadNavbar() {
   document.getElementById('navbarCode').innerHTML = code;
 }
+
+document.addEventListener("click", hideSubs, false);
