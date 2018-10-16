@@ -50,10 +50,6 @@
     // position: absolute;
   }
 
-  .drop {
-    display: none;
-  }
-  
   .subnav {
   background-color: #808080;
   }
@@ -122,11 +118,6 @@
     z-index: 1;
   }
 
-  .drop {
-    height: 1em;
-    vertical-align: top;
-  }
-  
   .subnav {
   background-color: #303030;
   }
@@ -143,3 +134,7 @@
   flex: 1 1 auto;
 }
 
+  .drop {
+    height: 1em;
+    vertical-align: top;
+  }
