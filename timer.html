@@ -39,33 +39,22 @@
 
 <main>
 
-<span id="bulk1">
-
 <h3>Timer</h3>
 
 <p>Press Spacebar or touch green button to begin.</p>
 
 <div>
-<input type="checkbox" id="scrambleChk" onchange="updateTimerDisplay();" checked>
-<label for="scrambleChk">Scramble</label>
-<input type="checkbox" id="diagramChk" onchange="updateTimerDisplay();" checked>
-<label for="diagramChk" id="diagramChkLabel">Diagram</label>
-<input type="checkbox" id="resultsChk" onchange="updateTimerDisplay();" checked>
-<label for="resultsChk">Results</label>
+  <input type="checkbox" id="scrambleChk" onchange="updateTimerDisplay();" checked onfocus="blur();">
+  <label for="scrambleChk">Scramble</label>
+  <input type="checkbox" id="diagramChk" onchange="updateTimerDisplay();" checked onfocus="blur();">
+  <label for="diagramChk" id="diagramChkLabel">Diagram</label>
+  <input type="checkbox" id="resultsChk" onchange="updateTimerDisplay();" checked onfocus="blur();">
+  <label for="resultsChk">Results</label>
 </div>
 
-<p><span id="scr"></span></p>
-
-</span> <!-- end bulk1 -->
-
-<div class="flexrow">
-  <div class="box center">
-  
 <p>
  <button class="timerButton" ontouchstart="touchBegin();" ontouchend="touchRelease();" onfocus="blur();" id="timerButton"><span id="time" class="time"></span></button>
 </p>
-
-<span id="bulk2">
 
 <p>
   <select id="inspect" onchange="updateInspection();" style="width:115px">
@@ -78,72 +67,60 @@
   </select>
 </p>
 
-</span> <!-- end of bulk2 -->
-  </div>
-  <span id="bulk3">
-  <div class="box">
-  
-  <span id="scrambleDetails">
-	<p><button class="button" onfocus="blur();" id="initscr" onclick="makeDiagram();scrambleit(1);diagramScramble();">New <u>S</u>cramble</button></p>
+<span id="scrambleContents">
+  <h4>Scramble</h4>
+
+  <p><span id="scr"></span></p>
+
+  <p><button class="button" onfocus="blur();" id="initscr" onclick="makeDiagram();scrambleit(1);diagramScramble();">New <u>S</u>cramble</button></p>
 	
-    Size:
-<select id="scrtype" onchange="updateLength('timer');">
-<option value="2">2x2x2</option>
-<option value="3" selected>3x3x3</option>
-<option value="4">4x4x4</option>
-<option value="5">5x5x5</option>
-</select>
-Scramble Length: <input id="movegoal" type="text" value="20" size="2" onkeydown="if(event.keyCode==13) document.getElementById('initscr').click()"><br><br>
+  Size:
+  <select id="scrtype" onchange="updateLength('timer');">
+    <option value="2">2x2x2</option>
+    <option value="3" selected>3x3x3</option>
+    <option value="4">4x4x4</option>
+    <option value="5">5x5x5</option>
+  </select>
 
-<span id="cubediagram"></span>
+  Scramble Length: <input id="movegoal" type="text" value="20" size="2" onkeydown="if(event.keyCode==13) document.getElementById('initscr').click()"><br><br>
 
+  <span id="cubediagram"></span>
 </span>
-  </div>
-  </span> <!-- end of bulk3 -->
-</div>
-
-<span id="bulk4">
 
 <span id="results">
 
+  <h4>Results</h4>
 
-<div class="flexpermrow">
-  <div class="box">
-    <ul class="buttonList">
-  <li><button class="button" onfocus="blur();" onclick="resetResults();makeDiagram();scrambleit(1);diagramScramble();"><u>N</u>ew Session</button>
-  <li><button class="button" onfocus="blur();" onclick="lastDNF();"><u>D</u>NF Last Solve</button>
-  <li><button class="button" onfocus="blur();" onclick="clearResult();"><u>C</u>lear Last Time</button>
-</ul>
+  <div class="flexpermrow">
+    <div class="box">
+      <ul class="buttonList">
+        <li><button class="button" onfocus="blur();" onclick="resetResults();makeDiagram();scrambleit(1);diagramScramble();"><u>N</u>ew Session</button>
+        <li><button class="button" onfocus="blur();" onclick="lastDNF();"><u>D</u>NF Last Solve</button>
+        <li><button class="button" onfocus="blur();" onclick="clearResult();"><u>C</u>lear Last Time</button>
+      </ul>
+    </div>
+    <div class="box">
+      <table class="results">
+        <tr>
+          <th>Best:</th>
+          <td rowspan="3" style="width:15px"></td>
+          <td><span id="besttime">-</span></td>
+        </tr>
+        <tr>
+          <th>Worst:</th>
+          <td><span id="worsttime">-</span></td>
+        </tr>
+        <tr>
+          <th>Avg. of <span id="numberattempts">0</span>:</th>
+          <td><span id="avg">-</span></td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="box">
-    <table class="results">
-<tr>
-<th>Best:</th>
-<td rowspan="3" style="width:15px"></td>
-<td><span id="besttime">-</span></td>
-</tr>
-<tr>
-<th>Worst:</th>
-<td><span id="worsttime">-</span></td>
-</tr>
-<tr>
-<th>Avg. of <span id="numberattempts">0</span>:</th>
-<td><span id="avg">-</span></td>
-</tr></table>
-  </div>
-</div>
 
-
-
-
-
-
-<span id="sessionResults"></span>
-
+  <span id="sessionResults"></span>
 </span>
 
-</span> <!-- end bulk4 -->
 </main>
-
 
 </body></html>

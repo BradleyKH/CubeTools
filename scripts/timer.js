@@ -1,7 +1,7 @@
 /*
 I wrote the majority of this code, but I used another person's 
 stopwatch code as a basis for the timer. You can view the original here:
-http://cubetools.net/stopwatchcode.js
+http://cubetools.net/scripts/stopwatchcode.js
 -Bradley Harris, 2018
 */
 
@@ -144,7 +144,7 @@ function inspectionCountdown() {
 		else {
 			updateInspection();
 			$time.innerHTML="DNF";
-      hideBigTimer();
+			hideBigTimer();
 			results[0][attempt] = 9999;
 			attempt += 1;
 			timerRunning = false;
@@ -359,49 +359,31 @@ function toggleTip() {
 function updateTimerDisplay() {
     
     if (document.getElementById('scrambleChk').checked) {
-        document.getElementById('scr').style.display = 'inline';
-        document.getElementById('scrambleDetails').style.display = 'inline';
-        document.getElementById('initscr').style.display = 'inline';
+        document.getElementById('scrambleContents').style.display = 'inline';
         document.getElementById('diagramChk').style.display = 'inline';
         document.getElementById('diagramChkLabel').style.display = 'inline';
     }
     else {
-        document.getElementById('scr').style.display = 'none';
-        document.getElementById('scrambleDetails').style.display = 'none';
-        document.getElementById('initscr').style.display = 'none';
+        document.getElementById('scrambleContents').style.display = 'none';
         document.getElementById('diagramChk').style.display = 'none';
         document.getElementById('diagramChkLabel').style.display = 'none';
     }
-    if (document.getElementById('diagramChk').checked) {
-        document.getElementById('cubediagram').style.display = 'inline';
-    }
-    else {
-        document.getElementById('cubediagram').style.display = 'none';
-    }
-    if (document.getElementById('resultsChk').checked) {
-        document.getElementById('results').style.display = 'inline';
-    }
-    else {
-        document.getElementById('results').style.display = 'none';
-    }
+    document.getElementById('cubediagram').style.display = document.getElementById('diagramChk').checked ? 'inline' : 'none';
+    document.getElementById('results').style.display = document.getElementById('resultsChk').checked ? 'inline' : 'none';
 }
 
 function showBigTimer() {
   document.getElementById('timerButton').className = 'bigTimer';
-	document.getElementById('timerButton').style.background = '#FFFFFF';
-  document.getElementById('bulk1').style.display = 'none';
-  document.getElementById('bulk2').style.display = 'none';
-  document.getElementById('bulk3').style.display = 'none';
-  document.getElementById('bulk4').style.display = 'none';
+  document.getElementById('timerButton').style.background = '#FFFFFF';
+  document.getElementById('scrambleContents').style.display = 'none';
+  document.getElementById('results').style.display = 'none';
 }
 
 function hideBigTimer() {
   document.getElementById('timerButton').className = 'timerButton';
-	document.getElementById('timerButton').style.background = '#20E020';
-  document.getElementById('bulk1').style.display = 'inline';
-  document.getElementById('bulk2').style.display = 'inline';
-  document.getElementById('bulk3').style.display = 'inline';
-  document.getElementById('bulk4').style.display = 'inline';
+  document.getElementById('timerButton').style.background = '#20E020';
+  document.getElementById('scrambleContents').style.display = document.getElementById('scrambleChk').checked ? 'inline' : 'none';
+  document.getElementById('results').style.display = document.getElementById('resultsChk').checked ? 'inline' : 'none';
 }
 
 function checkKey(e) {
