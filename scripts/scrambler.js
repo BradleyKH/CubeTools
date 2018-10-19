@@ -263,6 +263,9 @@ function scrambleit(multi) {
 	else {
 		if (multi == 0) {
 			scrgoal = document.getElementById('scrgoal').value;
+			if (scrgoal > 100) {
+				window.alert('Please specify less than 101 scrambles.');
+			}
 			} else {
 			scrgoal = 1;
 		}
@@ -272,7 +275,7 @@ function scrambleit(multi) {
 		scrambleType = document.getElementById('scrtype').value;
 		scrcount = 0;
 		
-		while (scrcount < scrgoal) {
+		while (scrcount < scrgoal && scrgoal < 101) {
 
 			// reset scramble array and move tracking
 			movecount = 0;
