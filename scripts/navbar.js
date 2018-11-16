@@ -29,7 +29,6 @@ var code = '';
 code += '<span class="menuButton" onclick="toggleNavbar();">&#9776;</span>';
 code += '<span class="mobiletitle smallonly"><a href="index.html" class="title">Cube Tools</a></span>';
 code += '<div class="navbar" id="navbar">';
-code += '<table><tr><td>';
 code += '<table class="smallcube largeonly">';
 code += '<tr>';
 code += '<td id="sq1" onmouseover="colorify(\'1\');"></td>';
@@ -47,14 +46,12 @@ code += '<td id="sq8" onmouseover="colorify(\'8\');"></td>';
 code += '<td id="sq9" onmouseover="colorify(\'9\');"></td>';
 code += '</tr>';
 code += '</table>';
-code += '<td>';
 code += '<span class="title largeonly"><a href="index.html">Cube Tools</a></span>';
-code += '</td></tr></table>';
 code += '<span class="spacer" onmouseover="hideSubs();"></span>';
 code += '    <ul class="nav">';
 code += '     <li><a href="index.html" onmouseover=\"hideSubs()\">Home</a></li>';
 code += '     <li onmouseover=\"showMenu(\'tutorials\')\">';
-code += '       <a href="tutorials.html">Tutorials <img src="images/drop.png" class="drop"></a>';
+code += '       <nobr><a href="tutorials.html">Tutorials <img src="images/drop.png" class="drop"></a></nobr>';
 code += '       <div class="submenu" id="tutorials" onmouseout="hideMenu(\'tutorials\')">';
 code += '         <ul class="subnav">';
 code += '           <a href="notation.html"><li>&emsp; Notation</li></a>';
@@ -70,7 +67,7 @@ code += '         </ul>';
 code += '       </div>';
 code += '      </li>';
 code += '     <li onmouseover=\"showMenu(\'flashcards\')\">';
-code += '       <a href="flashcards.html">Flashcards <img src="images/drop.png" class="drop"></a>';
+code += '       <nobr><a href="flashcards.html">Flashcards <img src="images/drop.png" class="drop"></a></nobr>';
 code += '       <div class="submenu" id="flashcards" onmouseout="hideMenu(\'flashcards\')">';
 code += '         <ul class="subnav">';
 code += '           <li><b>3x3 CFOP</b></li>';
@@ -97,6 +94,7 @@ code += '  </div>';
 
 function loadNavbar() {
   document.getElementById('navbarCode').innerHTML = code;
+  colorify('123456789');
 }
 
 document.addEventListener("click", hideSubs, false);

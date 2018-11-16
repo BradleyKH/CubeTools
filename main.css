@@ -81,13 +81,6 @@ A.title {
     margin: 5px;
   }
 
-  SPAN.mobiletitle {
-    display: inline;
-    font-size: 24px;
-    font-weight: bold;
-    color: #000000;
-  }
-  
   .flexrow {
     display: block;
   }
@@ -98,17 +91,6 @@ A.title {
     margin-bottom: 10px;
   }
   
-  .bigcube {
-      border-spacing: 2px;
-  }
-  
-  .bigcube TD {
-      width: 20vw;
-      height: 20vw;
-      border: 0px;
-      margin: 0px;
-  }
-
   .smallonly {
     display: inline;
   }
@@ -131,13 +113,6 @@ A.title {
     max-width: 1000px;
   }
 
-  SPAN.title {
-    display: inline;
-    font-size: 36px;
-    font-weight: bold;
-    padding-left: 5px;
-  }
-
   .flexrow {
     display: flex;
   }
@@ -149,16 +124,6 @@ A.title {
 
   .quarter {
     min-width: 25vw;
-  }
-  
-  .bigcube {
-      border-spacing: 5px;
-  }
-  
-  .bigcube TD {
-      width: 20vh;
-      height: 20vh;
-      border: 0px;
   }
   
   .smallcube {

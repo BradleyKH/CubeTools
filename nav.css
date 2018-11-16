@@ -1,62 +1,22 @@
-/* Small Screens */
-@media only screen and (max-width: 650px) {
+/* All screens */
 
-  .logo {
-    display: none;
-  }
+.navbar A {
+  color: #FFFFFF;
+  text-decoration: none;
+}
 
-  .menuButton {
-    cursor: hand;
-    margin: 5px;
-    font-size: 24px;
-    color: #303030;
-  }
+.spacer {
+  flex: 1 1 auto;
+}
 
-  .navbar {
-    background-color: #303030;
-    display: none;
+  .drop {
+    height: 1em;
+    vertical-align: top;
   }
 
-  UL.nav {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-  }
-
-  UL.nav LI {
-    padding: 10px;
-    width: 100%;
-  }
- 
-  UL.subnav {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-    margin-top: 10px;
-  }
-
-  UL.subnav LI {
-    font-size: 14px;
-    color: #FFFFFF;
-    padding: 10px;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-  }
-
-  .submenu {
-    display: none;
-    // position: absolute;
-  }
-
-  .subnav {
-  background-color: #808080;
-  }
- }
  
 /* Large Screens */
-@media only screen and (min-width: 651px) {
+@media only screen and (min-width: 951px) {
  
   .logo {
     width: 75px;
@@ -66,6 +26,13 @@
     display: inline;
     text-align: left;
     vertical-align: middle;
+  }
+
+  SPAN.title {
+    display: inline;
+    font-size: 36px;
+    font-weight: bold;
+    padding-left: 5px;
   }
 
   .menuButton {
@@ -128,18 +95,72 @@
   }
 }
 
-/* All screens */
-
-.navbar A {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-  .drop {
-    height: 1em;
-    vertical-align: top;
+@media only screen and (max-width: 1100px) {
+  UL.nav LI {
+    font-size: 18px;
+    padding: 10px;
   }
+}
+
+/* Small Screens */
+@media only screen and (max-width: 950px) {
+
+  .logo {
+    display: none;
+  }
+
+  SPAN.mobiletitle {
+    display: inline;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .menuButton {
+    cursor: hand;
+    margin: 5px;
+    font-size: 24px;
+    color: #303030;
+  }
+
+  .navbar {
+    background-color: #303030;
+    display: none;
+  }
+
+  UL.nav {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+
+  UL.nav LI {
+    padding: 10px;
+    width: 100%;
+  }
+ 
+  UL.subnav {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+  }
+
+  UL.subnav LI {
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 10px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .submenu {
+    display: none;
+  }
+
+  .subnav {
+  background-color: #808080;
+  }
+ }

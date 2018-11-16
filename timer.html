@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="nav.css" type="text/css">
 <link rel="stylesheet" href="diagram.css" type="text/css">
 <link rel="stylesheet" href="timer.css" type="text/css">
-<script type="text/javascript" src="scripts/header.js" defer></script>
 <script type="text/javascript" src="scripts/navbar.js" defer></script>
 <script type="text/javascript" src="scripts/colors.js" defer></script>
 <script type="text/javascript" src="scripts/scrambler.js"></script>
@@ -27,11 +26,7 @@
 
 </head>
 
-<body onload="loadHeader();loadNavbar();colorify('123456789');makeDiagram();scrambleit(1);show();cubeReset();diagramScramble();" onkeypress="checkKey(arguments[0] || window.event);" onkeyup="keyRelease(arguments[0] || window.event);">
-
-<header>
-  <span id="headerCode"></span>
-</header>
+<body onload="loadNavbar();makeDiagram();scrambleit(1);show();cubeReset();diagramScramble();" onkeypress="checkKey(arguments[0] || window.event);" onkeyup="keyRelease(arguments[0] || window.event);">
 
 <nav>
   <span id="navbarCode"></span>
