@@ -25,8 +25,32 @@ function hideMenu(e) {
   document.getElementById(e).style.display='none';
 }
 
-var code = "";
-code += '  <div class="navbar" id="navbar">';
+var code = '';
+code += '<span class="menuButton" onclick="toggleNavbar();">&#9776;</span>';
+code += '<span class="mobiletitle smallonly"><a href="index.html" class="title">Cube Tools</a></span>';
+code += '<div class="navbar" id="navbar">';
+code += '<table><tr><td>';
+code += '<table class="smallcube largeonly">';
+code += '<tr>';
+code += '<td id="sq1" onmouseover="colorify(\'1\');"></td>';
+code += '<td id="sq2" onmouseover="colorify(\'2\');"></td>';
+code += '<td id="sq3" onmouseover="colorify(\'3\');"></td>';
+code += '</tr>';
+code += '<tr>';
+code += '<td id="sq4" onmouseover="colorify(\'4\');"></td>';
+code += '<td id="sq5" onmouseover="colorify(\'5\');"></td>';
+code += '<td id="sq6" onmouseover="colorify(\'6\');"></td>';
+code += '</tr>';
+code += '<tr>';
+code += '<td id="sq7" onmouseover="colorify(\'7\');"></td>';
+code += '<td id="sq8" onmouseover="colorify(\'8\');"></td>';
+code += '<td id="sq9" onmouseover="colorify(\'9\');"></td>';
+code += '</tr>';
+code += '</table>';
+code += '<td>';
+code += '<span class="title largeonly"><a href="index.html">Cube Tools</a></span>';
+code += '</td></tr></table>';
+code += '<span class="spacer" onmouseover="hideSubs();"></span>';
 code += '    <ul class="nav">';
 code += '     <li><a href="index.html" onmouseover=\"hideSubs()\">Home</a></li>';
 code += '     <li onmouseover=\"showMenu(\'tutorials\')\">';
@@ -67,7 +91,6 @@ code += '     <li><a href="timer.html" onmouseover="hideSubs();">Timer</a></li>'
 code += '     <li><a href="scrambler.html" onmouseover="hideSubs();">Scrambler</a></li>';
 code += '     <li><a href="resources.html" onmouseover="hideSubs();">Resources</a></li>';
 code += '     <li><a href="about.html" onmouseover="hideSubs();">About</a></li>';
-code += '     <span class="spacer" onmouseover="hideSubs();"></span>';
 // code += '     <li><a href="login.html" onmouseover="hideSubs();">Login</a></li>';
 code += '    </ul>';
 code += '  </div>';

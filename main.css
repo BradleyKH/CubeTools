@@ -71,10 +71,11 @@ A.title {
     margin: 5px;
   }
 
-  SPAN.title {
+  SPAN.mobiletitle {
     display: inline;
     font-size: 24px;
     font-weight: bold;
+    color: #000000;
   }
   
   .flexrow {
@@ -124,6 +125,7 @@ A.title {
     display: inline;
     font-size: 36px;
     font-weight: bold;
+    padding-left: 5px;
   }
 
   .flexrow {
@@ -151,7 +153,7 @@ A.title {
   
   .smallcube {
       border-collapse: collapse;
-      border: 0px solid black;
+      border: 0px;
       table-layout: fixed;
       margin: 0px;
       padding: 0px;
@@ -162,7 +164,7 @@ A.title {
       height: 10px;
       min-width: 10px;
       max-width: 10px;
-      border: 1px solid white;
+      border: 1px solid #303030;
       margin: 0px;
       padding: 0px;
       display: inline-block;
