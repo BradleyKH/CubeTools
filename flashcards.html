@@ -48,9 +48,15 @@
 </select>
 
 <p>
-<input type="radio" name="viewoption" id="viewcards" value="card" onclick="updateView('card');" checked><label for="viewcards">Cards</label>
-<input type="radio" name="viewoption" id="viewdetails" onclick="updateView('details');"><label for="viewdetails">Details</label>
-<input type="radio" name="viewoption" id="viewsettings" value="settings" onclick="updateView('settings');"><label for="viewsettings">Settings</label>
+  <label for="viewcards">
+    <input type="radio" name="viewoption" id="viewcards" value="card" onclick="updateView('card');" checked>Cards
+  </label>
+  <label for="viewdetails">
+    <input type="radio" name="viewoption" id="viewdetails" onclick="updateView('details');">Details
+  </label>
+  <label for="viewsettings">
+    <input type="radio" name="viewoption" id="viewsettings" value="settings" onclick="updateView('settings');">Settings
+  </label>
 </p>
 
 <span id="cardDisplay">
@@ -67,14 +73,24 @@
 <span id="settingsDisplay" style="display:none">
 <h4>Randomize</h4>
 <p>
-  <input type="checkbox" id="shuffle" checked onclick="updateAlgList();"><label for="shuffle">Shuffle cards</label>
+  <label for="shuffle">
+    <input type="checkbox" id="shuffle" checked onclick="updateAlgList();">Shuffle cards
+  </label>
 </p>
 
 <h4>Display</h4>
 <form>
-<input id="mode1" type="radio" name="mode" checked onclick="changemode(1);" onfocus="blur();"><label for="mode1">Show Case, Drill Algorithm</label><br>
-<input id="mode2" type="radio" name="mode" onclick="changemode(2);" onfocus="blur();"><label for="mode2">Show Algorithm, Drill Case</label><br>
-<input id="mode3" type="radio" name="mode" onclick="changemode(3);" onfocus="blur();"><label for="mode3">Show Both Case and Algorithm</label>
+  <label for="mode1">
+    <input id="mode1" type="radio" name="mode" checked onclick="changemode(1);" onfocus="blur();">Show Case, Drill Algorithm
+  </label>
+  <br>
+  <label for="mode2">
+    <input id="mode2" type="radio" name="mode" onclick="changemode(2);" onfocus="blur();">Show Algorithm, Drill Case
+  </label>
+  <br>
+  <label for="mode3">
+    <input id="mode3" type="radio" name="mode" onclick="changemode(3);" onfocus="blur();">Show Both Case and Algorithm
+  </label>
 </form>
 
 <h4>Algorithm Focus</h4>

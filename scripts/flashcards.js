@@ -31,7 +31,7 @@ function changeSet() {
 	document.getElementById('checklist').innerHTML='';
 	
 	for (i = 0; i < currentAlgSet.length; i++) {
-		document.getElementById('checklist').innerHTML+='<input type=\"checkbox\" id=\"c' + i + '\" checked><label for=\"c' + i + '\">' + currentAlgSet[i][0] + '</label><br>';
+		document.getElementById('checklist').innerHTML+='<label for=\"c' + i + '\"><input type=\"checkbox\" id=\"c' + i + '\" checked>' + currentAlgSet[i][0] + '</label><br>';
 	}
 
 	updateAlgList();

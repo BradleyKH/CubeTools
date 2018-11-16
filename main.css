@@ -25,6 +25,15 @@ A.title {
   margin-bottom: 0px;
 }
 
+A.main {
+  color: #808080;
+  text-decoration: none;
+}
+
+A.main:hover {
+  color: #000000;
+}
+
 .flexpermrow {
   display: flex;
 }
