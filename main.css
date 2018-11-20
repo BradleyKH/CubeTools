@@ -19,12 +19,6 @@ MAIN IMG {
   padding: 5px;
 }
 
-A.title {
-  color: #303030;
-  text-decoration: none;
-  margin-bottom: 0px;
-}
-
 A.main {
   color: #808080;
   text-decoration: none;
@@ -73,9 +67,23 @@ A.main:hover {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   margin: 0px 0px 20px 0px;
   height: 60vh;
+}
+
+.bigLink {
+    font-size: 32px;
+    font-weight: bold;
+    color: #636056;
+}
+
+.bigLink:hover {
+    color: black;
+}
+
+.bigLinkBox {
+    padding: 20px;
 }
 
 /* Small Screens */
@@ -133,25 +141,6 @@ A.main:hover {
 
   .quarter {
     min-width: 25vw;
-  }
-  
-  .smallcube {
-      border-collapse: collapse;
-      border: 0px;
-      table-layout: fixed;
-      margin: 0px;
-      padding: 0px;
-  }
-  
-  .smallcube TD {
-      width: 10px;
-      height: 10px;
-      min-width: 10px;
-      max-width: 10px;
-      border: 1px solid #303030;
-      margin: 0px;
-      padding: 0px;
-      display: inline-block;
   }
 
   .smallonly {

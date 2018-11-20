@@ -18,6 +18,25 @@
 /* Large Screens */
 @media only screen and (min-width: 951px) {
  
+   .smallcube {
+      border-collapse: collapse;
+      border: 0px;
+      table-layout: fixed;
+      margin: 0px 0px 0px 10px;
+      padding: 0px;
+  }
+  
+  .smallcube TD {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      max-width: 10px;
+      border: 1px solid #303030;
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+  }
+  
   .logo {
     width: 75px;
     height: 75px;
@@ -27,20 +46,20 @@
     text-align: left;
     vertical-align: middle;
   }
-
-  SPAN.title {
+  
+  .title {
     display: inline;
     font-size: 36px;
     font-weight: bold;
-    padding-left: 5px;
+    padding-left: 15px;
   }
-
+  
   .menuButton {
     display: none;
   }
 
   .navbar {
-    background-color: #303030;
+    background-color: #636056;
     display: flex;
     height: 75px;
     align-items: center;
@@ -81,7 +100,7 @@
   
   UL.subnav A LI:hover {
       background-color: #FFFFFF;
-      color: #303030;
+      color: #636056;
   }
   
   .submenu {
@@ -91,7 +110,7 @@
   }
 
   .subnav {
-  background-color: #303030;
+  background-color: #636056;
   }
 }
 
@@ -109,18 +128,18 @@
     display: none;
   }
 
-  SPAN.mobiletitle {
+  A.mobiletitle {
     display: inline;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
-    color: #000000;
+    color: #808080;
   }
 
   .menuButton {
     cursor: hand;
     margin: 5px;
-    font-size: 24px;
-    color: #303030;
+    font-size: 36px;
+    color: #808080;
   }
 
   .navbar {

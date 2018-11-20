@@ -27,7 +27,7 @@ function hideMenu(e) {
 
 var code = '';
 code += '<span class="menuButton" onclick="toggleNavbar();">&#9776;</span>';
-code += '<span class="mobiletitle smallonly"><a href="index.html" class="title">Cube Tools</a></span>';
+code += '<a href="index.html" class="mobiletitle smallonly">CUBE TOOLS</a>';
 code += '<div class="navbar" id="navbar">';
 code += '<table class="smallcube largeonly">';
 code += '<tr>';
@@ -46,10 +46,9 @@ code += '<td id="sq8" onmouseover="colorify(\'8\');"></td>';
 code += '<td id="sq9" onmouseover="colorify(\'9\');"></td>';
 code += '</tr>';
 code += '</table>';
-code += '<span class="title largeonly"><a href="index.html">Cube Tools</a></span>';
+code += '<a href="index.html" class="title largeonly">CUBE TOOLS</a>';
 code += '<span class="spacer" onmouseover="hideSubs();"></span>';
 code += '    <ul class="nav">';
-code += '     <li><a href="index.html" onmouseover=\"hideSubs()\">Home</a></li>';
 code += '     <li onmouseover=\"showMenu(\'tutorials\')\">';
 code += '       <nobr><a href="tutorials.html">Tutorials <img src="images/drop.png" class="drop"></a></nobr>';
 code += '       <div class="submenu" id="tutorials" onmouseout="hideMenu(\'tutorials\')">';
