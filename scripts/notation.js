@@ -1,7 +1,7 @@
-var images = []
+let images = []
 
 function preload() {
-	for (i = 0; i < preload.arguments.length; i++) {
+	for (let i = 0; i < preload.arguments.length; i++) {
 		images[i] = new Image();
 		images[i].src = preload.arguments[i];
 	}

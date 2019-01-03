@@ -19,18 +19,18 @@ This prevents duplicates like F-F2 and F-B-F2 (and on bigger cubes, F-f-F2).
 2x2 only uses FRU moves, so that checking process is much simpler.
 */
 
-var turns = ["F", "F'", "F2", "B", "B'", "B2", "L", "L'", "L2", "R", "R'", "R2", "U", "U'", "U2", "D", "D'", "D2", "f", "f'", "f2", "b", "b'", "b2", "l", "l'", "l2", "r", "r'", "r2", "u", "u'", "u2", "d", "d'", "d2"];
-var turnsFRU = ["F", "F'", "F2", "R", "R'", "R2", "U", "U'", "U2"];
-var scrcount = 0;
-var movecount = 0;
-var lastmove = 0;
-var last2move = 0;
-var last3move = 0;
-var scramble = [];
-var moveOK = false;
-var nextmove = 0;
-var nextmovenumber = 0;
-var scrambleType = 0;
+const turns = ["F", "F'", "F2", "B", "B'", "B2", "L", "L'", "L2", "R", "R'", "R2", "U", "U'", "U2", "D", "D'", "D2", "f", "f'", "f2", "b", "b'", "b2", "l", "l'", "l2", "r", "r'", "r2", "u", "u'", "u2", "d", "d'", "d2"];
+const turnsFRU = ["F", "F'", "F2", "R", "R'", "R2", "U", "U'", "U2"];
+let scrcount = 0;
+let movecount = 0;
+let lastmove = 0;
+let last2move = 0;
+let last3move = 0;
+let scramble = [];
+let moveOK = false;
+let nextmove = 0;
+let nextmovenumber = 0;
+let scrambleType = 0;
 
 function randomNumber() {
 	return (Math.floor(Math.random()*18));  //between 0 and 17
@@ -255,7 +255,7 @@ function checkMove() {
 } // end checkMove function
 
 function scrambleit(multi) {
-	movegoal = document.getElementById('movegoal').value;
+	const movegoal = document.getElementById('movegoal').value;
 	
 	if (movegoal > 1999) {
 		window.alert('Please enter a scramble length of less than 2000.');
@@ -270,7 +270,7 @@ function scrambleit(multi) {
 			scrgoal = 1;
 		}
 
-		document.getElementById('scr').innerHTML="";
+		document.getElementById('scr').innerHTML = '';
 		
 		scrambleType = document.getElementById('scrtype').value;
 		scrcount = 0;
@@ -305,7 +305,7 @@ function scrambleit(multi) {
 					checkMove();
 				}
 				
-				if (moveOK) { //creates an array of OK'd moves
+				if (moveOK) { // creates an array of OK'd moves
 					if (scrambleType == 2) {
 						scramble[movecount] = turnsFRU[nextmovenumber];
 					}
@@ -331,16 +331,18 @@ function scrambleit(multi) {
 
 			scrcount += 1;
             var escapedScramble = "";
-            for (var i = 0; i < viewscramble.length; i++) {
-                if (viewscramble[i] == "'") escapedScramble += '\\\'';
-                else escapedScramble += viewscramble[i];
+            for (let i = 0; i < viewscramble.length; i++) {
+                if (viewscramble[i] == "'") 
+					escapedScramble += '\\\'';
+                else 
+					escapedScramble += viewscramble[i];
             }
 			if (multi == 0) { 
-				document.getElementById('scr').innerHTML+="<button onclick=\"passScramble(\'" + escapedScramble + "\')\">Check</button> ";
+				document.getElementById('scr').innerHTML += "<button onclick=\"passScramble(\'" + escapedScramble + "\')\">Check</button> ";
 			}
-			document.getElementById('scr').innerHTML+=viewscramble;
+			document.getElementById('scr').innerHTML += viewscramble;
 			if (multi == 0) { 
-				document.getElementById('scr').innerHTML+="<br><br>";
+				document.getElementById('scr').innerHTML += "<br><br>";
 			}
 		} // end outer while loop
 	} //end else
@@ -353,7 +355,7 @@ function passScramble(s) {
 
 function checkScramble(){
 
-	newScram = document.getElementById('newscramble').value;
+	const newScram = document.getElementById('newscramble').value;
 	scramble = [];
 	var scramIndex = -1;
 	var scramMove = "";
@@ -363,7 +365,7 @@ function checkScramble(){
 			scramMove += newScram[i];
 		}
 		else {
-			scramIndex += 1;
+			scramIndex++;
 			scramMove = newScram[i];
 		}
 		scramble[scramIndex] = scramMove;
@@ -372,23 +374,23 @@ function checkScramble(){
 
 function updateLength(page) {
 
-	size = document.getElementById('scrtype').value;
+	const size = document.getElementById('scrtype').value;
 
 	if (size == 3) {
-		size = document.getElementById('movegoal').value=20;
+		document.getElementById('movegoal').value = 20;
 	}
 	else if (size == 4) {
-		size = document.getElementById('movegoal').value=40;
+		document.getElementById('movegoal').value = 40;
 	}
 	else if (size == 5) {
-		size = document.getElementById('movegoal').value=60;
+		document.getElementById('movegoal').value = 60;
 	}
 	else if (size == 2) {
-		size = document.getElementById('movegoal').value=10;
+		document.getElementById('movegoal').value = 10;
 	}
 
 	if (page == 'scrambler') {
-		document.getElementById('newscramble').value="";
+		document.getElementById('newscramble').value = '';
 		makeDiagram();
 		cubeReset();
 		scrambleit(0);

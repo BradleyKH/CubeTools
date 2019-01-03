@@ -24,7 +24,7 @@ var size = 3;
 function cubeReset() {
 
 	size = document.getElementById('scrtype').value;
-	var maxsize = 0;
+	let maxsize = 0;
 	
 	switch (parseInt(size)) {
 		case 3:
@@ -39,7 +39,7 @@ function cubeReset() {
 	}
 		
 	if (size == 2) {
-		for (i = 1; i < 10; i++) {
+		for (let i = 1; i < 10; i++) {
 			if ( (i % 2 != 0 ) &&  ( i != 5 ) ) {
 				faceA[i]=0;
 				faceB[i]=1;
@@ -50,7 +50,7 @@ function cubeReset() {
 			}
 		}
 	} else {
-		for (i = 1; i < maxsize; i++) {
+		for (let i = 1; i < maxsize; i++) {
 			faceA[i]=0;
 			faceB[i]=1;
 			faceC[i]=2;
@@ -80,7 +80,7 @@ function cubeUpdate(size) {
 	}
 	
 	if (size == 2) {
-		for (i = 1; i < 10; i++) {
+		for (let i = 1; i < 10; i++) {
 			if ( (i % 2 != 0 ) && ( i != 5) ) {
 				document.getElementById('a'+i).style.background=colorScheme[faceA[i]];
 				document.getElementById('b'+i).style.background=colorScheme[faceB[i]];
@@ -91,7 +91,7 @@ function cubeUpdate(size) {
 			}
 		}
 	} else {
-		for (i = 1; i < maxsize; i++) {
+		for (let i = 1; i < maxsize; i++) {
 			document.getElementById('a'+i).style.background=colorScheme[faceA[i]];
 			document.getElementById('b'+i).style.background=colorScheme[faceB[i]];
 			document.getElementById('c'+i).style.background=colorScheme[faceC[i]];
@@ -900,20 +900,20 @@ function turn(size, side) {
 
 function diagramScramble() {
 
-size = document.getElementById('scrtype').value;
+	size = document.getElementById('scrtype').value;
 
 	cubeReset();
 
-	for (i = 0; i < scramble.length; i++) {
+	for (let i = 0; i < scramble.length; i++) {
 		turn(size, scramble[i]);
-		}
+	}
 
 	cubeUpdate(size);
 
 }
 
 function makeDiagram() {
-size = document.getElementById('scrtype').value;
+	size = document.getElementById('scrtype').value;
 
 	if (size == 4) {
 		document.getElementById('cubediagram').innerHTML='<table class=\"diagram\"><tr><td></td><td>' +

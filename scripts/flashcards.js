@@ -12,7 +12,7 @@ var card = 0;
 var mode = 1;
 var cardTotal;
 
-function changemode(themode){
+function changemode(themode) {
 	mode = themode;
 	updateCard();
 }
@@ -27,11 +27,11 @@ function changeSet() {
 	currentCaseSet = currentSet[3];
 	card = 0;
 	
-	document.getElementById('detailsDisplay').innerHTML=currentSet[4];
-	document.getElementById('checklist').innerHTML='';
+	document.getElementById('detailsDisplay').innerHTML = currentSet[4];
+	document.getElementById('checklist').innerHTML = '';
 	
-	for (i = 0; i < currentAlgSet.length; i++) {
-		document.getElementById('checklist').innerHTML+='<label for=\"c' + i + '\"><input type=\"checkbox\" id=\"c' + i + '\" checked>' + currentAlgSet[i][0] + '</label><br>';
+	for (let i = 0; i < currentAlgSet.length; i++) {
+		document.getElementById('checklist').innerHTML += '<label for=\"c' + i + '\"><input type=\"checkbox\" id=\"c' + i + '\" checked>' + currentAlgSet[i][0] + '</label><br>';
 	}
 
 	updateAlgList();
@@ -49,99 +49,99 @@ function updateAlgList() {
 	
 	var stackIndex = 0;
 
-	for (i = 0; i < currentAlgSet.length; i++) {
-		if (document.getElementById('c'+i).checked == true) {
-			for (a = 1; a < currentAlgSet[i].length; a++) {
+	for (let i = 0; i < currentAlgSet.length; i++) {
+		if (document.getElementById('c'+i).checked) {
+			for (let a = 1; a < currentAlgSet[i].length; a++) {
 				stackAlgs[stackIndex] = currentAlgSet[i][a];
 				stackCases[stackIndex] = currentCaseSet[i][a-1];
-				stackIndex += 1;
-				imgList[imgIndex] = imgFileNumber+1;
-				imgFileNumber += 1;
-				imgIndex += 1;
+				stackIndex++;
+				imgList[imgIndex] = imgFileNumber + 1;
+				imgFileNumber++;
+				imgIndex++;
 			}
 		}
 		else {
-			imgFileNumber += currentAlgSet[i].length-1;
+			imgFileNumber += currentAlgSet[i].length - 1;
 		}
 	}
 
 	cardTotal = stackAlgs.length;
-	document.getElementById('stackLength').innerHTML=cardTotal;
+	document.getElementById('stackLength').innerHTML = cardTotal;
 	
-	if (document.getElementById('shuffle').checked == false) {
-		document.getElementById('randomize').innerHTML='in orde<u>r</u>';
+	if (!document.getElementById('shuffle').checked) {
+		document.getElementById('randomize').innerHTML = 'in orde<u>r</u>';
 	} else {
-		document.getElementById('randomize').innerHTML='at <u>r</u>andom';
+		document.getElementById('randomize').innerHTML = 'at <u>r</u>andom';
 	}
 	updateCard();
 }
 
-function updateCard(){
-	var algID = document.getElementById('alg');
-	var caseID = document.getElementById('case');
-	var caseImgID = document.getElementById('caseimg');
-	var showButton = document.getElementById('show');
+function updateCard() {
+	const algID = document.getElementById('alg');
+	const caseID = document.getElementById('case');
+	const caseImgID = document.getElementById('caseimg');
+	const showButton = document.getElementById('show');
 	
 	if (mode == 1){ // Show Case
-		algID.style.visibility='hidden';
-		caseID.visibility='visible';
-		caseImgID.style.visibility='visible';
-		showButton.innerHTML='Show Answer';
+		algID.style.visibility = 'hidden';
+		caseID.visibility = 'visible';
+		caseImgID.style.visibility = 'visible';
+		showButton.innerHTML = 'Show Answer';
 		}
 	else if (mode == 2){ // Show Algorithm
-		algID.style.visibility='visible';
-		caseID.style.visibility='hidden';
-		caseImgID.style.visibility='hidden';
-		showButton.innerHTML='Show Answer';
+		algID.style.visibility = 'visible';
+		caseID.style.visibility = 'hidden';
+		caseImgID.style.visibility = 'hidden';
+		showButton.innerHTML = 'Show Answer';
 		}
 	else { // Show Both
-		algID.style.visibility='visible';
-		caseID.style.visibility='visible';
-		caseImgID.style.visibility='visible';
-		showButton.innerHTML='Next';
+		algID.style.visibility = 'visible';
+		caseID.style.visibility = 'visible';
+		caseImgID.style.visibility = 'visible';
+		showButton.innerHTML = 'Next';
 		}
 
-	algID.innerHTML=stackAlgs[card];
-	caseID.innerHTML=stackCases[card];
-	caseImgID.src='flashcards/' + currentFolder + "/" + imgList[card] + ".png";
+	algID.innerHTML = stackAlgs[card];
+	caseID.innerHTML = stackCases[card];
+	caseImgID.src = 'flashcards/' + currentFolder + "/" + imgList[card] + ".png";
 }
 
-function show(){
-	var algID = document.getElementById('alg');
-	var caseID = document.getElementById('case');
-	var caseImgID = document.getElementById('caseimg');
-	var showButton = document.getElementById('show');
+function show() {
+	const algID = document.getElementById('alg');
+	const caseID = document.getElementById('case');
+	const caseImgID = document.getElementById('caseimg');
+	const showButton = document.getElementById('show');
 
-	if (algID.style.visibility == 'hidden'){
-		algID.style.visibility='visible';
-		showButton.innerHTML='Next';
-		}
-	else if (caseID.style.visibility == 'hidden'){
-		caseID.style.visibility='visible';
-		caseImgID.style.visibility='visible';
-		showButton.innerHTML='Next';
-		}
-	else{
+	if (algID.style.visibility == 'hidden') {
+		algID.style.visibility = 'visible';
+		showButton.innerHTML = 'Next';
+	}
+	else if (caseID.style.visibility == 'hidden') {
+		caseID.style.visibility = 'visible';
+		caseImgID.style.visibility = 'visible';
+		showButton.innerHTML = 'Next';
+	}
+	else {
 		next();
-		}
+	}
 }
 
-function goto(skipTo){   // maybe use this if we link to each group from the checklist
+function goto(skipTo) { // maybe use this if we link to each group from the checklist
 	
-	if (document.getElementById('c'+skipTo).checked == true) {
+	if (document.getElementById('c'+skipTo).checked) {
 		card = 1
 		while (skipTo > 0) {
-			card += currentAlgSet[skipTo-1].length-1;
-			skipTo -= 1;
+			card += currentAlgSet[skipTo-1].length - 1;
+			skipTo--;
 		}
 		updateCard();
 	}
 }
 
-function next(){
-	if (document.getElementById('shuffle').checked == false) {
+function next() {
+	if (!document.getElementById('shuffle').checked) {
 		if (card < cardTotal - 1) {
-			card += 1;
+			card++;
 			}
 		else {
 			card = 0;
@@ -153,9 +153,9 @@ function next(){
 	updateCard();
 }
 
-function prev(){
+function prev() {
 	if (card > 0) {
-		card -= 1;
+		card--;
 		}
 	else {
 		card = cardTotal - 1;
@@ -171,15 +171,15 @@ function updateView(option) {
 }
 
 function selectAllNone() {
-	var isNotSelected = false;
+	let isNotSelected = false;
 
-	for (i = 0; i < currentAlgSet.length; i++) {
+	for (let i = 0; i < currentAlgSet.length; i++) {
 		if (document.getElementById('c' + i).checked == false) {
 			isNotSelected = true;
 		}
 	}
 	
-	if (isNotSelected == true) { // Select All
+	if (isNotSelected) { // Select All
 		for (i = 0; i < currentAlgSet.length; i++) {
 			document.getElementById('c' + i).checked = true;
 		}
@@ -197,7 +197,7 @@ function toggleMode() {
 		document.getElementById('mode1').checked = true;
 	}
 	else {
-		mode += 1;
+		mode++;
 		document.getElementById('mode' + mode).checked = true;
 	}
 
@@ -205,7 +205,7 @@ function toggleMode() {
 }
 
 function toggleRandom() {
-	if (document.getElementById('shuffle').checked == false) {
+	if (!document.getElementById('shuffle').checked) {
 		document.getElementById('shuffle').checked = true;
 	} else {
 		document.getElementById('shuffle').checked = false;

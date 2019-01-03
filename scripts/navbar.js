@@ -1,6 +1,6 @@
 function toggleNavbar() {
-  var nav = document.getElementById('navbar');
-  var mains = document.getElementsByTagName("main");
+  const nav = document.getElementById('navbar');
+  const mains = document.getElementsByTagName("main");
 
   if (nav.style.display == '') {
     nav.style.display = 'block';
@@ -12,18 +12,18 @@ function toggleNavbar() {
 }
 
 function hideSubs() {
-  document.getElementById('tutorials').style.display='none';
-  document.getElementById('flashcards').style.display='none';
-  document.getElementById('tools').style.display='none';
+  document.getElementById('tutorials').style.display = 'none';
+  document.getElementById('flashcards').style.display = 'none';
+  document.getElementById('tools').style.display = 'none';
 }
 
 function showMenu(e) {
   hideSubs();
-  document.getElementById(e).style.display='inline-block';
+  document.getElementById(e).style.display = 'inline-block';
 }
 
 function hideMenu(e) {
-  document.getElementById(e).style.display='none';
+  document.getElementById(e).style.display = 'none';
 }
 
 var code = '';
