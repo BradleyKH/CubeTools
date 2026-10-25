@@ -1,0 +1,69 @@
+---
+title: The White Corners
+description: Finish the first layer by inserting each white corner beside the cross with a short three-move algorithm and its mirror.
+series: 3x3-beginner
+order: 3
+legacy: basic3.html
+---
+
+import whiteCorner1 from './images/white-corner-1.png';
+import whiteCorner2 from './images/white-corner-2.png';
+import whiteCorner3 from './images/white-corner-3.png';
+import whiteCorner4 from './images/white-corner-4.png';
+import whiteCorner5 from './images/white-corner-5.png';
+import whiteCorner6 from './images/white-corner-6.png';
+import firstLayerComplete from './images/first-layer-complete.png';
+
+In this step, we will move the four corner pieces with white stickers down to their proper place in the bottom layer. There is a short algorithm that helps us do this: (`R U R'`) and its mirror (`L' U' L`).
+
+<AlgBlock name="Right white corner" alg="R U R'" />
+
+<AlgBlock name="Left white corner (mirror)" alg="L' U' L" />
+
+Identify a corner in the top layer with a white sticker, preferably one with the white sticker on the side rather than on the very top of the cube.
+
+## Corner on Top, White Sticker on Side
+
+If the white sticker is on the side, turn the top to align the other side color with its center (e.g. red with red), then face that side color.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={whiteCorner1} alt="Top-layer corner with its white sticker on the right face, beside a red sticker on the front and a green sticker on top" width={123} />
+  <div className="min-w-0 flex-1">If the white corner is on the right side of the cube, use (`R U R'`).</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={whiteCorner2} alt="Top-layer corner at the front left showing blue and red stickers, with its white sticker facing away on the left" width={123} />
+  <div className="min-w-0 flex-1">If the white corner is on the left side of the cube, use (`L' U' L`).</div>
+</div>
+
+## Corner on Top, White Sticker on Top
+
+If the white sticker is on the very top of the cube, turn the top until the white corner is over an empty slot (that is, over a bottom-layer corner that is not yet solved).
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={whiteCorner3} alt="Top-layer corner at the front right with its white sticker on top and green and red stickers on its sides" width={123} />
+  <div className="min-w-0 flex-1">If the white corner is on the right side of the cube, use (`R U2 R'`). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={whiteCorner4} alt="Top-layer corner at the front left with its white sticker on top and blue and red stickers on its sides" width={123} />
+  <div className="min-w-0 flex-1">If the white corner is on the left side of the cube, use (`L' U2 L`). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.</div>
+</div>
+
+## Corner on Bottom
+
+Sometimes there will be no white corners in the top layer, but the bottom layer is not solved. When this happens, turn the cube so that an incorrect white corner is on the bottom front, preferably with the white sticker facing sideways. (This avoids creating a top-facing white sticker.) If the incorrect white sticker is facing down, then it doesn't matter if it is on the bottom front left or bottom front right.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={whiteCorner5} alt="Bottom-layer corner at the front right with a white sticker facing down beside a green sticker" width={123} />
+  <div className="min-w-0 flex-1">If the white corner is on the right side of the cube, use (`R U R'`). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={whiteCorner6} alt="Bottom-layer corner at the front left with a blue sticker facing left beside a red sticker" width={123} />
+  <div className="min-w-0 flex-1">If the white corner is on the left side of the cube, use (`L' U' L`). Now the white sticker should be on the side in the top layer, so you can follow the instructions above.</div>
+</div>
+
+After all corners are placed correctly around the white cross, the first layer will be complete. Next we will solve the [second layer](../second-layer/).
+
+<Figure src={firstLayerComplete} alt="Cube with the white first layer complete: the bottom row of the red and green sides is solved, all other stickers are gray, and the top center is yellow" width={123} />

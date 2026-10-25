@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import { withBase } from '@/lib/url';
+import heroPhoto from '@/assets/home/main.jpg';
+---
+
+<section class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-10 md:grid-cols-2 md:py-16">
+  <div>
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Learn to solve the Rubik's Cube</h1>
+    <p class="mt-4 max-w-prose text-lg text-muted-foreground">
+      Free tutorials, algorithm flashcards, a timer, and a scrambler for the 2x2 and 3x3, from your first solve to
+      speedsolving.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a
+        href={withBase('tutorials/3x3-beginner/')}
+        class="rounded-lg bg-primary px-5 py-2.5 font-medium text-primary-foreground hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      >
+        Start the beginner tutorial
+      </a>
+      <a
+        href={withBase('notation/')}
+        class="rounded-lg border border-border px-5 py-2.5 font-medium hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      >
+        Learn notation
+      </a>
+    </div>
+  </div>
+  <Image
+    src={heroPhoto}
+    alt="A 3x3 Rubik's Cube with a yellow top, blue front, and red right side, resting on a weathered wooden deck"
+    widths={[480, 720, 960]}
+    sizes="(min-width: 768px) 50vw, 100vw"
+    format="webp"
+    loading="eager"
+    class="aspect-[16/10] w-full rounded-xl object-cover shadow-md"
+  />
+</section>

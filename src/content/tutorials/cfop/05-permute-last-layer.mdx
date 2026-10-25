@@ -1,0 +1,38 @@
+---
+title: Permute Last Layer (PLL)
+description: How PLL finishes the solve, with 2-look and full PLL flashcard sets, two-sided recognition, AUF prediction, and tips for choosing algorithms.
+series: cfop
+order: 5
+navTitle: Permute Last Layer
+legacy: cfop5.html
+---
+
+PLL permutes the last layer corners and edges in one algorithm. There is nothing intuitive about PLL. You recognize which case you have, and you execute the algorithm for it as fluidly and quickly as you can. Sound familiar?
+
+2-look PLL has only 6 algorithms. I have [flashcards](../../../flashcards/?set=pll2) for them.
+
+Full PLL has 21 cases. I have [flashcards](../../../flashcards/?set=pll) for all of them.
+
+## Tips
+
+The tips I gave for [OLL](../orient-last-layer/) also apply to PLL. Learn to recognize the case immediately, but AUF if needed.
+
+There are many possible algorithms for each case, so please explore to find the ones you like best. There are good lists of them on the [SpeedSolving wiki](https://www.speedsolving.com/wiki/index.php/PLL) and [jperm.net](https://jperm.net/algs/pll).
+
+## Two-Sided Recognition
+
+You do not need to see all four sides to know your PLL. Every case can be recognized from the two sides facing you, so you never need to turn the top or rotate the cube just to look around. You only AUF when the algorithm you know starts from a different angle. Look for these features on the front and right faces:
+
+- **Headlights:** two matching corner stickers on one side with a different color between them.
+- **Blocks:** a corner and edge that match, forming a 1x2 block. A full side of one color is a 1x3 bar.
+- **Color relationships:** whether the colors on a side are opposite each other (like red and orange) or adjacent (like red and green).
+
+For example, headlights on both sides you can see mean the corners are already solved, so the case is a U, Z, or H perm, and the edges tell you which. Headlights next to a full bar can only be a U perm. When two cases share a pattern, like headlights next to a 1x2 block (an A, G, R, or T perm), the color relationships settle it. The [PLL flashcards](../../../flashcards/?set=pll) are a good way to drill this: try to name each case from the front and right sides only. At first it is slow, but it soon becomes faster than turning the top to look around.
+
+## AUF Prediction
+
+After most PLLs, the U face is not quite aligned and you need one last turn: an AUF (adjust U face). Rather than looking for it at the end, you can predict it before you start. Since you know how the algorithm moves the pieces, you can tell from the case and the angle you hold it at which way the U face will end up.
+
+Start with the cases you do most often and learn where the headlights or blocks end up. Then pay attention to one sticker as you begin the algorithm, and do the final AUF without stopping to check. Saving a fraction of a second at the end of every solve adds up.
+
+Once you become familiar with CFOP, your journey is far from over. There are many [supplements and variants](../beyond-cfop/) which await.

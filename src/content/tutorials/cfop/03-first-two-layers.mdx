@@ -1,0 +1,196 @@
+---
+title: First Two Layers (F2L)
+description: How to solve corner-edge pairs in CFOP by setting up and inserting them, with example cases, look-ahead advice, and techniques like keyhole, pseudo-slotting, multislotting, and edge control.
+series: cfop
+order: 3
+navTitle: First Two Layers
+legacy: cfop3.html
+---
+
+In CFOP, solving the first two layers entails pairing up each of the four corner-edge (CE) pairs and inserting them around the cross. This is best learned intuitively, but learning algorithms will increase efficiency later on.
+
+## Setup and Insert
+
+There are two basic steps for solving a CE pair: setup the CE pair, and insert the CE pair. There are two main setups to keep in mind:
+
+<CubeView
+  setup="z2 y'"
+  alg="RUR'"
+  setupFromAlgInverse
+  yellowTop={false}
+  size="sm"
+  label="Knight's move case, before inserting with R U R'"
+/>
+
+The corner and edge are positioned a knight's move apart. This is common when the top colors of the two pieces are different. They are inserted with (RUR').
+
+<CubeView
+  setup="z2 y'"
+  alg="U RU'R'"
+  setupFromAlgInverse
+  yellowTop={false}
+  size="sm"
+  label="Block case, before inserting with U R U' R'"
+/>
+
+The corner and edge are combined in a block. This is common when the top colors of the two pieces are the same. They are inserted with (U RU'R') or (R'FRF').
+
+So what's the big deal with F2L? Several things.
+
+## The Big Deal, Part I
+
+First, the process of setting up the CE pair varies depending on where the pieces happen to be. Ideally, the pieces are either in the top layer or already in the correct slot. There are 41 of these standard cases. Most of these cases are very short and intuitive, and many are mirrors of another case. Here are some examples. Each diagram shows the cube before the moves beneath it, with yellow on top, and the pair being solved starts out in or above the front-right slot. Gray stickers belong to the last layer, so you can ignore them.
+
+<CubeView
+  setup="y'"
+  alg="d (R'U'R) U2 (R'UR)"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Corner above its slot, edge in the top layer on the left"
+/>
+
+d (R'U'R) U2 (R'UR)<br />The top colors are the same, so we make a block and insert it in the back. The d turn carries the slot to the back right, and the rest builds the block and inserts it there.
+
+<CubeView
+  setup="y'"
+  alg="U2 (RUR') U (RU'R')"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Corner above its slot with white facing up, edge in the top layer on the left"
+/>
+
+U2 (RUR') U (RU'R')<br />Here we can make the block on the side and insert.
+
+<CubeView
+  setup="y'"
+  alg="y (L'U'LU)(L'U'L)"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Corner twisted in its slot, edge in the top layer at the front"
+/>
+
+y (L'U'LU)(L'U'L)<br />The corner is in its slot but twisted. After the y rotation the slot is at the front left; (L'U'LU) takes the corner out and positions the pieces a knight's move apart, then (L'U'L) inserts them.
+
+<CubeView
+  setup="y'"
+  alg="(RUR'U')(RU2R'U')(RUR')"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Corner twisted in its slot, edge already solved"
+/>
+
+(RUR'U')(RU2R'U')(RUR')<br />Here the edge is already solved, but the corner is twisted in its slot. It takes 8 moves to take the pieces out and set up the knight's move before inserting.
+
+## The Big Deal, Part II
+
+Second, sometimes an edge or corner (or both) will be in an incorrect slot. The basic way to deal with this situation is to bring the wayward piece to the top layer with something like (RU'R') or (LUL'). Keep an eye out for which slots are still empty and use those to your advantage.
+
+<CubeView
+  setup="y'"
+  alg="R'U'R2UR'"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Front-right edge stuck in the back-right slot, back-right pair in the top layer"
+/>
+
+(R'U'R2UR')<br />The front-right edge is stuck in the back-right slot, and the back-right corner and edge are waiting in the top layer. (R'U'R) inserts the back-right pair and brings the stuck edge to the top layer a knight's move from its corner, then (RUR') inserts the front-right pair. The two R turns in the middle combine into R2.
+
+<CubeView
+  setup="y'"
+  alg="U (RU'R')(L'UL)"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Front-left corner stuck in the front-right slot, front-right pair joined in the top layer"
+/>
+
+U (RU'R')(L'UL)<br />The front-left corner is stuck in the front-right slot, while the front-right corner and edge are already joined in the top layer. After U, (RU'R') inserts the front-right pair and pushes the stuck corner out next to its edge, and (L'UL) inserts the front-left pair.
+
+## The Big Deal, Part III
+
+Third, slow down and look ahead. This is the golden rule of speedcubing. It is better to move fluidly without pausing, even if that means moving more slowly at first. Then you can gradually increase your speed.
+
+Once you get comfortable with solving CE pairs, you will be able to execute each one automatically. This means that you do not need to look at the CE pair you are currently solving. Instead, you are free to look elsewhere on the cube for the next pair. Looking ahead is how you can reduce pauses between CE pairs and dramatically improve your solve time.
+
+When convenient, insert pairs into the back slots; this gives you a better view of the other pieces around the cube.
+
+Increasing your speed will feel uncomfortable at first, but your brain will adapt to tracking the CE pairs at a faster speed. A good early goal is a steady 4 turns per second with no pauses; at that pace, the cross and F2L take roughly 10 to 12 seconds. Treat that as pacing practice for look-ahead, not as a speed limit. As tracking pairs gets easier, raise the pace a little at a time, and back off whenever you catch yourself pausing to search for pieces.
+
+## Beyond the Basic Cases
+
+Once the standard cases feel automatic, these techniques handle situations they do not cover. Each one has a single example, shown the same way as the cases above.
+
+### Keyhole
+
+Keyhole uses an unsolved slot as a temporary hole for inserting a single piece. It works when one piece of a pair is already solved and the other is in the top layer.
+
+<CubeView
+  setup="y'"
+  alg="D' (R U' R') D"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Front-right corner solved, its edge in the top layer, back-right corner missing"
+/>
+
+<AlgBlock name="Keyhole" alg="D' (R U' R') D" />
+
+The front-right corner is solved and its edge is in the top layer, but the back-right slot is still missing its corner. D' moves the solved corner out of the way and brings the back-right slot's empty corner spot under the front-right slot. (R U' R') drops the edge into place, and D brings the corner back.
+
+### Pseudo-slotting
+
+A corner and an edge from two different slots can still make a perfectly good pair. Pseudo-slotting inserts such a pair into the slot that matches the edge, with the D layer turned so that the corner lands in its own spot once D is turned back.
+
+<CubeView
+  setup="y'"
+  alg="D (R' U' R) D'"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Front-right corner and back-right edge in the top layer"
+/>
+
+<AlgBlock name="Pseudo-slotting" alg="D (R' U' R) D'" />
+
+The corner belongs in the front-right slot and the edge belongs in the back-right slot. D lines the corner's spot up with the back-right slot, (R' U' R) inserts the pair there, and D' restores the bottom layer. Experienced solvers sometimes leave the D layer turned until after the next pair, which is where pseudo-slotting really saves moves.
+
+### Multislotting
+
+Multislotting means solving two pairs with one algorithm, or inserting one pair in a way that sets up the next. The examples in Part II already do this in a simple way. Here two slots are handled at once.
+
+<CubeView
+  setup="y'"
+  alg="(R L') U (R' L)"
+  setupFromAlgInverse
+  stickering="F2L"
+  size="sm"
+  label="Front-right pair in the top layer, front-left corner stuck in the front-right slot"
+/>
+
+<AlgBlock name="Multislotting" alg="(R L') U (R' L)" />
+
+The front-right corner and edge are in the top layer, while the front-left corner is stuck in the front-right slot and its edge waits at the front. One slot at a time, this would mean taking the stuck corner out and then inserting each pair. Instead, (R L') opens both slots together, a single U turn lines both pairs up, and (R' L) closes them.
+
+### Last-Slot Edge Control
+
+When you insert the last pair, the same case can often be solved in more than one way, and the choice changes how the last layer edges end up oriented. An insertion that orients all four edges leaves you with one of the 7 corner-only OLL cases (OCLL), and it is how solvers set up COLL or ZBLL, described in [Beyond CFOP](../beyond-cfop/).
+
+<CubeView
+  setup="y'"
+  alg="R' F R F'"
+  setupFromAlgInverse
+  yellowTop
+  size="sm"
+  label="Block case for the last slot, in full color so the last layer edges show"
+/>
+
+<AlgBlock name="Block insertion that orients the edges" alg="R' F R F'" alts={["U R U' R'"]} />
+
+Both algorithms insert this block. Here (R' F R F') leaves all four last layer edges oriented, while (U R U' R') would leave two of them flipped. A good habit to start with: glance at the last layer edges before inserting the last pair, and when you know two insertions for the case, pick the one that leaves the edges oriented.
+
+Next comes [OLL](../orient-last-layer/).

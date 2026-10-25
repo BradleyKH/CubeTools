@@ -1,0 +1,33 @@
+---
+import { withBase } from '@/lib/url';
+
+export interface Props {
+  prev?: { title: string; href: string };
+  next?: { title: string; href: string };
+}
+
+const { prev, next } = Astro.props;
+const link =
+  'flex flex-1 flex-col gap-1 rounded-lg border bg-card p-4 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring';
+---
+
+<nav aria-label="Previous and next pages" class="prev-next mt-12 flex flex-col gap-3 sm:flex-row">
+  {prev ? (
+    <a href={withBase(prev.href)} rel="prev" class={link}>
+      <span class="flex items-center gap-1 text-xs uppercase tracking-wide text-muted-foreground">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+        Back
+      </span>
+      <span class="font-semibold">{prev.title}</span>
+    </a>
+  ) : <span class="flex-1" />}
+  {next ? (
+    <a href={withBase(next.href)} rel="next" class:list={[link, 'items-end text-right']}>
+      <span class="flex items-center gap-1 text-xs uppercase tracking-wide text-muted-foreground">
+        Next
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+      </span>
+      <span class="font-semibold">{next.title}</span>
+    </a>
+  ) : <span class="flex-1" />}
+</nav>

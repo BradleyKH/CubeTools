@@ -1,0 +1,134 @@
+---
+import { nav } from '@/data/nav';
+import { withBase } from '@/lib/url';
+
+const current = Astro.url.pathname;
+const isCurrent = (href: string) => !href.includes('?') && withBase(href) === current;
+const linkClass =
+  'block rounded-md px-3 py-1.5 text-sm hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none aria-[current=page]:font-semibold aria-[current=page]:text-link';
+---
+
+<nav aria-label="Main" class="hidden md:block">
+  <ul class="flex items-center gap-1" data-nav-menu>
+    {
+      nav.map((item, i) => (
+        <li class="relative" data-nav-item>
+          {item.groups ? (
+            <>
+              <button
+                type="button"
+                class="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                aria-expanded="false"
+                aria-controls={`nav-menu-${i}`}
+              >
+                {item.label}
+                <svg aria-hidden="true" class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <div
+                id={`nav-menu-${i}`}
+                hidden
+                class="absolute left-0 top-full z-50 min-w-48 rounded-lg border border-border bg-popover p-2 text-popover-foreground shadow-lg"
+              >
+                {item.groups.map((group) => (
+                  <>
+                    {group.heading && (
+                      <p class="px-3 pt-2 pb-1 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                        {group.heading}
+                      </p>
+                    )}
+                    <ul>
+                      {group.links.map((link) => (
+                        <li>
+                          <a
+                            href={withBase(link.href)}
+                            class={linkClass}
+                            aria-current={isCurrent(link.href) ? 'page' : undefined}
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ))}
+              </div>
+            </>
+          ) : (
+            <a
+              href={withBase(item.href)}
+              class="inline-flex rounded-md px-3 py-2 text-sm font-medium hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none aria-[current=page]:text-link"
+              aria-current={isCurrent(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-nav-menu]');
+
+  if (root) {
+    const items = [...root.querySelectorAll<HTMLElement>('[data-nav-item]')];
+    const triggerOf = (li: HTMLElement) => li.querySelector<HTMLButtonElement>('button[aria-controls]');
+    const isOpen = (li: HTMLElement) => triggerOf(li)?.getAttribute('aria-expanded') === 'true';
+
+    function setOpen(li: HTMLElement, open: boolean) {
+      const btn = triggerOf(li);
+      if (!btn) return;
+      btn.setAttribute('aria-expanded', String(open));
+      const panel = document.getElementById(btn.getAttribute('aria-controls') ?? '');
+      if (panel) panel.hidden = !open;
+    }
+
+    function closeAll(except?: HTMLElement) {
+      items.forEach((li) => li !== except && setOpen(li, false));
+    }
+
+    items.forEach((li) => {
+      const btn = triggerOf(li);
+      if (!btn) return;
+
+      // A mouse click on a hover-opened menu keeps it open instead of immediately toggling it shut.
+      btn.addEventListener('click', (e) => {
+        const open = e.detail > 0 && li.dataset.hover ? true : !isOpen(li);
+        delete li.dataset.hover;
+        closeAll(li);
+        setOpen(li, open);
+      });
+
+      li.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        closeAll(li);
+        li.dataset.hover = '1';
+        setOpen(li, true);
+      });
+      li.addEventListener('pointerleave', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        delete li.dataset.hover;
+        setOpen(li, false);
+      });
+
+      li.addEventListener('focusout', (e) => {
+        if (!li.contains(e.relatedTarget as Node | null)) setOpen(li, false);
+      });
+    });
+
+    root.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const open = items.find(isOpen);
+      if (!open) return;
+      closeAll();
+      triggerOf(open)?.focus();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target as Node)) closeAll();
+    });
+  }
+</script>

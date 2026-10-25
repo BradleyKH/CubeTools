@@ -1,0 +1,176 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+interface Link {
+  name: string;
+  href: string;
+  description: string;
+  sub?: { name: string; href: string; description: string }[];
+}
+
+const sections: { heading: string; links: Link[] }[] = [
+  {
+    heading: 'Community and competitions',
+    links: [
+      {
+        name: 'World Cube Association (WCA)',
+        href: 'https://www.worldcubeassociation.org',
+        description: 'The governing body for official competitions; find a competition near you and read the regulations.',
+      },
+      {
+        name: 'WCA records',
+        href: 'https://www.worldcubeassociation.org/results/records',
+        description: 'Current world, continental, and national records for every event.',
+      },
+      {
+        name: 'WCA rankings',
+        href: 'https://www.worldcubeassociation.org/results/rankings/333/single',
+        description: 'Ranked results for every event, filterable by region.',
+      },
+      {
+        name: 'SpeedSolving forums',
+        href: 'https://www.speedsolving.com/forums/',
+        description: 'The long-running community forum for questions, methods, and news.',
+      },
+      {
+        name: 'SpeedSolving wiki',
+        href: 'https://www.speedsolving.com/wiki/',
+        description: 'Reference articles on methods, algorithm sets, puzzles, and terminology.',
+      },
+    ],
+  },
+  {
+    heading: 'Algorithms',
+    links: [
+      {
+        name: 'J Perm algorithms',
+        href: 'https://jperm.net/algs',
+        description: 'Algorithm sheets for beginner, F2L, OLL, PLL, and more, with recognition tips.',
+      },
+      {
+        name: 'SpeedCubeDB',
+        href: 'https://speedcubedb.com',
+        description: 'A large searchable database of algorithm sets with community-ranked alternatives.',
+      },
+    ],
+  },
+  {
+    heading: 'Learning',
+    links: [
+      {
+        name: "J Perm's YouTube channel",
+        href: 'https://www.youtube.com/@JPerm',
+        description: 'Tutorials, tips, and walkthroughs from Dylan Wang.',
+        sub: [
+          {
+            name: "J Perm's F2L document",
+            href: 'https://drive.google.com/file/d/1nzAXYUWZJ6H2wIOXaHdWXep3W57tArbR/view',
+            description: 'A printable reference of F2L cases.',
+          },
+        ],
+      },
+      {
+        name: 'CubeSkills',
+        href: 'https://cubeskills.com/',
+        description: 'Lessons and training resources from Feliks Zemdegs, some free.',
+      },
+      {
+        name: "Rubik's Cube guides",
+        href: 'https://www.kungfoomanchu.com/',
+        description: "Andy Klise's tutorials and method write-ups.",
+      },
+      {
+        name: 'Petrus method',
+        href: 'https://lar5.com/cube/',
+        description: "Lars Petrus's original guide to his block-building method.",
+      },
+      {
+        name: 'Roux method guide',
+        href: 'https://sites.google.com/view/kianroux',
+        description: "Kian Mansour's guide to the Roux method.",
+      },
+    ],
+  },
+  {
+    heading: 'Tools',
+    links: [
+      {
+        name: 'csTimer',
+        href: 'https://cstimer.net',
+        description: 'A full-featured timer with scrambles for many puzzles, session stats, and trainers.',
+      },
+      {
+        name: 'cubing.js',
+        href: 'https://js.cubing.net/cubing/',
+        description: 'The open-source JavaScript library that powers the cube diagrams on this site.',
+      },
+      {
+        name: 'Twizzle',
+        href: 'https://twizzle.net',
+        description: 'Explore algorithms and puzzles in 3D, with a move editor and a solver.',
+      },
+      {
+        name: 'Block Trainer',
+        href: 'https://cubegrass.appspot.com/block_trainer/',
+        description: 'Practice building blocks for block-building methods.',
+      },
+    ],
+  },
+  {
+    heading: 'Shops',
+    links: [
+      {
+        name: 'The Cubicle',
+        href: 'https://www.thecubicle.com/',
+        description: 'A long-standing retailer of speedcubes and other twisty puzzles.',
+      },
+      {
+        name: 'SpeedCubeShop',
+        href: 'https://speedcubeshop.com',
+        description: 'Another well-known retailer of speedcubes and accessories.',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Resources"
+  description="Cubing community resources: competitions and records, algorithm sheets, learning material, online tools, and shops."
+>
+  <div class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold">Resources</h1>
+    <section class="mt-8">
+      <h2 class="text-xl font-semibold">How fast are the fastest cubers?</h2>
+      <p class="mt-3">
+        Fast enough that any time quoted here would soon be out of date. The{' '}
+        <a class="text-link underline" href="https://www.worldcubeassociation.org/results/records" target="_blank" rel="noopener">WCA records page</a>{' '}
+        always has the current world records for every event.
+      </p>
+    </section>
+    {
+      sections.map((s) => (
+        <section class="mt-8">
+          <h2 class="text-xl font-semibold">{s.heading}</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            {s.links.map((l) => (
+              <li>
+                <a class="text-link underline" href={l.href} target="_blank" rel="noopener">{l.name}</a>
+                <> - {l.description}</>
+                {l.sub && (
+                  <ul class="mt-2 list-disc space-y-2 pl-6">
+                    {l.sub.map((x) => (
+                      <li>
+                        <a class="text-link underline" href={x.href} target="_blank" rel="noopener">{x.name}</a> - {x.description}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

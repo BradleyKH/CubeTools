@@ -1,0 +1,51 @@
+---
+const stickers = ['white', 'yellow', 'red', 'orange', 'green', 'blue'] as const;
+const initial = ['red', 'white', 'blue', 'green', 'yellow', 'orange', 'white', 'red', 'green'];
+---
+
+<svg
+  class="cube-logo size-9 shrink-0"
+  viewBox="0 0 30 30"
+  role="img"
+  aria-label="Cube Tools logo"
+  data-colors={stickers.join(',')}
+>
+  {
+    initial.map((color, i) => (
+      <rect
+        class="sticker"
+        x={(i % 3) * 10 + 1}
+        y={Math.floor(i / 3) * 10 + 1}
+        width="8"
+        height="8"
+        rx="1.5"
+        fill={`var(--cube-${color})`}
+        stroke="var(--sticker-outline)"
+        stroke-width="0.8"
+      />
+    ))
+  }
+</svg>
+
+<style>
+  .sticker {
+    transition: fill 0.25s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticker {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const pick = (colors: string[]) => `var(--cube-${colors[Math.floor(Math.random() * colors.length)]})`;
+
+  document.querySelectorAll<SVGSVGElement>('.cube-logo').forEach((logo) => {
+    const colors = (logo.dataset.colors ?? '').split(',').filter(Boolean);
+    logo.querySelectorAll<SVGRectElement>('.sticker').forEach((s) => {
+      s.setAttribute('fill', pick(colors));
+      s.addEventListener('pointerenter', () => s.setAttribute('fill', pick(colors)));
+    });
+  });
+</script>

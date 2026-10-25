@@ -1,0 +1,38 @@
+---
+title: Top Side
+description: Turn the top of the 2x2 all yellow by using the Sune algorithm on any of the seven possible cases.
+series: 2x2-beginner
+order: 4
+legacy: 2basic4.html
+---
+
+import oll from './images/oll.png';
+
+Next we will make the top side all yellow.
+
+With the white side on the bottom, look at where the four yellow stickers are. Other than the solved case, there are seven possible cases, shown below.
+
+<div className="flex flex-wrap items-end gap-4">
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="OLL" alg="(RUR'U)(RU2R')" setupFromAlgInverse label="Sune" />
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="OLL" setup="(R' U2 R)' (R' U' R U')' U'" label="Anti-Sune" />
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="OLL" setup="F (R U R' U')' F' U'" label="Headlights" />
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="OLL" setup="(R' F R F')' (R U R' U')'" label="Blinkers" />
+</div>
+
+<div className="flex flex-wrap items-end gap-4">
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="OLL" setup="(U R U' R')' (F R' F' R)'" label="Bowtie" />
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="OLL" setup="F (R U R' U')2' F'" label="Pi" />
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="OLL" setup="(R' U2 R2)' (R2 U2)' U" label="Double Headlights" />
+</div>
+
+Fortunately, we can use one algorithm to solve all of them:
+
+<AlgBlock name="Sune" alg="(RUR'U)(RU2R')" />
+
+This algorithm is called the Sune, and it solves the Sune case.
+
+If you encounter one of the other six cases, face the top in the direction shown, then do the Sune. This will give you a Sune or Anti-Sune case which you can then solve using the Sune.
+
+When the top side is all yellow, we are ready to complete the [top layer](../top-layer/).
+
+<Figure src={oll} alt="A 2x2 cube with an all-yellow top, red and green stickers on the front faces of the top layer, and gray stickers elsewhere" />

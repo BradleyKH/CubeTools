@@ -1,0 +1,28 @@
+---
+title: Orient Final Edges
+description: Make a yellow cross on top with one algorithm that handles every arrangement of the last layer edges.
+series: 3x3-beginner
+order: 5
+legacy: basic5.html
+---
+
+import yellowCross from './images/yellow-cross.png';
+
+The next step is to make a yellow cross on the top of the cube. The algorithm we use for this is (`F R U R' U' F'`).
+
+<AlgBlock name="Orient last layer edges" alg="F R U R' U' F'" />
+
+After you finish the first two layers, there are four possible configurations of the top edges (ignoring the corners):
+
+| Yellow Edges | Top View | Do This |
+| :---: | :---: | --- |
+| 4 | <CubeView stickering="EOLL" view="2D" size="sm" label="Cross: all four edges yellow" /> | You already have a yellow cross!<br />Skip to the next step. |
+| 2<br />opposite | <CubeView stickering="EOLL" view="2D" size="sm" alg="F R U R' U' F'" setupFromAlgInverse label="Line: left and right edges yellow" /> | `F (R U R' U') F'` |
+| 2<br />adjacent | <CubeView stickering="EOLL" view="2D" size="sm" alg="F (R U R' U')2 F'" setupFromAlgInverse label="L: back and left edges yellow" /> | `F (R U R' U')2 F'` |
+| None | <CubeView stickering="EOLL" view="2D" size="sm" setup="F (R U R' U')2' F' U2' F (R U R' U')' F'" label="Dot: no edges yellow" /> | `F (R U R' U') F'`<br />This gives you two adjacent yellow edges. |
+
+Note: Be sure to orient the top as shown above before using the algorithm.
+
+Once you have a yellow cross on top, you are ready to [orient the last layer corners](../orient-final-corners/).
+
+<Figure src={yellowCross} alt="Cube with the first two layers solved and a yellow cross on top, with the top corners gray" width={123} />

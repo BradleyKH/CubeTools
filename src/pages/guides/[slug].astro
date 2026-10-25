@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AlgBlock from '@/components/AlgBlock.astro';
+import CubeView from '@/components/CubeView.astro';
+import Callout from '@/components/Callout.astro';
+import Figure from '@/components/Figure.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((entry) => ({
+    params: { slug: entry.id.replace(/\.(mdx?)$/, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <article class="article mx-auto max-w-[var(--measure)] px-4 py-8">
+    <h1 class="mb-6 text-3xl font-bold tracking-tight">{entry.data.title}</h1>
+    <Content components={{ AlgBlock, CubeView, Callout, Figure }} />
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .article h2 { margin: 2rem 0 0.75rem; font-size: 1.5rem; font-weight: 700; }
+  .article h3 { margin: 1.5rem 0 0.5rem; font-size: 1.2rem; font-weight: 600; }
+  .article p { margin: 1rem 0; line-height: 1.7; }
+  .article ul { margin: 1rem 0; padding-left: 1.5rem; list-style: disc; }
+  .article ol { margin: 1rem 0; padding-left: 1.5rem; list-style: decimal; }
+  .article li { margin: 0.25rem 0; line-height: 1.7; }
+  .article p a, .article li a { color: var(--link); text-decoration: underline; }
+  .article table { margin: 1rem 0; border-collapse: collapse; }
+  .article th, .article td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+  .article .callout-body > :first-child { margin-top: 0; }
+  .article .callout-body > :last-child { margin-bottom: 0; }
+  .article .alg-block ul { list-style: none; padding: 0; margin: 0.25rem 0 0; }
+  .article .alg-block p { margin: 0 0 0.25rem; line-height: 1.4; }
+</style>

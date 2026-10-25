@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { withBase } from '@/lib/url';
+---
+
+<BaseLayout title="Page not found" noindex>
+  <div class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold">Page not found</h1>
+    <p class="mt-4 text-muted-foreground">That page seems to have been scrambled. Let's get you back to a solved state.</p>
+    <p class="mt-6 flex flex-wrap gap-4">
+      <a class="text-link underline" href={withBase('')}>Go home</a>
+      <a class="text-link underline" href={withBase('tutorials/')}>Browse tutorials</a>
+    </p>
+  </div>
+</BaseLayout>

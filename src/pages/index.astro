@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HomeHero from '@/components/HomeHero.astro';
+import FeatureCard from '@/components/FeatureCard.astro';
+import { site } from '@/data/site';
+import { withBase } from '@/lib/url';
+
+const features = [
+  { title: 'Notation', description: 'Read and write cube moves like R, U, and F2 before anything else.', href: 'notation/' },
+  { title: 'Tutorials', description: 'Step-by-step guides for beginners, CFOP, Ortega, Roux, and advanced 2x2.', href: 'tutorials/' },
+  { title: 'Flashcards', description: 'Drill F2L, OLL, PLL, and CMLL algorithms until they stick.', href: 'flashcards/' },
+  { title: 'Timer', description: 'Time your solves and keep track of your progress.', href: 'timer/' },
+];
+---
+
+<BaseLayout title={site.name} description={site.description}>
+  <HomeHero />
+  <section class="mx-auto max-w-6xl px-4 pb-8" aria-labelledby="features-heading">
+    <h2 id="features-heading" class="sr-only">What you will find here</h2>
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {features.map((f) => <li><FeatureCard {...f} /></li>)}
+    </ul>
+  </section>
+  <section class="mx-auto max-w-6xl px-4 pb-16" aria-labelledby="tools-heading">
+    <h2 id="tools-heading" class="text-xl font-semibold">More tools</h2>
+    <p class="mt-2 text-muted-foreground">
+      Generate a <a class="text-link underline" href={withBase('scrambler/')}>scramble</a> or browse{' '}
+      <a class="text-link underline" href={withBase('resources/')}>resources</a> from the wider cubing community.
+      Not sure where to begin? Compare <a class="text-link underline" href={withBase('guides/methods/')}>3x3 methods</a> or
+      read how to <a class="text-link underline" href={withBase('guides/choosing-a-cube/')}>choose a speedcube</a>.
+    </p>
+  </section>
+</BaseLayout>

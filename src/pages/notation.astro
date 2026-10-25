@@ -1,0 +1,123 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NotationMove from '@/components/NotationMove.astro';
+import { withBase } from '@/lib/url';
+
+const faces = ['L', 'R', 'F', 'B', 'U', 'D'];
+const slices = [
+  { symbol: 'M', equals: "r'R" },
+  { symbol: 'E', equals: "dD'" },
+  { symbol: 'S', equals: "fF'" },
+];
+const rotations = [
+  { symbol: 'x', equals: 'R' },
+  { symbol: 'y', equals: 'U' },
+  { symbol: 'z', equals: 'F' },
+];
+const grid = 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3';
+---
+
+<BaseLayout
+  title="Notation Tutorial"
+  description="Learn Rubik's Cube notation: face turns, wide turns, big cube moves, middle slices, and cube rotations, each animated on a 3D cube."
+>
+  <div class="mx-auto max-w-4xl px-4 py-10">
+    <h1 class="text-3xl font-bold">Notation</h1>
+    <p class="mt-2 text-muted-foreground">Press a move button under any cube to watch that turn.</p>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">Single face rotations</h2>
+      <p class="mt-3">Capital letters show which side of the cube to turn:</p>
+      <ul class="mt-2 list-disc pl-6">
+        <li><u>F</u>ront, <u>B</u>ack, <u>R</u>ight, <u>L</u>eft, <u>U</u>p (top), or <u>D</u>own (bottom).</li>
+      </ul>
+      <p class="mt-3">A plain capital letter represents a single (90-degree) turn clockwise.</p>
+      <ul class="mt-2 list-disc pl-6">
+        <li>A prime mark (e.g. R') makes it counterclockwise.</li>
+        <li>A "2" (e.g. R2) makes it a double turn (180 degrees).</li>
+      </ul>
+      <div class:list={['mt-6', grid]}>
+        {faces.map((f) => <NotationMove symbol={f} moves={[f, `${f}'`, `${f}2`]} />)}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Wide turns</h2>
+      <p class="mt-3">
+        A wide turn moves two layers at once: the face you name and the layer behind it. The official WCA notation writes
+        a capital letter followed by <code class="alg">w</code>, so <code class="alg">Rw</code> turns the right two layers.
+        Plain <code class="alg">Rw</code> always means two layers; on a 3x3x3, <code class="alg">Rw</code> and
+        <code class="alg">2Rw</code> are the same move.
+      </p>
+      <ul class="mt-2 list-disc pl-6">
+        <li>
+          Most cubers write the same move with a lowercase letter, and this site does too: <code class="alg">r</code> means
+          <code class="alg">Rw</code>, <code class="alg">u</code> means <code class="alg">Uw</code>, and so on.
+        </li>
+        <li>Primes and "2" work as they do for face turns: <code class="alg">Rw'</code>, <code class="alg">Rw2</code>.</li>
+      </ul>
+      <div class:list={['mt-6', grid]}>
+        {faces.map((f) => {
+          const w = f.toLowerCase();
+          return <NotationMove symbol={w} moves={[w, `${w}'`, `${w}2`]} equals={`${f}w`} />;
+        })}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Big cube moves</h2>
+      <p class="mt-3">
+        On 4x4x4 and larger cubes, a number in front of a wide move says how many layers turn together, counting in from
+        the named face. <code class="alg">3Rw</code> turns the right three layers. The number must be at least 2 and smaller
+        than the cube's size, so <code class="alg">3Rw</code> is valid on a 4x4x4 or larger but not on a 3x3x3, and
+        <code class="alg">1Rw</code> is never used. Leaving the number off means 2.
+      </p>
+      <p class="mt-3">
+        Big-cube scrambles are written entirely in this notation, such as <code class="alg">Rw U2 3Rw' F Uw2 L'</code>.
+        The lowercase shorthand covers only two-layer turns, so a three-layer turn is always written with the number and
+        <code class="alg">w</code>.
+      </p>
+      <div class:list={['mt-6', grid]}>
+        <NotationMove symbol="Rw" moves={["Rw", "Rw'", "Rw2"]} puzzle="4x4x4" equals="two right layers" />
+        <NotationMove symbol="3Rw" moves={["3Rw", "3Rw'", "3Rw2"]} puzzle="5x5x5" equals="three right layers" />
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Middle slice rotations</h2>
+      <p class="mt-3">Some algorithms use the inner layers of a 3x3x3:</p>
+      <ul class="mt-2 list-disc pl-6">
+        <li><u>M</u>iddle (between L and R, turns like L), <u>E</u>quator (between U and D, turns like D), and <u>S</u>tanding (between F and B, turns like F)</li>
+      </ul>
+      <p class="mt-3">
+        Slice moves are not part of the WCA scramble notation, which describes everything with face and wide turns, but they
+        are standard in algorithms, especially for Roux.
+      </p>
+      <div class:list={['mt-6', grid]}>
+        {slices.map((s) => <NotationMove symbol={s.symbol} moves={[s.symbol, `${s.symbol}'`]} equals={s.equals} />)}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Cube rotations</h2>
+      <p class="mt-3">
+        <code class="alg">x</code>, <code class="alg">y</code>, and <code class="alg">z</code> turn the whole cube in the direction of
+        <code class="alg">R</code>, <code class="alg">U</code>, and <code class="alg">F</code>. They change your grip, not the cube's state,
+        so they do not count as moves in the WCA's Outer Block Turn Metric. Rotations are rare in most methods, but
+        <code class="alg">y</code> and <code class="alg">y'</code> are the most common.
+      </p>
+      <div class:list={['mt-6', grid]}>
+        {rotations.map((r) => <NotationMove symbol={r.symbol} moves={[r.symbol, `${r.symbol}'`]} equals={r.equals} />)}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Reading algorithms</h2>
+      <p class="mt-3">
+        Moves are read left to right. Parentheses group a short, repeated sequence, called a trigger, that you can learn as one
+        unit, and a number after a group repeats it. For example, <code class="alg">(R U R' U')2</code> is
+        <code class="alg">R U R' U' R U R' U'</code>. See the <a href={withBase('triggers/')} class="underline">common triggers</a>.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

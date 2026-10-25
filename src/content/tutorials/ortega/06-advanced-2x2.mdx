@@ -1,0 +1,29 @@
+---
+title: Advanced 2x2
+description: Where to go after Ortega, from CLL to the EG method.
+series: ortega
+order: 6
+legacy: ortega6.html
+---
+
+Ortega is a great intermediate method, but the fastest 2x2 solvers finish the cube with fewer steps. The two big ideas are CLL and EG.
+
+## CLL
+
+In a nutshell:
+
+1. Solve one layer, a face whose side colors also match.
+2. Use one of 42 CLL algorithms to orient and permute the last layer corners at the same time.
+
+Two of the 42 CLL algorithms are PLLs: the cases where the last layer is already oriented.
+
+## EG
+
+The Erik-Gunnar (EG) method, by Erik Akkersdijk and Gunnar Krig, starts the way Ortega does.
+
+1. Solve one side. (This is the same first step as the Ortega/Varasano method.)
+2. Use one algorithm to solve the last layer and fix the bottom layer at the same time.
+
+If the bottom is already a layer, that algorithm is a CLL. The other algorithms perform CLL on the last layer while swapping two corners of the bottom layer, either adjacent (EG-1) or diagonal (EG-2). Counting the PBL cases you already know, full EG is 128 algorithms.
+
+I cover both in my [2x2 Advanced tutorial](../../2x2-advanced/), with every CLL, EG-1, and EG-2 case.

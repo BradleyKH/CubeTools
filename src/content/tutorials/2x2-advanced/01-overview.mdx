@@ -1,0 +1,37 @@
+---
+title: Overview
+description: The path from Ortega to CLL, EG-1, and EG-2, and the methods fast 2x2 solvers learn after that.
+series: 2x2-advanced
+order: 1
+---
+
+Once the [Ortega/Varasano method](../../ortega/) feels comfortable, the next question is how to shave off the last few moves. Every fast 2x2 method follows the same idea: do less on the first layer, and let a bigger set of algorithms finish the rest of the cube in one go. This series walks through that path in the order most cubers learn it.
+
+## The 2x2 progression
+
+1. **Ortega.** Build a face, orient the last layer, then permute both layers (PBL). That is three steps and about a dozen algorithms. If you are here, you probably know it already.
+2. **CLL.** Build a complete first layer (a face with the side colors matching), then solve all four last-layer corners with one algorithm. There are 42 cases. A layer takes a little longer to build than a face, but you skip a whole step at the end.
+3. **EG-1 and EG-2.** Build a face again, as in Ortega, and finish the cube with one algorithm that solves the last layer and fixes the bottom at the same time. EG-1 handles a face with two adjacent bottom corners swapped, and EG-2 handles two diagonal corners swapped. Together with CLL, which covers a face that is already a layer, this is the full EG method.
+4. **Beyond EG.** TCLL handles a first layer with one corner twisted in place, and LEG-1 is a variant of EG-1 that saves a rotation. At the top end, solvers try to plan the whole solve during inspection.
+
+## Why bother?
+
+Ortega spends a step orienting the last layer and another permuting both layers. CLL and EG merge those into one algorithm. Fewer steps means fewer pauses to recognize a case, and on a puzzle where a good solve takes a couple of seconds, every pause counts.
+
+The cost is memorization. CLL is 42 algorithms, and full EG is 128, including the eight PBL cases you already know from Ortega. That sounds like a lot, but the cases come in families, and recognition carries over from one set to the next.
+
+<Callout type="tip">
+You do not need to learn everything before you use it. Many cubers learn CLL, use it whenever the first layer is easy, and fall back to Ortega the rest of the time. Add EG-1 next, then EG-2.
+</Callout>
+
+## How the sets fit together
+
+All three sets use the same seven orientation cases from Ortega: Sune, Anti-Sune, Pi, H, L, T, and U. Each orientation case has six permutation cases (H has four), plus the cases where the top is already oriented. What changes from set to set is the bottom layer:
+
+- **CLL:** the bottom is a solved layer.
+- **EG-1:** the bottom face has one solved side (a "bar"), and the other two corners are swapped.
+- **EG-2:** no side of the bottom face matches, because two diagonal corners are swapped.
+
+So when you learn CLL recognition, you are also learning most of EG recognition. The only new step is checking the bottom.
+
+Ready? Start with [CLL](../cll/).

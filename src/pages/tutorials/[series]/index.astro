@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { series, seriesBySlug } from '@/data/tutorials';
+import { entryPath, seriesPages } from '@/lib/tutorials';
+import { withBase } from '@/lib/url';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('tutorials');
+  return series
+    .filter((s) => seriesPages(entries, s.slug).length > 0)
+    .map((s) => ({
+      params: { series: s.slug },
+      props: { pages: seriesPages(entries, s.slug) },
+    }));
+}
+
+const { pages } = Astro.props;
+const info = seriesBySlug(Astro.params.series)!;
+---
+
+<BaseLayout title={info.title} description={info.summary}>
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <p class="text-sm text-muted-foreground">
+      <a href={withBase('tutorials/')} class="underline">Tutorials</a> / {info.puzzle} {info.level}
+    </p>
+    <h1 class="mb-2 text-3xl font-bold tracking-tight">{info.title}</h1>
+    <p class="mb-8 text-muted-foreground">{info.summary}</p>
+    <ol class="space-y-3">
+      {pages.map((page, i) => (
+        <li class="rounded-lg border bg-card p-4">
+          <a href={withBase(entryPath(page))} class="text-lg font-semibold text-link hover:underline">
+            {i + 1}. {page.data.title}
+          </a>
+          <p class="mt-1 text-sm text-muted-foreground">{page.data.description}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</BaseLayout>

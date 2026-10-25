@@ -1,0 +1,79 @@
+---
+title: Bottom Side
+description: Solve one side of the 2x2 by placing three white pieces and then fixing the last one with a short repeating algorithm.
+series: 2x2-beginner
+order: 2
+legacy: 2basic2.html
+---
+
+import side1 from './images/side1.png';
+import side2 from './images/side2.png';
+import side3 from './images/side3.png';
+import side4 from './images/side4.png';
+import side5 from './images/side5.png';
+import side6 from './images/side6.png';
+import side7 from './images/side7.png';
+
+The first step is the most instinctive and intuitive step: we are going to solve a side.
+
+(For those of you familiar with a layer-by-layer approach, I really do mean a side, not a layer. We will position the layer in the next step.)
+
+## The First Three Pieces
+
+Let's start with the white pieces because they are easy to see. Solving three of the four white pieces is usually not so bad. The goal is to get something like this:
+
+<Figure src={side1} alt="A 2x2 cube with three of the four white corner stickers on the top face, the fourth top position gray, and every other sticker gray" />
+
+## Position the Last White Piece
+
+Once you get three white pieces on a side, turn the cube so that that side is on the bottom.
+
+<Figure src={side2} alt="A 2x2 cube seen from below with the white side on the bottom, all four bottom stickers white and every other sticker gray" />
+
+Look to see where the last white sticker is. If the white sticker is in the top layer, spin the top until the sticker is over the unsolved bottom corner.
+
+<div className="flex flex-wrap gap-4">
+  <Figure src={side3} alt="White bottom side with one corner unsolved and the last white sticker on the front face of the top layer, above the unsolved corner" caption="Sticker on front" />
+  <Figure src={side7} alt="White bottom side with one corner unsolved and the last white sticker on the right face of the top layer, above the unsolved corner" caption="Sticker on right" />
+  <Figure src={side5} alt="White bottom side with one corner unsolved and the last white sticker on the top face, above the unsolved corner" caption="Sticker on top" />
+</div>
+
+If the white sticker is in the bottom layer but facing sideways, that's OK too. Just turn the cube so that the unsolved corner is in the front right of the cube, as below.
+
+<div className="flex flex-wrap gap-4">
+  <Figure src={side4} alt="White bottom side with the unsolved corner at the front right and its white sticker facing the front" caption="Sticker on front" />
+  <Figure src={side6} alt="White bottom side with the unsolved corner at the front right and its white sticker facing the right" caption="Sticker on right" />
+</div>
+
+## Solve the Last White Piece
+
+When your cube looks like one of these five pictures, you can solve the white side with this algorithm: `(R U R' U')`. In the cubing community, this algorithm is called "Sexy Move". Repeat that algorithm until the white sticker has joined its three friends on the bottom of the cube. You won't need to use it more than five times.
+
+For the more ambitious among you, I am also including a shortcut algorithm for each of these five cases.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={side3} alt="White bottom side with the last white sticker on the front face of the top layer" />
+  <AlgBlock name="Repeat 5 times" alg="(RUR'U')*5" alts={["(URU'R')"]} />
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={side4} alt="White bottom side with the last white sticker on the bottom layer facing the front" />
+  <AlgBlock name="Repeat 4 times" alg="(RUR'U')*4" alts={["(RU'R'U)(RU'R')"]} />
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={side5} alt="White bottom side with the last white sticker on the top face" />
+  <AlgBlock name="Repeat 3 times" alg="(RUR'U')*3" alts={["(RU2R'U')(RUR')"]} />
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={side6} alt="White bottom side with the last white sticker on the bottom layer facing the right" />
+  <AlgBlock name="Repeat 2 times" alg="(RUR'U')*2" alts={["(RUR'U')(RUR')"]} />
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={side7} alt="White bottom side with the last white sticker on the right face of the top layer" />
+  <AlgBlock name="Repeat once" alg="(RUR'U')" alts={["(RUR')"]} />
+</div>
+
+When the bottom of the cube is all white, you are ready to move on to the [next step](../bottom-layer/).

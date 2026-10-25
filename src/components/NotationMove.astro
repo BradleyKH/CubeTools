@@ -1,0 +1,70 @@
+---
+import CubeView from '@/components/CubeView.astro';
+
+export interface Props {
+  /** The base symbol, e.g. `R`, `r`, `M`, `x`. */
+  symbol: string;
+  /** Moves the card can play; the first is shown on load. */
+  moves: string[];
+  /** What the symbol does, e.g. "r'R" for M or "R" for x. */
+  equals?: string;
+  /** Puzzle the card's cube shows; big-cube moves such as 3Rw need 4x4x4 or larger. */
+  puzzle?: '3x3x3' | '4x4x4' | '5x5x5';
+}
+
+const { symbol, moves, equals, puzzle = '3x3x3' } = Astro.props;
+---
+
+<article class="notation-move rounded-lg border bg-card p-4 text-card-foreground" data-notation-move>
+  <h3 class="mb-2 text-lg font-semibold"><code class="alg">{symbol}</code></h3>
+  <div class="flex justify-center">
+    <CubeView puzzle={puzzle} alg={moves[0]} yellowTop={false} size="md" label={`${puzzle === '3x3x3' ? 'Cube' : puzzle} turning with ${symbol} moves`} />
+  </div>
+  <p class="mt-2 min-h-6 text-center font-mono font-bold" data-now aria-live="polite"></p>
+  <div class="mt-2 flex flex-wrap justify-center gap-2" role="group" aria-label={`Play a ${symbol} move`}>
+    {
+      moves.map((m) => (
+        <button
+          type="button"
+          data-play={m}
+          class="rounded border px-3 py-1 font-mono text-sm hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+          aria-label={`Play ${m}`}
+        >
+          {m}
+        </button>
+      ))
+    }
+  </div>
+  {equals && <p class="mt-3 text-center text-sm text-muted-foreground">Equals <code class="alg">{equals}</code></p>}
+</article>
+
+<script>
+  interface TwistyPlayerLike extends HTMLElement {
+    jumpToStart(): void;
+    play(): void;
+  }
+
+  // CubeView upgrades its stage lazily, so a press can arrive before the player exists.
+  async function playerIn(card: HTMLElement): Promise<TwistyPlayerLike | null> {
+    for (let i = 0; i < 100; i++) {
+      const player = card.querySelector<TwistyPlayerLike>('twisty-player');
+      if (player && typeof player.play === 'function') return player;
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+    return null;
+  }
+
+  document.addEventListener('click', async (event) => {
+    const button = (event.target as Element).closest<HTMLButtonElement>('[data-notation-move] button[data-play]');
+    if (!button) return;
+    const card = button.closest<HTMLElement>('[data-notation-move]')!;
+    const move = button.dataset.play!;
+    const now = card.querySelector<HTMLElement>('[data-now]');
+    if (now) now.textContent = move;
+    const player = await playerIn(card);
+    if (!player) return;
+    player.setAttribute('alg', move);
+    player.jumpToStart();
+    player.play();
+  });
+</script>

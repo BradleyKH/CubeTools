@@ -1,0 +1,43 @@
+---
+import { withBase } from '@/lib/url';
+
+export interface Props {
+  seriesTitle: string;
+  items: { title: string; href: string; current: boolean }[];
+}
+
+const { seriesTitle, items } = Astro.props;
+---
+
+<nav aria-label={`${seriesTitle} contents`} class="toc rounded-lg border bg-card text-sm">
+  <details open>
+    <summary class="cursor-pointer select-none px-4 py-3 font-semibold">{seriesTitle}</summary>
+    <ol class="list-decimal space-y-1 pb-3 pl-9 pr-4">
+      {items.map((item) => (
+        <li>
+          <a
+            href={withBase(item.href)}
+            aria-current={item.current ? 'page' : undefined}
+            class:list={['hover:underline', item.current ? 'font-semibold text-foreground' : 'text-link']}
+          >
+            {item.title}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </details>
+</nav>
+
+<script>
+  // Collapsed by default below the desktop breakpoint; always open at desktop width.
+  const mq = window.matchMedia('(min-width: 1024px)');
+  const details = document.querySelectorAll<HTMLDetailsElement>('.toc details');
+  const sync = () => details.forEach((d) => (d.open = mq.matches));
+  details.forEach((d) =>
+    d.addEventListener('click', (e) => {
+      if (mq.matches && (e.target as Element).closest('summary')) e.preventDefault();
+    }),
+  );
+  mq.addEventListener('change', sync);
+  sync();
+</script>

@@ -1,0 +1,39 @@
+---
+title: Introduction
+description: Learn how the Rubik's Cube is built and why a layer-by-layer method with six core algorithms can solve it.
+series: 3x3-beginner
+order: 1
+legacy: basic1.html
+---
+
+import core from './images/core.png';
+import corners from './images/corners.png';
+import edges from './images/edges.png';
+
+You can solve the Rubik's Cube. It is simply a matter of breaking the puzzle down into smaller steps and understanding how to approach each step.
+
+This tutorial is for beginners. More experienced cubers may be interested in the [CFOP](../../cfop/) and [Roux](../../roux/) tutorials.
+
+## Cube Anatomy
+
+The first task in solving the cube is understanding what it is. Inside the cube is an unmoving structure that holds six pieces in place. These six pieces are the center squares on each of the six sides of the cube. Take your cube apart to see for yourself! Around this structure, there are 20 movable pieces: 8 corners and 12 edges. Each corner piece has 3 colors, and each edge piece has 2 colors. Solving the cube entails arranging these 20 pieces correctly around the central axes.
+
+<div className="flex flex-wrap items-end justify-center gap-6">
+  <Figure src={core} alt="The inside of a Rubik's Cube: a plastic core holding six center pieces in place" caption="6 centers" width={175} />
+  <Figure src={corners} alt="Eight corner pieces of a Rubik's Cube laid out on a table, each showing three colors" caption="8 corners" width={312} />
+  <Figure src={edges} alt="Twelve edge pieces of a Rubik's Cube arranged in three rows, each showing two colors" caption="12 edges" width={215} />
+</div>
+
+Once you understand how the cube is made, you can see why solving the cube one side at a time would be inefficient. You could solve a side alright, but the relative positions of those 8 pieces (around the unmoving center) could be completely incorrect. It is better to solve the cube layer by layer. This means that as you solve one side, you are simultaneously beginning to solve other sides.
+
+## Algorithms
+
+The "trick" to solving the cube is the use of algorithms, or specific sequences of turns. Algorithms do certain things to the pieces of the cube without disrupting other parts of the cube. The more algorithms you memorize, the more tools you have to solve the cube efficiently.
+
+A layer-by-layer approach uses only 6 core algorithms: 1 for the first layer, 1 for the second layer, 2 for orienting the last layer (one for the edges and the Sune for the corners), and 2 for positioning the last layer (one for the corners and one for the edges). Along the way you will also use mirrored versions of some of them, such as the Anti-Sune, which are the same moves seen in a mirror.
+
+This is not the fastest way to solve the cube, but it is reliable and easy to learn. For comparison, every position of the cube can be solved in 20 turns or fewer, a result known as God's number.
+
+## Onward!
+
+Before moving on to the first step, be sure to learn the [notation](../../../notation/) for single-face rotations. Once you feel comfortable with that, then let's tackle [the cross](../the-cross/)!

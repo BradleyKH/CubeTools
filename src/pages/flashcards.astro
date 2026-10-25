@@ -1,0 +1,21 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FlashcardsApp from '@/components/tools/flashcards/FlashcardsApp';
+---
+
+<BaseLayout
+  title="Flashcards"
+  description="Algorithm flashcards for F2L, OLL, PLL, and CMLL, with 2-look sets, case diagrams, a choice of algorithm per case, and spaced repetition review."
+>
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <h1 class="text-3xl font-bold">Flashcards</h1>
+    <p class="mt-2 mb-8 text-muted-foreground">
+      Drill algorithm sets in order or shuffled, or review them on a spaced repetition schedule. Progress is saved in this browser.
+    </p>
+    {/* The set comes from the URL and progress from localStorage, so there is nothing useful to prerender. */}
+    <FlashcardsApp client:only="react">
+      <p slot="fallback" class="text-muted-foreground">Loading flashcards...</p>
+    </FlashcardsApp>
+    <noscript><p class="text-muted-foreground">Flashcards need JavaScript.</p></noscript>
+  </div>
+</BaseLayout>

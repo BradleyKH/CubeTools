@@ -1,0 +1,109 @@
+---
+title: "LSE: Permute M Slice"
+description: Finish the solve by permuting the last four edges in the M slice, covering 2 dots, 4 dots, and 3-edge cycles.
+series: roux
+order: 7
+navTitle: "LSE: Permute M Slice"
+legacy: roux7.html
+---
+
+import two_dots_a from './images/two-dots-a.png';
+import two_dots_b from './images/two-dots-b.png';
+import four_dots_a from './images/four-dots-a.png';
+import four_dots_b from './images/four-dots-b.png';
+import c1 from './images/three-cycle-1.png';
+import c2 from './images/three-cycle-2.png';
+import c3 from './images/three-cycle-3.png';
+import c4 from './images/three-cycle-4.png';
+import c5 from './images/three-cycle-5.png';
+import c6 from './images/three-cycle-6.png';
+import c7 from './images/three-cycle-7.png';
+import c8 from './images/three-cycle-8.png';
+
+There are 3 basic cases for this last step: 2 dots, 4 dots, and 3-edge cycles.
+
+## 2 Dots (Bars)
+
+<div class="not-prose flex flex-wrap items-start gap-4">
+  <Figure src={two_dots_a} alt="2 dots case with two white-sticker edges on top" />
+  <div class="min-w-64 flex-1"><AlgBlock alg="U2 M2 U2" /></div>
+</div>
+
+<div class="not-prose flex flex-wrap items-start gap-4">
+  <Figure src={two_dots_b} alt="2 dots case with two white-sticker edges on top, in a different arrangement" />
+  <div class="min-w-64 flex-1"><AlgBlock alg="M2 U2 M2 U2" /></div>
+</div>
+
+These can be solved very quickly.
+
+## 4 Dots
+
+<div class="not-prose flex flex-wrap items-start gap-4">
+  <Figure src={four_dots_a} alt="4 dots case with an orange center displaced in the middle slice" />
+  <div class="min-w-64 flex-1"><AlgBlock alg="E2 M' E2 M" /></div>
+</div>
+
+<div class="not-prose flex flex-wrap items-start gap-4">
+  <Figure src={four_dots_b} alt="4 dots case with an orange center displaced in the middle slice, in a different arrangement" />
+  <div class="min-w-64 flex-1"><AlgBlock alg="E2 M' E2 M'" /></div>
+</div>
+
+This is the awkward case. One could solve it conventionally with M and U turns, but using the E slice is faster with practice.
+
+## 3-Edge Cycles
+
+3-edge cycles are a common case requiring only 4 or 5 turns to solve, but recognizing their best solution takes practice.
+
+First, find the "unique edge" whose stickers do not align with its neighboring centers in the M slice. Make sure that the unique edge is in the top layer, using M2 if necessary.
+
+Next, look at the FU and BU stickers. (Actually, to save time, you'll want to track the BU in advance so you already know what it is.) They will be either the same color (e.g. red) or opposite colors (e.g. red and orange).
+
+- Same color: do `MU2 MU2` or `M'U2 M'U2`, whichever keeps the unique edge on top. A final M2 may be required to solve the cube.
+- Opposite color: do `U2 M U2` or `U2 M' U2`, whichever keeps the unique edge on top. A final M or M' turn solves the cube.
+
+This can be a challenging step, so here are some cases to help. The solution to 3-edge cycles depends on the color (orange or red) of the BU edge sticker, which I've indicated with O or R.
+
+<p class="font-semibold">
+  <span class="text-purple-700 dark:text-purple-300">FU/BU Same</span><br />
+  <span class="text-blue-700 italic dark:text-blue-300">FU/BU Different</span>
+</p>
+
+<div class="not-prose flex flex-wrap gap-6">
+  <div>
+    <Figure src={c1} alt="3-edge cycle case 1 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-purple-700 dark:text-purple-300">O: M'U2M'U2M2</span><br /><span class="text-blue-700 italic dark:text-blue-300">R: U2MU2M'</span></p>
+  </div>
+  <div>
+    <Figure src={c2} alt="3-edge cycle case 2 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-purple-700 dark:text-purple-300">O: M'U2MU2M2</span><br /><span class="text-blue-700 italic dark:text-blue-300">R: M2U2MU2M'</span></p>
+  </div>
+  <div>
+    <Figure src={c7} alt="3-edge cycle case 3 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-blue-700 italic dark:text-blue-300">O: U2M'U2M'</span><br /><span class="text-purple-700 dark:text-purple-300">R: MU2M'U2M2</span></p>
+  </div>
+  <div>
+    <Figure src={c8} alt="3-edge cycle case 4 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-blue-700 italic dark:text-blue-300">O: M2U2M'U2M'</span><br /><span class="text-purple-700 dark:text-purple-300">R: MU2MU2M2</span></p>
+  </div>
+</div>
+
+<div class="not-prose flex flex-wrap gap-6">
+  <div>
+    <Figure src={c3} alt="3-edge cycle case 5 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-blue-700 italic dark:text-blue-300">O: U2MU2M</span><br /><span class="text-purple-700 dark:text-purple-300">R: M'U2M'U2</span></p>
+  </div>
+  <div>
+    <Figure src={c4} alt="3-edge cycle case 6 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-blue-700 italic dark:text-blue-300">O: M2U2MU2M</span><br /><span class="text-purple-700 dark:text-purple-300">R: M'U2MU2</span></p>
+  </div>
+  <div>
+    <Figure src={c5} alt="3-edge cycle case 7 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-purple-700 dark:text-purple-300">O: MU2M'U2</span><br /><span class="text-blue-700 italic dark:text-blue-300">R: U2M'U2M</span></p>
+  </div>
+  <div>
+    <Figure src={c6} alt="3-edge cycle case 8 with yellow on top and the middle slice edges out of place" />
+    <p class="font-mono text-sm"><span class="text-purple-700 dark:text-purple-300">O: MU2MU2</span><br /><span class="text-blue-700 italic dark:text-blue-300">R: M2U2M'U2M</span></p>
+  </div>
+</div>
+
+Let's bring it all together with some [example solves](../example-solves/).

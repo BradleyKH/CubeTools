@@ -1,0 +1,33 @@
+---
+title: Top Layer
+description: Finish the 2x2 by matching the top corners with the same corner-swapping algorithm used for the bottom layer.
+series: 2x2-beginner
+order: 5
+legacy: 2basic5.html
+---
+
+With the top all yellow, we will look along the sides of the top pieces for matching corners, just like we did in the second step.
+
+If you have matching corners, turn the top so that they align with their color on the bottom layer. Put the matching corners (now a whole side) on the left side of the cube.
+
+<div className="flex flex-wrap items-end gap-4">
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="PLL" setup="x R' U R U' L U2' R' U R U2' R' U2" label="Matching corners on the right" />
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="PLL" setup="x R' U R U' L U2' R' U R U2' R'" label="Matching corners on the left" />
+</div>
+
+Now we use our old friend, the corner-switching algorithm:
+
+<AlgBlock alg="(RU2R'U') (RU2L'U) (R'U'L)" />
+
+<div className="flex flex-wrap items-end gap-4">
+  <CubeView puzzle="2x2x2" view="2D" size="sm" stickering="PLL" alg="(RU2R'U') (RU2L'U) (R'U'L)" setupFromAlgInverse label="Before the algorithm: matching corners on the left" />
+  <CubeView puzzle="2x2x2" view="3D" size="sm" yellowTop setup="y'" label="After the algorithm: solved cube with yellow on top, red on the left, and green on the right" />
+</div>
+
+If there are no matching corners, simply use the algorithm to make some as before.
+
+Congratulations! You are finished!
+
+## What's Next?
+
+Want to get faster? My [2x2 intermediate tutorial](../../ortega/) shows you how to solve the cube more efficiently. If you are thinking about buying a faster cube, read the guide to [choosing a cube](../../../guides/choosing-a-cube/).

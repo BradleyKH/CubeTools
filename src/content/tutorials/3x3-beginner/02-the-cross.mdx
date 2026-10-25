@@ -1,0 +1,71 @@
+---
+title: The Cross
+description: Build the white cross on the bottom layer by moving the four white edges around the white center, with no set algorithms.
+series: 3x3-beginner
+order: 2
+legacy: basic2.html
+---
+
+import centers from './images/centers.png';
+import cross1 from './images/cross-1.png';
+import cross2 from './images/cross-2.png';
+import cross3 from './images/cross-3.png';
+import cross4 from './images/cross-4.png';
+import cross5 from './images/cross-5.png';
+import cross6 from './images/cross-6.png';
+
+## Get Your Bearings
+
+The center squares of the cube never move with respect to each other, so they serve as a reference point. We will think of the side with the yellow center as the top. The side with the white center is the bottom, which is the first layer we will solve. By solving the cube from the bottom up, the unsolved portions of the cube remain clearly visible during the solving process.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={centers} alt="A cube with every sticker gray except the centers: blue on the front, red on the right, and yellow on top" width={123} />
+  <p className="min-w-0 flex-1">In this diagram, the blue center is on front, the red center is on the right, and the yellow center is on top.</p>
+</div>
+
+## The Cross
+
+The first step is to make a cross on the bottom layer. You can use any color you like, but many people choose white because it is so easy to see. This tutorial will start with white, so we will make a cross by moving the 4 edges with white stickers around the white center square.
+
+When we make the cross, the four side color stickers should align with the center sticker on each of the four sides (red with red, blue with blue, etc.). The completed cross is shown in the following two diagrams.
+
+<div className="flex flex-wrap justify-center gap-6">
+  <Figure src={cross1} alt="Cube seen from below, front view: white cross on the bottom with the blue and red edge stickers matching their side centers" caption="(front)" width={123} />
+  <Figure src={cross2} alt="Cube seen from below, back view: white cross on the bottom with the green and orange edge stickers matching their side centers" caption="(back)" width={123} />
+</div>
+
+## The Bad News
+
+There are no set algorithms used to form the white cross. Here are some situations you may encounter and some ideas which may help you in making the cross.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={cross3} alt="Cube seen from below with a white center on the bottom: a white sticker sits between a blue sticker and a red sticker in the middle layer, next to a second red sticker" width={123} />
+  <div className="min-w-0 flex-1">Red is already aligned with red. Simply use (`R'`) to move the white sticker in place.</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={cross4} alt="Cube seen from below with a white center on the bottom: a red sticker sits above a blue sticker on the left face, and a red sticker sits on the right face" width={123} />
+  <div className="min-w-0 flex-1">The red/white edge piece is on the top next to the blue center. Use (`U' R2`) to move it into place. U' aligns the red sticker, and R2 aligns the white sticker.</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={cross5} alt="Cube seen from below with a partial white cross on the bottom: blue over red on the left face and red over blue on the right face, so the blue and red edges are in each other's places" width={123} />
+  <div className="min-w-0 flex-1">The white/blue and white/red edge pieces need to switch places. One way to fix this is (`D' F' D2 F`). D' F' aligns the blue/white edge and moves it out of the way to the middle layer. D2 aligns the red/white edge, and F restores the blue/white edge. If other cross pieces are in place, (`R D R' D' R`) works.</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={cross6} alt="Cube seen from below with a partial white cross on the bottom: two blue stickers on the left face, and a red sticker, a white sticker, and another red sticker across the top of the right face" width={123} />
+  <div className="min-w-0 flex-1">This is not as bad as it looks. Use (`D' F D`). D' moves the blue/white edge out of our way. F moves the red/white edge to the bottom layer, aligning the white sticker. D aligns red with the red center while restoring the blue/white edge.</div>
+</div>
+
+## Optional: The Daisy
+
+If you find the cross hard, try making a daisy first. Keep yellow on top and gather the four white edges around the yellow center so that each white sticker faces up. The white edges look like petals around the yellow center.
+
+<CubeView yellowTop setup="F2 R2 B2 L2" label="Daisy: four white edges around the yellow center" />
+
+Then turn the top until the side color of one petal lines up with its center (red with red, for example), and turn that side a half turn (for example, `F2`). This drops the white edge into the bottom layer with its white sticker facing down. Repeat for the other three petals. The daisy takes more turns than building the cross directly, but each step is easy to see.
+
+## The Good News
+
+Because this step is entirely intuitive (without algorithms to help) it is actually the hardest step of solving the cube. Once you can make the cross, the rest will seem easier with a little practice! Next we will [solve the white corners](../white-corners/) around the cross.

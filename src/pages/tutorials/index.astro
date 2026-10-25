@@ -1,0 +1,51 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { series, type Level, type Puzzle } from '@/data/tutorials';
+import { seriesPath } from '@/lib/tutorials';
+import { withBase } from '@/lib/url';
+
+const puzzles: Puzzle[] = ['3x3x3', '2x2x2'];
+const levels: Level[] = ['Beginner', 'Intermediate', 'Advanced'];
+const groups = puzzles
+  .map((puzzle) => ({
+    puzzle,
+    levels: levels
+      .map((level) => ({ level, items: series.filter((s) => s.puzzle === puzzle && s.level === level) }))
+      .filter((l) => l.items.length > 0),
+  }))
+  .filter((g) => g.levels.length > 0);
+---
+
+<BaseLayout title="Tutorials" description="Step-by-step tutorials for solving the 3x3x3 and 2x2x2 cubes, from beginner methods to speedsolving.">
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <h1 class="mb-2 text-3xl font-bold tracking-tight">Tutorials</h1>
+    <p class="mb-8 text-muted-foreground">Pick a puzzle and a level. New to cubing? Start with the beginner method for the 3x3x3.</p>
+
+    <div class="mb-10 flex flex-wrap gap-3">
+      <a href={withBase('notation/')} class="rounded-lg border bg-card px-4 py-2 font-semibold text-link hover:bg-accent">Notation</a>
+      <a href={withBase('triggers/')} class="rounded-lg border bg-card px-4 py-2 font-semibold text-link hover:bg-accent">Triggers</a>
+      <a href={withBase('guides/')} class="rounded-lg border bg-card px-4 py-2 font-semibold text-link hover:bg-accent">Guides</a>
+    </div>
+
+    {groups.map((g) => (
+      <section class="mb-10">
+        <h2 class="mb-4 text-2xl font-bold">{g.puzzle}</h2>
+        {g.levels.map((l) => (
+          <div class="mb-6">
+            <h3 class="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">{l.level}</h3>
+            <ul class="grid gap-3 sm:grid-cols-2">
+              {l.items.map((s) => (
+                <li>
+                  <a href={withBase(seriesPath(s.slug))} class="block h-full rounded-lg border bg-card p-4 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring">
+                    <span class="block text-lg font-semibold">{s.title}</span>
+                    <span class="mt-1 block text-sm text-muted-foreground">{s.summary}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+    ))}
+  </div>
+</BaseLayout>

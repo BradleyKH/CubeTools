@@ -1,0 +1,61 @@
+---
+title: Second Block
+description: How to build the second 1x2x3 block opposite the first without disturbing it, with six example ideas.
+series: roux
+order: 3
+legacy: roux3.html
+---
+
+import secondBlock from './images/second-block.png';
+import sb1 from './images/second-block-1.png';
+import sb2 from './images/second-block-2.png';
+import sb3 from './images/second-block-3.png';
+import sb4 from './images/second-block-4.png';
+import sb5 from './images/second-block-5.png';
+import sb6 from './images/second-block-6.png';
+
+Next, we form another 1x2x3 block on the opposite side of the cube without disrupting the first block.
+
+<Figure
+  src={secondBlock}
+  alt="A gray cube with the first block solved on the left and the second 1x2x3 block solved on the right, leaving the top layer and middle slice unsolved"
+/>
+
+As with the first block, there are no set algorithms. F2L techniques can be helpful in forming the second block while preserving the first one, but there may be more efficient ways to form the block by utilizing the M slice (M turns and r turns). Here are some example ideas.
+
+<div class="not-prose flex flex-wrap gap-6">
+  <Figure
+    src={sb1}
+    alt="Case 1 of 6: the first block stands on the left, a green pair sits partly placed on the right face, and a white and a red sticker show on the top layer"
+    caption="(rUr')"
+  />
+  <Figure
+    src={sb2}
+    alt="Case 2 of 6: the first block stands on the left, one green column is placed on the right face, and a white sticker with a red sticker beside it shows on the top layer"
+    caption="(U'MU2)(rU'r')"
+  />
+  <Figure
+    src={sb3}
+    alt="Case 3 of 6: the first block stands on the left, a green pair is partly placed on the right face, and red, white, and green stickers show along the top layer"
+    caption="(MU)(rU'r')"
+  />
+  <Figure
+    src={sb4}
+    alt="Case 4 of 6: the first block stands on the left, a green column is placed on the right face, and white, green, and red stickers show on the top layer"
+    caption="(U'M2U2)(rU'r')"
+  />
+  <Figure
+    src={sb5}
+    alt="Case 5 of 6: the first block stands on the left, one green column is placed on the right face, and green and white stickers show on the top layer"
+    caption="(rU'r') U2 (rUr')"
+  />
+  <Figure
+    src={sb6}
+    alt="Case 6 of 6: the first block stands on the left with a red sticker near its bottom, a green column is placed on the right face, and a red sticker shows on the top layer"
+    caption="(U'rU')(MUr')"
+  />
+</div>
+
+Solving the second block in 12-14 moves is a good goal.
+
+Once the second block is complete, we are ready to solve the top corners using [CMLL](../cmll/).

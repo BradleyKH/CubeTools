@@ -1,0 +1,39 @@
+---
+title: Bottom Layer
+description: Finish the first layer of the 2x2 by finding matching corners and swapping the other two with a single algorithm.
+series: 2x2-beginner
+order: 3
+legacy: 2basic3.html
+---
+
+import layer1 from './images/layer1.png';
+import layer2 from './images/layer2.png';
+import layer3 from './images/layer3.png';
+import layer4 from './images/layer4.png';
+
+Turn the cube so that white is on top. Next we will look along the sides of the top pieces for "matching corners" - adjacent corners that have the same color on the same side.
+
+<Figure src={layer4} alt="White layer on top of a 2x2 cube where the two left corners both show red on the front, the front corner shows blue on its right face and the right corner shows orange" caption="In this example, there are red matching corners." />
+
+## Matching Corners
+
+If there are matching corners, turn the cube (or simply turn the top layer) so that the matching corners are on the left side. Then use this algorithm:
+
+<AlgBlock alg="(RU2R'U') (RU2L'U) (R'U'L)" />
+
+This algorithm makes the two right corners trade places, so now you should have a solved layer on top:
+
+<div className="flex flex-wrap gap-4">
+  <Figure src={layer1} alt="Solved white layer on top seen from the front, with red on the left and blue on the right" caption="(front)" />
+  <Figure src={layer2} alt="Solved white layer on top seen from the back, with orange on the left and green on the right" caption="(back)" />
+</div>
+
+## No Matching Corners
+
+Sometimes there will be no matching corners.
+
+<Figure src={layer3} alt="White layer on top of a 2x2 cube where no two neighboring corners show the same color on a side: red, orange, green, and blue across the front" />
+
+If there are no matching corners, simply use the above algorithm with white on top. This will give you matching corners. Do the algorithm once more as described above.
+
+Once the entire layer is solved, turn the cube so that white is once again on the bottom, and proceed to the [next step](../top-side/).

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bradleykh.github.io/CubeTools/sitemap-index.xml
