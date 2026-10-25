@@ -3,8 +3,9 @@ import type { KPattern, KPuzzle } from 'cubing/kpuzzle';
 import { cube3x3x3 } from 'cubing/puzzles';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { normalizeAlg, STICKERINGS } from '@/lib/cube';
+import { caseSetup, caseStickering } from '@/lib/flashcard-setup';
 import { algSets, legacyIndexToId } from './index';
-import type { AlgSet, AlgSetId } from './types';
+import type { AlgCase, AlgSet, AlgSetId } from './types';
 
 const EXPECTED_COUNTS: Record<AlgSetId, number> = {
   f2l: 41,
@@ -151,6 +152,81 @@ function solvesSameCase(primary: string, alt: string, m: Mask): boolean {
 
 const allCases = (set: AlgSet) => set.groups.flatMap((group) => group.cases);
 
+/**
+ * What TwistyView draws for a flashcard: its `z2` (when the stickering turns yellow to the
+ * top) followed by the FlashCard setup.
+ */
+async function flashcardPattern(set: AlgSet, c: AlgCase): Promise<KPattern> {
+  const yellowTop = caseStickering(set, c) !== 'full';
+  const setup = normalizeAlg(await caseSetup(c.algs[0]));
+  return solved.applyAlg([yellowTop ? 'z2' : '', setup].filter(Boolean).join(' '));
+}
+
+/** Rotates `pattern` so its centers line up with `frame` (the L and R centers and D layer for Roux). */
+function alignTo(pattern: KPattern, frame: KPattern, roux: boolean): KPattern | undefined {
+  const want = frame.patternData;
+  const bottom = new Set(want.CORNERS.pieces.slice(4));
+  return ROTATIONS.map((r) => pattern.applyAlg(r)).find((rotated) => {
+    const { CENTERS, CORNERS } = rotated.patternData;
+    if (!roux) return CENTERS.pieces.every((piece, i) => piece === want.CENTERS.pieces[i]);
+    return (
+      [1, 3].every((i) => CENTERS.pieces[i] === want.CENTERS.pieces[i]) &&
+      [4, 5, 6, 7].every((i) => bottom.has(CORNERS.pieces[i]))
+    );
+  });
+}
+
+/** Like `matches`, but against the solved state as `frame` holds it. */
+function matchesFrame(pattern: KPattern, frame: KPattern, m: Mask): boolean {
+  const { EDGES, CORNERS } = pattern.patternData;
+  const want = frame.patternData;
+  return (
+    m.edges.every((i) => EDGES.pieces[i] === want.EDGES.pieces[i] && EDGES.orientation[i] === want.EDGES.orientation[i]) &&
+    m.corners.every((i) => CORNERS.pieces[i] === want.CORNERS.pieces[i] && CORNERS.orientation[i] === want.CORNERS.orientation[i]) &&
+    m.orientedEdges.every((i) => EDGES.orientation[i] === 0) &&
+    m.orientedCorners.every((i) => CORNERS.orientation[i] === 0)
+  );
+}
+
+// Front-right, front-left, back-right, back-left F2L slots as [edge, corner] positions.
+const SLOTS = [
+  [8, 4],
+  [9, 5],
+  [10, 7],
+  [11, 6],
+];
+
+/** Problems with the diagram FlashCard shows for a case's primary, or an empty list. */
+async function flashcardProblems(set: AlgSet, c: AlgCase): Promise<string[]> {
+  const roux = set.method === 'Roux';
+  const shown = await flashcardPattern(set, c);
+  const frame = solved.applyAlg(caseStickering(set, c) === 'full' ? '' : 'z2');
+  const problems: string[] = [];
+  if (shown.patternData.CENTERS.pieces[0] !== frame.patternData.CENTERS.pieces[0]) {
+    problems.push('the yellow center is not on top');
+  }
+  const aligned = alignTo(shown, frame, roux);
+  if (!aligned) {
+    problems.push('the centers are out of place');
+  } else if (set.id === 'f2l') {
+    const solvedSlots = SLOTS.filter(([edge, corner]) =>
+      matchesFrame(aligned, frame, mask({ edges: [edge], corners: [corner] })),
+    ).length;
+    if (!matchesFrame(aligned, frame, mask({ edges: range(4, 8) })) || solvedSlots !== 3) {
+      problems.push('the cross and three other pairs are not solved');
+    }
+  } else if (!matchesFrame(aligned, frame, roux ? MASKS.blocks : MASKS.f2l)) {
+    problems.push(roux ? 'the L and R blocks are not solved' : 'F2L is not solved');
+  }
+  const done = shown.applyAlg(c.algs[0]);
+  const finished = AUFS.some((auf) => {
+    const end = alignTo(done, frame, roux);
+    return end !== undefined && matchesFrame(end.applyAlg(auf), frame, roux ? MASKS.cmll : MASKS.full);
+  });
+  if (!finished) problems.push('the primary does not finish the cube up to AUF');
+  return problems;
+}
+
 describe('algSets', () => {
   it('keeps the legacy set order', () => {
     expect(algSets.map((set) => set.id)).toEqual(legacyIndexToId);
@@ -216,6 +292,15 @@ describe('algSets', () => {
           }
         }
       });
+    },
+  );
+
+  it.each(algSets.map((set) => [set.id, set] as const))(
+    '%s primaries solve the case the flashcard shows',
+    async (_id, set) => {
+      for (const c of allCases(set)) {
+        expect(await flashcardProblems(set, c), `${c.id}: ${c.algs[0]}`).toEqual([]);
+      }
     },
   );
 
