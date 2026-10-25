@@ -173,6 +173,9 @@ describe('algSets', () => {
   it('uses known stickerings and descriptions without legacy links', () => {
     for (const set of algSets) {
       expect(STICKERINGS).toContain(set.stickering);
+      for (const group of set.groups) {
+        if (group.stickering) expect(STICKERINGS).toContain(group.stickering);
+      }
       expect(set.description).not.toMatch(/\.(pdf|html)\b|<[a-z]/i);
       for (const [, href] of set.description.matchAll(/\]\(([^)]+)\)/g)) {
         expect(href).toMatch(/^tutorials\/[a-z0-9/-]+\/$/);

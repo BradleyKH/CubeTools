@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { cube3x3x3 } from 'cubing/puzzles';
 import type { AlgCase, AlgSet } from '@/data/algsets';
 import type { DisplayMode } from '@/lib/flashcard-storage';
-import { invertAlg, isLastLayerStickering } from '@/lib/cube';
+import { invertAlg, isLastLayerStickering, type Stickering } from '@/lib/cube';
 import TwistyView from '@/components/tools/TwistyView';
 import AlgChooser from './AlgChooser';
 import { caseLabel } from './useFlashcards';
@@ -23,6 +23,11 @@ const ROTATIONS = ['', 'x', 'x2', "x'", 'z', "z'"].flatMap((a) =>
   ['', 'y', 'y2', "y'"].map((b) => `${a} ${b}`.trim()),
 );
 const SLICES = ['', 'M', 'M2', "M'"];
+
+function stickeringFor(set: AlgSet, item: AlgCase): Stickering {
+  const group = set.groups.find((g) => g.cases.includes(item));
+  return group?.stickering ?? set.stickering;
+}
 
 const setupCache = new Map<string, Promise<string>>();
 
@@ -84,7 +89,8 @@ export default function FlashCard({
   const label = caseLabel(set, item);
   const showCase = displayMode !== 'alg-to-case' || revealed;
   const showAlg = displayMode !== 'case-to-alg' || revealed;
-  const view = isLastLayerStickering(set.stickering) ? '2D' : '3D';
+  const stickering = stickeringFor(set, item);
+  const view = isLastLayerStickering(stickering) ? '2D' : '3D';
   const setup = useCaseSetup(alg);
 
   return (
@@ -100,7 +106,7 @@ export default function FlashCard({
           ) : (
             <TwistyView
               setup={setup}
-              stickering={set.stickering}
+              stickering={stickering}
               view={view}
               size="lg"
               label={showCase ? `${label} case diagram` : 'Hidden case'}

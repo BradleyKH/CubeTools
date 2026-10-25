@@ -13,6 +13,8 @@ export interface AlgCase {
 export interface CaseGroup {
   id: string;
   name: string;
+  /** Overrides the set's stickering for this group's cases. */
+  stickering?: Stickering;
   cases: AlgCase[];
 }
 

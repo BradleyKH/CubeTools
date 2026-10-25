@@ -14,6 +14,7 @@ export const cmll2: AlgSet = {
     {
       id: 'corner-orientation',
       name: 'Corner orientation',
+      stickering: 'OCLL',
       cases: [
         { id: 'cmll2-sune', name: 'Sune', algs: ["(R U R' U) (R U2 R')"] },
         { id: 'cmll2-antisune', name: 'Anti-Sune', algs: ["(R' U' R U') (R' U2 R)"] },

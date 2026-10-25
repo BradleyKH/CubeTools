@@ -13,6 +13,7 @@ export const pll2: AlgSet = {
     {
       id: 'corner-permutation',
       name: 'Corner permutation',
+      stickering: 'CPLL',
       cases: [
         {
           id: 'pll2-a',
@@ -27,8 +28,9 @@ export const pll2: AlgSet = {
       ],
     },
     {
-      id: 'edge-orientation',
-      name: 'Edge orientation',
+      id: 'edge-permutation',
+      name: 'Edge permutation',
+      stickering: 'EPLL',
       cases: [
         {
           id: 'pll2-ua',

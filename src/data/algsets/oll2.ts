@@ -14,6 +14,7 @@ export const oll2: AlgSet = {
     {
       id: 'edge-orientation',
       name: 'Edge orientation',
+      stickering: 'EOLL',
       cases: [
         { id: 'oll2-opposite-edges', name: 'Two opposite edges', algs: ["F (R U R' U') F'"] },
         { id: 'oll2-adjacent-edges', name: 'Two adjacent edges', algs: ["f (R U R' U') f'"] },
@@ -30,6 +31,7 @@ export const oll2: AlgSet = {
     {
       id: 'corner-orientation',
       name: 'Corner orientation',
+      stickering: 'OCLL',
       cases: [
         { id: 'oll2-sune', name: 'Sune', algs: ["(R U R' U) (R U2 R')"] },
         { id: 'oll2-antisune', name: 'Anti-Sune', algs: ["(L' U' L U') (L' U2 L)"] },
