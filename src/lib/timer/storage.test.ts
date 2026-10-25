@@ -11,6 +11,7 @@ import {
   loadTimerData,
   sanitizeTimerData,
   saveTimerData,
+  sessionForEvent,
   type KeyValueStorage,
 } from './storage';
 import type { TimerData } from './types';
@@ -157,5 +158,69 @@ describe('import and export', () => {
 
   it('defaultTimerData gives unique session ids', () => {
     expect(defaultTimerData().sessions[0].id).not.toBe(defaultTimerData().sessions[0].id);
+  });
+});
+
+describe('sessionForEvent', () => {
+  const solve = (at: number, eventId = '333') => ({ id: `s${at}`, ms: 1000, penalty: 'none' as const, scramble: '', eventId, at });
+
+  it('changes an empty current session in place', () => {
+    const data = defaultTimerData(1);
+    const { data: next, outcome } = sessionForEvent(data, '222', 5);
+    expect(outcome).toBe('changed');
+    expect(next.sessions).toHaveLength(1);
+    expect(next.sessions[0].eventId).toBe('222');
+    expect(next.settings.eventId).toBe('222');
+  });
+
+  it('creates a named session and leaves the solved one alone', () => {
+    const data = defaultTimerData(1);
+    data.sessions[0].solves.push(solve(2), solve(3));
+    const { data: next, outcome } = sessionForEvent(data, '222', 5);
+    expect(outcome).toBe('created');
+    expect(next.sessions).toHaveLength(2);
+    expect(next.sessions[0].eventId).toBe('333');
+    expect(next.sessions[0].solves).toHaveLength(2);
+    expect(next.sessions[1].name).toBe('2x2x2 Session');
+    expect(next.currentSessionId).toBe(next.sessions[1].id);
+  });
+
+  it('switches back to the most recent session for the event', () => {
+    const data = defaultTimerData(1);
+    data.sessions[0].solves.push(solve(2));
+    const second = { ...createSession('Other', '333', 3), solves: [solve(10)] };
+    const two = { ...createSession('Two', '222', 4), solves: [solve(6, '222')] };
+    data.sessions.push(two, second);
+    data.currentSessionId = two.id;
+    const { data: next, outcome } = sessionForEvent(data, '333', 20);
+    expect(outcome).toBe('switched');
+    expect(next.currentSessionId).toBe(second.id);
+    expect(next.sessions).toHaveLength(3);
+  });
+
+  it('prefers an existing session for the event over retagging an empty one', () => {
+    const data = defaultTimerData(1);
+    data.sessions[0].solves.push(solve(2));
+    const empty = createSession('Empty', '222', 3);
+    data.sessions.push(empty);
+    data.currentSessionId = empty.id;
+    const { data: next, outcome } = sessionForEvent(data, '333', 5);
+    expect(outcome).toBe('switched');
+    expect(next.currentSessionId).toBe(data.sessions[0].id);
+    expect(next.sessions[1].eventId).toBe('222');
+  });
+
+  it('does nothing when the event already matches', () => {
+    const { data: next, outcome } = sessionForEvent(defaultTimerData(1), '333', 5);
+    expect(outcome).toBe('unchanged');
+    expect(next.sessions).toHaveLength(1);
+  });
+
+  it('numbers the name when it is taken', () => {
+    const data = defaultTimerData(1);
+    data.sessions[0].solves.push(solve(2));
+    data.sessions.push({ ...createSession('2x2x2 Session', '444', 3), solves: [solve(4, '444')] });
+    const { data: next } = sessionForEvent(data, '222', 5);
+    expect(next.sessions.at(-1)?.name).toBe('2x2x2 Session 2');
   });
 });

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { EVENTS, type EventId } from '@/lib/events';
+import { EVENTS, getEvent, isEventId, type EventId } from '@/lib/events';
 import type { Session } from '@/lib/timer/types';
 
 interface Props {
@@ -58,13 +58,14 @@ export default function SessionPicker({
           Session
         </Label>
         <Select value={currentId} onValueChange={onSwitch}>
-          <SelectTrigger id="timer-session" className="w-40">
+          <SelectTrigger id="timer-session" className="w-64">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
             {sessions.map((s) => (
               <SelectItem key={s.id} value={s.id}>
                 {s.name}
+                <span className="text-muted-foreground">{isEventId(s.eventId) ? ` (${getEvent(s.eventId).name})` : ''}</span>
               </SelectItem>
             ))}
           </SelectContent>

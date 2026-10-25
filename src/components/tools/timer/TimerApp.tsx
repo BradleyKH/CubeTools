@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { getScramble } from '@/lib/scramble';
 import { isEventId, type EventId } from '@/lib/events';
-import { createSession, loadTimerData, newId, saveTimerData } from '@/lib/timer/storage';
+import { createSession, loadTimerData, newId, saveTimerData, sessionForEvent } from '@/lib/timer/storage';
 import type { Penalty, Session, Solve, TimerData, TimerSettings as Settings } from '@/lib/timer/types';
 import ScramblePanel from './ScramblePanel';
 import SessionPicker from './SessionPicker';
@@ -136,6 +136,18 @@ export default function TimerApp() {
     setData((d) => ({ ...d, settings: { ...d.settings, ...patch } }));
   }, []);
 
+  const changeEvent = useCallback(
+    (ev: EventId) => {
+      const { data: next, outcome } = sessionForEvent(data, ev);
+      if (outcome === 'unchanged') return;
+      const active = next.sessions.find((s) => s.id === next.currentSessionId);
+      const note = outcome === 'created' ? 'Started new session' : outcome === 'switched' ? 'Switched to session' : 'Using session';
+      setData(next);
+      setStatus(active ? `${note} "${active.name}"` : '');
+    },
+    [data],
+  );
+
   useEffect(() => {
     if (!inspectionOn) cancel();
   }, [inspectionOn, cancel]);
@@ -191,10 +203,7 @@ export default function TimerApp() {
               return { ...d, sessions, currentSessionId: sessions[0].id };
             })
           }
-          onEventChange={(ev) => {
-            updateCurrentSession((s) => ({ ...s, eventId: ev }));
-            changeSettings({ eventId: ev });
-          }}
+          onEventChange={changeEvent}
         />
 
         <ScramblePanel eventId={eventId} scramble={scramble} error={scrambleError} onNext={nextScramble} />

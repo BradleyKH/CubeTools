@@ -1,3 +1,4 @@
+import { getEvent, isEventId } from '../events';
 import { effectiveMs } from './stats';
 import { formatMs } from './format';
 import {
@@ -41,6 +42,45 @@ export function newId(): string {
 
 export function createSession(name: string, eventId: string, now: number = Date.now()): Session {
   return { id: newId(), name, eventId, solves: [], createdAt: now };
+}
+
+export type EventChangeOutcome = 'changed' | 'switched' | 'created' | 'unchanged';
+
+const lastActivity = (s: Session) => s.solves.at(-1)?.at ?? s.createdAt;
+
+/**
+ * Makes the current session match `eventId` without ever retagging a session that has solves:
+ * the most recently used session for that event becomes current; failing that, an empty current
+ * session changes event in place, otherwise a new session named after the event is created.
+ */
+export function sessionForEvent(
+  data: TimerData,
+  eventId: string,
+  now: number = Date.now(),
+): { data: TimerData; outcome: EventChangeOutcome } {
+  const settings = { ...data.settings, eventId };
+  const current = data.sessions.find((s) => s.id === data.currentSessionId) ?? data.sessions[0];
+  if (current.eventId === eventId) return { data: { ...data, settings }, outcome: 'unchanged' };
+
+  const existing = data.sessions
+    .filter((s) => s.eventId === eventId)
+    .reduce<Session | null>((best, s) => (best && lastActivity(best) >= lastActivity(s) ? best : s), null);
+  if (existing) return { data: { ...data, currentSessionId: existing.id, settings }, outcome: 'switched' };
+
+  if (current.solves.length === 0) {
+    const sessions = data.sessions.map((s) => (s.id === current.id ? { ...s, eventId } : s));
+    return { data: { ...data, sessions, settings }, outcome: 'changed' };
+  }
+
+  const base = isEventId(eventId) ? `${getEvent(eventId).name} Session` : 'Session';
+  const used = new Set(data.sessions.map((s) => s.name));
+  let name = base;
+  for (let n = 2; used.has(name); n++) name = `${base} ${n}`;
+  const created = createSession(name, eventId, now);
+  return {
+    data: { ...data, sessions: [...data.sessions, created], currentSessionId: created.id, settings },
+    outcome: 'created',
+  };
 }
 
 export function defaultTimerData(now: number = Date.now()): TimerData {
