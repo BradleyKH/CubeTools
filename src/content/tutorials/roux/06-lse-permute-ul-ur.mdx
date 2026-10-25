@@ -1,0 +1,75 @@
+---
+title: "LSE: Permute UL/UR"
+description: Place the UL and UR edges by moving them to the bottom layer without changing edge orientation, then bringing them back up with M2.
+series: roux
+order: 6
+navTitle: "LSE: Permute UL/UR"
+legacy: roux6.html
+---
+
+import lr1 from './images/ul-ur-1.png';
+import lr2 from './images/ul-ur-2.png';
+import lr3 from './images/ul-ur-3.png';
+import lr4 from './images/ul-ur-4.png';
+import lr5 from './images/ul-ur-5.png';
+import lr6 from './images/ul-ur-6.png';
+import lr7 from './images/ul-ur-7.png';
+
+## What Goes Down...
+
+In our color scheme, the UL and UR edges are the blue/yellow and green/yellow edges, respectively. To solve these two edges, we first move them both to the bottom layer. As we do this, we must make moves that preserve the edge orientation we just fixed. Permitted moves are:
+
+- U, U', U2, and M2
+- M and M' only if they are followed with U2M or U2M'
+
+There are not many cases in this step. We will use moves like M'U2M to move edges between layers. The basic idea is to get one edge on the bottom, then insert the other edge across from it.
+
+<div class="not-prose flex flex-wrap gap-6">
+  <Figure
+    src={lr1}
+    alt="Cube with one blue and yellow edge in the bottom layer at DF and the green and yellow edge in the top layer"
+    caption="1 on top, 1 on DF (U' MU2M')"
+  />
+  <Figure
+    src={lr4}
+    alt="Cube with one yellow edge in the top layer and the other UL or UR edge in the bottom layer at DB"
+    caption="1 on top, 1 on DB (U M'U2M)"
+  />
+  <Figure
+    src={lr3}
+    alt="Cube with the blue and yellow edge and the green and yellow edge both in the top layer, opposite each other"
+    caption="2 on top, opposite (U M2)"
+  />
+  <Figure
+    src={lr2}
+    alt="Cube with the blue and yellow edge and the green and yellow edge both in the top layer, next to each other"
+    caption="2 on top, adjacent (M2 U M'U2M)"
+  />
+</div>
+
+## ...Must Come Up
+
+Once the UL and UR edges are in the bottom layer, you will be able to see one of them on the front face. Note the color of this edge (in our case, blue or green), then turn the top layer so that the corner stickers facing you are the opposite color from the edge. In other words, if you can see a blue edge, you want to see green corners, and vice versa.
+
+<div class="not-prose flex flex-wrap items-center gap-6">
+  <Figure
+    src={lr5}
+    alt="Cube with a blue edge visible in the bottom front and the top corners facing front showing green"
+  />
+  <p class="font-semibold">OR</p>
+  <Figure
+    src={lr6}
+    alt="Cube with a green edge visible in the bottom front and the top corners facing front showing blue"
+  />
+</div>
+
+Now simply use M2 to bring the UL and UR edges to the top layer, then use U or U' to solve the L and R sides. As you make the final U turn, note the color of the sticker that will be in the BU position when UL/UR are solved. (BU is the back sticker in the middle of the top layer.) Knowing that color will probably come in handy for the final step.
+
+## Almost There!
+
+You are only 3-5 turns away! All that remains is to solve the last 4 edges around their centers in the [middle slice](../lse-permute-m-slice/).
+
+<Figure
+  src={lr7}
+  alt="Cube with both blocks and the UL and UR edges solved, leaving only the four edges of the middle slice unsolved"
+/>

@@ -1,0 +1,51 @@
+---
+title: The Cross
+description: Advanced cross concepts for CFOP, including efficiency, relative positioning, inspection planning, and color neutrality.
+series: cfop
+order: 2
+legacy: cfop2.html
+---
+
+In my beginner tutorial, I cover the [basics of making the cross](../../3x3-beginner/). Here I will cover some more advanced concepts.
+
+## Efficiency
+
+Try to make the cross in 8 moves or less. It can be made in 7 moves or less over 99% of the time, with an average of 6.5 moves. Even at only 2 turns per second (tps), the cross should take no more than 4 seconds to make. With practice, a consistent 2-second cross (or faster) is viable.
+
+For example, face green with white on top, and do this scramble:<br />L2 U D B' U' B' F L B' D' F2 B2 R' U2 B2 U' F D B2 R D F' D2 B R'
+
+<CubeView
+  setup="L2 U D B' U' B' F L B' D' F2 B2 R' U2 B2 U' F D B2 R D F' D2 B R'"
+  yellowTop={false}
+  view="2D"
+  size="lg"
+  label="Cube after the first scramble, white on top and green in front"
+/>
+
+If you face the red center with the yellow center on top, one possible cross solution is (D'U2L2R). Another (perhaps preferable) solution is (DR2D2R').
+
+## Relative Positioning
+
+Beginners will often put the cross pieces in place one at a time (aligned with the white center and the red/green/orange/blue center). Sometimes it is more efficient to put the cross pieces in place around the white center, correctly positioned in relation to each other but incorrectly positioned in relation to the sides. Then a simple D/D'/D2 will fix the cross.
+
+For example, face green with white on top, and do this scramble:<br />U' B' L' D2 L2 D B' R D R2 U B' U D' F U2 F D2 R D' L' R' U L2 B
+
+<CubeView
+  setup="U' B' L' D2 L2 D B' R D R2 U B' U D' F U2 F D2 R D' L' R' U L2 B"
+  yellowTop={false}
+  view="2D"
+  size="lg"
+  label="Cube after the second scramble, white on top and green in front"
+/>
+
+If you face the red center with the yellow center on top, one possible cross solution is (L'BDR'B'D). The initial L'B puts the green and red cross pieces in position with respect to each other. D prepares to receive the other two cross pieces into the bottom layer, and R'B' puts them there. The final D move moves all four cross pieces into position, completing the cross. If we had tried first to align the cross pieces with their corresponding side colors, the solution would be much longer, something like (LU2RFLF2U'RB2).
+
+## Planning
+
+In a competitive setting, you typically get 15 seconds inspection time before solving. During this time, plan your cross moves in advance so that you can begin making the cross without thinking. That way, while making the cross, you can be looking for your first CE pair. This helps you to transition smoothly from the cross to F2L. After planning the cross becomes a habit, you can even start to plan your first CE pair during inspection.
+
+## Color Neutrality
+
+Some people like to practice making the cross with different colors. If you become equally comfortable starting with any of the six colors, you are "color neutral", and you can choose the most convenient color to start with. The benefit of color neutrality decreases as one becomes more efficient at making the cross. Because color neutrality can arguably hinder look-ahead, some recommend being "dual color neutral" - comfortable starting with either of two colors, such as white and yellow. That way if you get an awkward cross case in white, you can fall back to yellow.
+
+Next is the most important phase of CFOP: the [first two layers](../first-two-layers/).

@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import TutorialLayout from '@/layouts/TutorialLayout.astro';
+import AlgBlock from '@/components/AlgBlock.astro';
+import CubeView from '@/components/CubeView.astro';
+import Callout from '@/components/Callout.astro';
+import Figure from '@/components/Figure.astro';
+import { seriesBySlug } from '@/data/tutorials';
+import { entryPath, entrySlug, neighbors, seriesPages } from '@/lib/tutorials';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('tutorials');
+  return entries.map((entry) => ({
+    params: { series: entry.data.series, slug: entrySlug(entry) },
+    props: { entry, entries },
+  }));
+}
+
+const { entry, entries } = Astro.props;
+const series = seriesBySlug(entry.data.series);
+if (!series) throw new Error(`Tutorial ${entry.id} has unknown series "${entry.data.series}"`);
+
+const { Content } = await render(entry);
+const { prev, next } = neighbors(entries, entry);
+const link = (e: typeof entry) => ({ title: e.data.navTitle ?? e.data.title, href: entryPath(e) });
+const toc = seriesPages(entries, entry.data.series).map((e) => ({ ...link(e), current: e.id === entry.id }));
+---
+
+<TutorialLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  seriesTitle={series.title}
+  toc={toc}
+  prev={prev && link(prev)}
+  next={next && link(next)}
+>
+  <Content components={{ AlgBlock, CubeView, Callout, Figure }} />
+</TutorialLayout>

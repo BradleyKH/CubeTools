@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { withBase } from '@/lib/url';
+---
+
+<BaseLayout title="Flashcards" description="Algorithm flashcards are being rebuilt for Cube Tools.">
+  <div class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold">Flashcards</h1>
+    <p class="mt-4 text-muted-foreground">The algorithm flashcards are being rebuilt and will be back soon.</p>
+    <p class="mt-6"><a class="text-link underline" href={withBase('')}>Back to home</a></p>
+  </div>
+</BaseLayout>

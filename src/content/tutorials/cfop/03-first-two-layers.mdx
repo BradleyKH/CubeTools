@@ -1,0 +1,89 @@
+---
+title: First Two Layers (F2L)
+description: How to solve corner-edge pairs in CFOP by setting up and inserting them, with example cases and advice on looking ahead.
+series: cfop
+order: 3
+navTitle: First Two Layers
+legacy: cfop3.html
+---
+
+import f2lExample3 from './images/f2l-example-3.png';
+import f2lExample4 from './images/f2l-example-4.png';
+import f2lExample5 from './images/f2l-example-5.png';
+import f2lExample6 from './images/f2l-example-6.png';
+import f2lExample7 from './images/f2l-example-7.png';
+import f2lExample8 from './images/f2l-example-8.png';
+
+In CFOP, solving the first two layers entails pairing up each of the four corner-edge (CE) pairs and inserting them around the cross. This is best learned intuitively, but learning algorithms will increase efficiency later on.
+
+## Setup and Insert
+
+There are two basic steps for solving a CE pair: setup the CE pair, and insert the CE pair. There are two main setups to keep in mind:
+
+<CubeView
+  setup="z2 y'"
+  alg="RUR'"
+  setupFromAlgInverse
+  yellowTop={false}
+  size="sm"
+  label="Knight's move case, before inserting with R U R'"
+/>
+
+The corner and edge are positioned a knight's move apart. This is common when the top colors of the two pieces are different. They are inserted with (RUR').
+
+<CubeView
+  setup="z2 y'"
+  alg="U RU'R'"
+  setupFromAlgInverse
+  yellowTop={false}
+  size="sm"
+  label="Block case, before inserting with U R U' R'"
+/>
+
+The corner and edge are combined in a block. This is common when the top colors of the two pieces are the same. They are inserted with (U RU'R') or (R'FRF').
+
+So what's the big deal with F2L? Several things.
+
+## The Big Deal, Part I
+
+First, the process of setting up the CE pair varies depending on where the pieces happen to be. Ideally, the pieces are either in the top layer or already in the correct slot. There are 41 of these standard cases. Most of these cases are very short and intuitive, and many are mirrors of another case. Here are some examples:
+
+<Figure src={f2lExample3} alt="Cube with yellow on top, white on the bottom, and the cross solved; the red, green, and white corner sits at the top front right with white facing right, and the matching green edge is on the top layer at the back left" width={200} />
+
+d (R'U'R) U2 (R'UR)<br />The top colors are the same, so we make a block and insert it in the back.
+
+<Figure src={f2lExample4} alt="Cube with yellow on top; the white corner sits at the top front right with white facing up, green on its left, and red on its right, and the red edge is on the top layer at the back" width={200} />
+
+U2 (RUR') U (RU'R')<br />Here we can make the block on the side and insert.
+
+<Figure src={f2lExample5} alt="Cube with yellow on top; the white corner sits in the bottom layer at the front facing forward beside a red piece, and the green edge is on the top layer" width={200} />
+
+y (L'U'LU)(L'U'L)<br />Here we position the pieces a knight's move apart, then insert.
+
+<Figure src={f2lExample6} alt="Cube with yellow on top; the white corner sits in the bottom layer at the front, facing forward beside a red piece, with the rest of the top layer unsolved" width={200} />
+
+(RUR'U')(RU2R'U')(RUR')<br />This time it takes 8 moves to setup the knight's move before inserting.
+
+## The Big Deal, Part II
+
+Second, sometimes an edge or corner (or both) will be in an incorrect slot. The basic way to deal with this situation is to bring the wayward piece to the top layer with something like (RU'R') or (LUL'). Keep an eye out for which slots are still empty and use those to your advantage.
+
+<Figure src={f2lExample7} alt="Cube with yellow on top; the red, green, and white corner sits at the top front right with white facing right, and the white cross edge slot at the bottom is empty" width={200} />
+
+(R'U'R2UR')<br />The edge is in the wrong slot, so we bring it to the top layer, setup a knight's move, and insert.
+
+<Figure src={f2lExample8} alt="Cube with yellow on top; the green and red edge is on the top layer at the back left, while orange and green pieces sit in the wrong slot on the right side" width={200} />
+
+U (RU'R')(L'UL)<br />The corner is in the wrong slot. We first move the top to prepare a block, then insert as usual.
+
+## The Big Deal, Part III
+
+Third, slow down and look ahead. This is the golden rule of speedcubing. It is better to move fluidly without pausing, even if that means moving more slowly at first. Then you can gradually increase your speed.
+
+Once you get comfortable with solving CE pairs, you will be able to execute each one automatically. This means that you do not need to look at the CE pair you are currently solving. Instead, you are free to look elsewhere on the cube for the next pair. Looking ahead is how you can reduce pauses between CE pairs and dramatically improve your solve time.
+
+When convenient, insert pairs into the back slots; this gives you a better view of the other pieces around the cube.
+
+Increasing your speed will feel uncomfortable at first, but your brain will adapt to tracking the CE pairs at a faster speed. Once you get to 4 turns per second, the cross and F2L can be done in 10-12 seconds.
+
+Next comes [OLL](../orient-last-layer/).

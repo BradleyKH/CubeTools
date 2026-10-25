@@ -1,0 +1,55 @@
+@media print {
+  header[role='banner'],
+  nav,
+  footer,
+  .skip-link,
+  [data-theme-toggle],
+  [data-print-hide],
+  button,
+  select,
+  input,
+  twisty-player {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  pre,
+  figure,
+  img,
+  table,
+  [data-alg-block] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  [data-cube-fallback] {
+    display: block !important;
+  }
+}

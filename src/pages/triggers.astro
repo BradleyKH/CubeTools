@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AlgBlock from '@/components/AlgBlock.astro';
+
+const triggers: { alg: string; name: string }[] = [
+  { alg: "RUR'URU2R'", name: 'Sune ("soo-nay")' },
+  { alg: "R'U'RU'R'U2R", name: 'Anti-Sune' },
+  { alg: "RUR'U'", name: 'Sexy Move' },
+  { alg: "L'U'LU", name: 'Sexy Move mirrored' },
+  { alg: "R'FRF'", name: 'Sledgehammer' },
+  { alg: "LF'L'F", name: 'Sledgehammer mirrored' },
+  { alg: "FR'F'R", name: 'Reversed Sledgehammer, a.k.a. Hedgeslammer' },
+  { alg: "RUR'F'", name: 'Lasso*' },
+  { alg: "R'FR2U'", name: 'Rebound*' },
+  { alg: "RUR'U", name: 'Half Sune' },
+  { alg: "R'U'RU'", name: 'Half Anti-Sune' },
+];
+---
+
+<BaseLayout
+  title="Common Triggers"
+  description="Common speedcubing triggers such as Sune, Sexy Move, and Sledgehammer, and how naming them helps you memorize algorithms."
+>
+  <div class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold">Common Triggers</h1>
+    <p class="mt-3">Triggers are mini-algorithms that are commonly used. Naming them can make it easier to learn the algorithms that use them.</p>
+
+    <div class="mt-6">
+      {triggers.map((t) => <AlgBlock alg={t.alg} name={t.name} />)}
+    </div>
+    <p class="text-right text-sm text-muted-foreground">*My own label.</p>
+
+    <p class="mt-8">These can help you use a memorization technique called chunking. For example, a Y-Permutation from PLL...</p>
+    <p class="my-3 text-center"><code class="alg text-lg">FRU'R'U'RUR'F'RUR'U'R'FRF'</code></p>
+    <p>...is 17 pieces of information. But when you think in terms of triggers, it becomes just 8 or even 5 pieces of information to remember:</p>
+    <p class="my-3 text-center"><code class="alg text-lg">F (RU'R'U') Lasso Sexy Sledgehammer</code></p>
+  </div>
+</BaseLayout>

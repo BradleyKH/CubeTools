@@ -1,0 +1,145 @@
+---
+title: Example Solves
+description: Three complete Roux solves with scrambles, move-by-move explanations, and a stepping cube to follow each solution.
+series: roux
+order: 8
+legacy: roux8.html
+---
+
+## Example 1
+
+Face green with white on top, and do this scramble:
+
+`F R L' F R' U L U2 D' B' U F L' U' D L F U2 D' R U2 B' U' L' B`
+
+<CubeView
+  controls
+  size="lg"
+  setup="F R L' F R' U L U2 D' B' U F L' U' D L F U2 D' R U2 B' U' L' B z y2"
+  alg="R u F' r' D B' D' B r U r' U' r' U' r U R' U' R U R' F' R U R' U' R' F R2 U M U' M U M2 U' M' U2 M U2 M2"
+  label="Example 1 after the scramble, held with blue in front and orange on top; step through the 41-move solution"
+/>
+
+Now face the blue center with the orange center on top. This puts the blue/white edge in its DL spot, so we already have a head start on the first block.
+
+1st block: `RuF' r'DB'D'B`
+
+- R gets the blue/red pieces out of the way so we can move the blue center without separating them
+- uF' corrects the blue center and inserts the blue/red pieces
+- r'D aligns the blue/orange pieces. We do r' instead of R' to preserve the connected green/red pieces on top
+- B' makes room for the whole block to come together
+- D'B finishes the 1st block
+
+2nd block: `rUr' U' r'U'r`
+
+- The green/white edge is already in place at DR
+- rUr' is a standard insert for the red/green pieces, and it also paired up the green orange pieces
+- U' r'U'r inserts the green/orange pieces
+- This was an unusually easy 2nd block
+
+CMLL: `U R'U' RUR'F' RUR'U' R'FR2`
+
+EO: `U MU'M`
+
+- Back Arrow case. The last turn is M rather than M' because we want the UL/UR edges on the bottom.
+
+UL/UR: `U M2 U'`
+
+- Since UL/UR were on the bottom, this is a quick solve. Note that the BU color is orange.
+
+M Slice: `M' U2 M U2 M2`
+
+- This is a 3-edge cycle. Since FU & BU are the same, we know we'll start with M or M'. Here it is M' because it keeps the unique edge on top.
+
+(41 moves total)
+
+## Example 2
+
+Face green with white on top, and do this scramble:
+
+`L B' R' L B F' U L D' L2 R2 U2 L D2 B R2 D2 F2 B U B L R' U R`
+
+<CubeView
+  controls
+  size="lg"
+  setup="L B' R' L B F' U L D' L2 R2 U2 L D2 B R2 D2 F2 B U B L R' U R x2 y"
+  alg="D' B D' r F U' r U2 r B' R2 U' r' U' r2 R' U' R2 U' r' U2 r U r' U' R' F2 R U2 r U' r' F M' U M' U' M U' M' U' M' U M2 U'"
+  label="Example 2 after the scramble, held with red in front and yellow on top; step through the 45-move solution"
+/>
+
+Now face the red center with the yellow center on top. This puts blue center in place, and the blue/white edge is only a D2 away from its DL spot.
+
+1st block: `D'B D'rF U'r U2rB'`
+
+- D'B pairs up the blue/red pieces
+- D' inserts the blue/white edge
+- rF inserts the blue/red pieces
+- U'r pairs up the blue/orange pieces
+- U2rB' inserts the blue/orange pieces, completing the 1st block
+
+2nd block: `R2U'r'U'r2 R'U'R2U'r' U2rUr'`
+
+- R2U'r'U'r2 inserts the green/white edge
+- R'U' inserts the green/orange pieces
+- R2U'r' pairs up the green/red pieces
+- U2 rUr' inserts the green/red pieces, completing the 2nd block
+
+CMLL: `U' R'F2RU2 rU'r' F`
+
+EO: `M'U M'U'M U' M'U'M'`
+
+- Front Diagonal case. We end with UL/UR on the bottom.
+
+UL/UR: `U M2 U'`
+
+M Slice: skip
+
+(45 moves total)
+
+## Example 3
+
+Face green with white on top, and do this scramble:
+
+`L' U L R2 F2 U' F' U' F B' L' R' U2 R2 U' B' L B2 F2 R' D2 L' R2 U2 F`
+
+<CubeView
+  controls
+  size="lg"
+  setup="L' U L R2 F2 U' F' U' F B' L' R' U2 R2 U' B' L B2 F2 R' D2 L' R2 U2 F z2"
+  alg="r' D2 r' R' U F U r' f U' r' U' r U' r R U R2 U' R U r U' r' U' R U R' U' R' F R2 U' R' U R U R' F' M' U' M' U2 M' U M' U M2 U U2 M2 U2 M2"
+  label="Example 3 after the scramble, held with green in front and yellow on top; step through the 53-move solution"
+/>
+
+Now face the green center with the yellow center on top. This puts the blue/white edge in its DL spot.
+
+1st block: `r'D2 r'R'U FUr'f`
+
+- r'D2 pairs up the blue/orange pieces while shuffling the blue/red pieces around
+- r' pairs up the blue/red pieces. I don't normally recommend pairing up both pairs before inserting either of them.
+- R'U re-inserts the blue/white edge next to the blue center
+- FU inserts the blue/red pieces
+- r'f inserts the blue/orange pieces and anchors the block in the lower left
+
+2nd block: `U'r'U' rU'r RUR2U'R UrU'r'`
+
+- U'r'U' prepares to insert the green/white edge
+- rU'r inserts the green/white edge, and the U' in the middle prevents the red/green corner from being stuck in the BR slot
+- RUR2 pairs up the green/orange pair
+- U'R inserts the green/orange pair
+- U prepares the green/red pair for a standard insertion
+- rU'r' inserts the green/red pair
+
+CMLL: `U' RUR'U' R'FR2U'R'U RUR'F'`
+
+EO: `M'U'M' U2 M'UM'`
+
+- Neighbors case. M'U'M' gives us an arrow. U2 points the arrow toward the bad D edge.
+- We end with M'UM' instead of M'U'M' so that the UL/UD edges end up on the bottom.
+
+UL/UR: `U M2 U`
+
+M slice: `U2 M2 U2 M2`
+
+(53 moves total)
+
+I've covered the basics of the Roux method, but this rabbit hole goes [deeper](../advanced-roux/).

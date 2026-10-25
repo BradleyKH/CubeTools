@@ -1,0 +1,40 @@
+---
+title: Position Final Corners
+description: Match the last layer corners to their side colors by repeating one corner-swapping algorithm.
+series: 3x3-beginner
+order: 7
+legacy: basic7.html
+---
+
+import matchingCorners1 from './images/matching-corners-1.png';
+import matchingCorners2 from './images/matching-corners-2.png';
+import matchingCorners3 from './images/matching-corners-3.png';
+import matchingCorners4 from './images/matching-corners-4.png';
+
+In this step, you will look for sides which have matching corners in the last layer. Matching corners have the same color sticker on one side.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={matchingCorners1} alt="Cube with a solid yellow top where the right side has two matching red corner stickers in the top layer" width={123} />
+  <div className="min-w-0 flex-1">In this diagram, the right side has matching red corners in the top layer.</div>
+</div>
+
+If there is a side with two matching corners, turn the cube so that side is on the bottom, and face the white side.
+
+<div className="flex flex-wrap items-center justify-center gap-4">
+  <Figure src={matchingCorners2} alt="Cube with a solid yellow top and matching red corner stickers on one side of the top layer" width={123} />
+  <div className="text-center">
+    <span aria-hidden="true" className="block text-3xl">&rarr;</span>
+    (rotate cube)
+  </div>
+  <Figure src={matchingCorners3} alt="The same cube rotated so the side with matching corners is on the bottom: white on the left, blue on the right, and orange on top" width={123} />
+</div>
+
+While facing the white side, execute this algorithm:
+
+<AlgBlock name="Position last layer corners" alg="R' U R' D2 R U' R' D2 R2" />
+
+If there is not a side with two matching corners, execute the above algorithm while facing white. This should create a side with two matching corners. Put that side on the bottom, and follow the instructions above.
+
+Once all sides have matching corners, turn the last layer so that the corners line up with the correct sides of the cube. You are now ready to solve the cube by [positioning the last layer edges](../position-final-edges/)!
+
+<Figure src={matchingCorners4} alt="Cube with a solid yellow top where every side has matching corner stickers in the top layer, ready to be lined up with the red and green side centers" width={123} />

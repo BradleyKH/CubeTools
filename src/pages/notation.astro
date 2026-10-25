@@ -1,0 +1,73 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NotationMove from '@/components/NotationMove.astro';
+
+const faces = ['L', 'R', 'F', 'B', 'U', 'D'];
+const slices = [
+  { symbol: 'M', equals: "r'R" },
+  { symbol: 'E', equals: "dD'" },
+  { symbol: 'S', equals: "fF'" },
+];
+const rotations = [
+  { symbol: 'x', equals: 'R' },
+  { symbol: 'y', equals: 'U' },
+  { symbol: 'z', equals: 'F' },
+];
+const grid = 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3';
+---
+
+<BaseLayout
+  title="Notation Tutorial"
+  description="Learn Rubik's Cube notation: face turns, double layer turns, middle slices, and cube rotations, each animated on a 3D cube."
+>
+  <div class="mx-auto max-w-4xl px-4 py-10">
+    <h1 class="text-3xl font-bold">Notation</h1>
+    <p class="mt-2 text-muted-foreground">Press a move button under any cube to watch that turn.</p>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">Single face rotations</h2>
+      <p class="mt-3">Capital letters show which side of the cube to turn:</p>
+      <ul class="mt-2 list-disc pl-6">
+        <li><u>F</u>ront, <u>B</u>ack, <u>R</u>ight, <u>L</u>eft, <u>U</u>p (top), or <u>D</u>own (bottom).</li>
+      </ul>
+      <p class="mt-3">A plain capital letter represents a single (90-degree) turn clockwise.</p>
+      <ul class="mt-2 list-disc pl-6">
+        <li>A prime mark (e.g. R') makes it counterclockwise.</li>
+        <li>A "2" (e.g. R2) makes it a double turn (180 degrees).</li>
+      </ul>
+      <div class:list={['mt-6', grid]}>
+        {faces.map((f) => <NotationMove symbol={f} moves={[f, `${f}'`, `${f}2`]} />)}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Double face rotations</h2>
+      <p class="mt-3">Lowercase letters indicate that you turn two layers instead of one.</p>
+      <div class:list={['mt-6', grid]}>
+        {faces.map((f) => {
+          const w = f.toLowerCase();
+          return <NotationMove symbol={w} moves={[w, `${w}'`, `${w}2`]} equals={`${f}w`} />;
+        })}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Middle slice rotations</h2>
+      <p class="mt-3">Some algorithms use the inner layers:</p>
+      <ul class="mt-2 list-disc pl-6">
+        <li><u>M</u>iddle, <u>E</u>quator, and <u>S</u>lice</li>
+      </ul>
+      <div class:list={['mt-6', grid]}>
+        {slices.map((s) => <NotationMove symbol={s.symbol} moves={[s.symbol, `${s.symbol}'`]} equals={s.equals} />)}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Cube rotations</h2>
+      <p class="mt-3">Cube rotations are rare, but y and y' are the most common.</p>
+      <div class:list={['mt-6', grid]}>
+        {rotations.map((r) => <NotationMove symbol={r.symbol} moves={[r.symbol, `${r.symbol}'`]} equals={r.equals} />)}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+title: Position Final Edges
+description: Finish the cube by cycling the last three edges with a single algorithm, used once or twice.
+series: 3x3-beginner
+order: 8
+legacy: basic8.html
+---
+
+import epll1 from './images/epll-1.png';
+import epll2 from './images/epll-2.png';
+import edgeShuffle1 from './images/edge-shuffle-1.png';
+import edgeShuffle2 from './images/edge-shuffle-2.png';
+
+This is the last step! Turn the cube so that yellow is once again on top.
+
+Look to see how many of the four sides of the cube (other than yellow and white) are completely solved. If you are very lucky, all four will be solved, and you're finished! Usually there will be 1 or 0 completed sides. (In other words, there will be 1 or 0 correct edges in the top layer.)
+
+## One Correct Side
+
+If there is 1 correct edge, face the completed side and use this algorithm: (`M2 U' M' U2 M U' M2`)
+
+<AlgBlock name="Three-edge shuffle, clockwise" alg="M2 U' M' U2 M U' M2" />
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={epll1} alt="Top view of the last layer with arrows showing three edge pieces cycling in a triangle while the front edge stays in place" width={115} />
+  <Figure src={edgeShuffle1} alt="Cube with a solid yellow top and a solved front; a blue sticker on the right edge shows an incorrect edge piece" width={123} />
+</div>
+
+The algorithm shuffles the 3 incorrect edges clockwise. Note that you can change the direction of the shuffle by turning the top clockwise instead of counterclockwise: (`M2 U M' U2 M U M2`)
+
+<AlgBlock name="Three-edge shuffle, counterclockwise" alg="M2 U M' U2 M U M2" />
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={epll2} alt="Top view of the last layer with arrows showing the three edge pieces cycling in the opposite direction while the front edge stays in place" width={115} />
+  <Figure src={edgeShuffle2} alt="Cube with a solid yellow top and a solved front; an orange sticker on the right edge shows an incorrect edge piece" width={123} />
+</div>
+
+## No Correct Sides
+
+If there are no correct edges, do the 3-edge shuffle facing any side, and after that you should have one correct edge. Now you can solve the cube using one more 3-edge shuffle.
+
+Congratulations, you have solved the Rubik's Cube! If you memorize these steps, you can solve it consistently with a little practice.
+
+<CubeView yellowTop label="Solved Rubik's Cube" />

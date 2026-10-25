@@ -1,0 +1,31 @@
+---
+title: Beyond CFOP
+description: Variants that extend CFOP, such as ZB, VH, OLS, and COLL, plus entirely different methods like Petrus, ZZ, and Roux.
+series: cfop
+order: 6
+legacy: cfop6.html
+---
+
+## CFOP Variants
+
+Because CFOP is so popular, it is very well studied, and many variants have arisen to supplement its core idea.
+
+Some CFOP solvers start with an [extended cross](https://www.speedsolving.com/wiki/index.php/Extended_cross) when it is convenient. The extended cross refers to a cross plus one CE pair. This is essentially a 2x2x2 block plus two edges.
+
+The [ZB method](https://www.speedsolving.com/wiki/index.php/ZB_method), invented by Zbigniew Zborowski and Ron van Bruchem, uses few moves but relies on a large number of algorithms. After solving the F2L minus the last CE pair, there are two steps: [ZBLS](https://www.speedsolving.com/wiki/index.php/ZBLS), which solves the last CE pair and orients the LL edges, and [ZBLL](https://www.speedsolving.com/wiki/index.php/ZBLL), which finishes the last layer in one algorithm. The full ZB method has 795 algorithms (302 in ZBLS, 493 in ZBLL), so it is not popular despite its efficiency.
+
+There is a simplified version of ZBLS called [VHLS](https://www.speedsolving.com/wiki/index.php/VHLS), part of the [VH method](https://www.speedsolving.com/wiki/index.php/VH_method) by Lars Vandenbergh and Dan Harris. VHLS restricts the conditions for inserting the last CE pair, reducing its algorithms to only 32 compared to 302 in ZBLS.
+
+[OLS](https://www.speedsolving.com/wiki/index.php/OLS) (Orientation of the Last Slot) is a set of algorithms that solve OLL when the last F2L slot is filled. It is divided into two groups: [VLS](https://www.speedsolving.com/wiki/index.php/VLS) (Valk Last Slot), which uses a connected CE pair, and [HLS](https://www.speedsolving.com/wiki/index.php/HLS) (Hessler Last Slot), which uses a CE pair which can be connected in one move. There is a subset of VLS called the [Winter Variation](https://www.speedsolving.com/wiki/index.php/Winter_Variation) (WV) which uses 27 algorithms (plus mirrors) to skip OLL when the LL edges are already oriented. There is a corresponding subset of HLS called the [Summer Variation](https://www.speedsolving.com/wiki/index.php/Summer_Variation) (SV).
+
+[COLL](https://www.speedsolving.com/wiki/index.php/COLL) (Corners of Last Layer, or Corners and Orient Last Layer) is a set of algorithms that solve LL corner permutation and orientation simultaneously. Including mirrored cases, there are 42 COLL cases (24 without). COLL can be useful when the completed F2L ends with oriented LL edges (as in ZBLS or VHLS); in such cases, COLL and a simple edge permutation solve the cube.
+
+## Other Methods
+
+There are also entirely different approaches to solving the cube. The [Petrus method](https://www.speedsolving.com/wiki/index.php/Petrus_method) begins by building a 2x2x2 block on one corner, then extending that to a 2x2x3 block, then finishing the first two layers after twisting edges. LL edges are automatically oriented, so the cube is finished after positioning LL corners, orienting LL corners, and positioning LL edges. Petrus is an intuitive approach that uses fewer moves than other methods, but it is not a popular approach for those aiming for speed.
+
+The [ZZ method](https://www.speedsolving.com/wiki/index.php/ZZ_Method), invented by Zbigniew Zborowski, is designed to make turns very quickly. First, all the edges are oriented. Then the right and left layers are solved, followed by the middle layer. This approach uses roughly the same number of moves as the Petrus method.
+
+The [Roux method](https://www.speedsolving.com/wiki/index.php/Roux_method), invented by Gilles Roux, begins by building two 1x2x3 blocks on opposite sides of the cube. This leaves the U and M slices free to turn. Next, the top layer corners are solved. The remaining six edges are oriented and positioned using U and M turns. See my [Rouxtorial](../../roux/).
+
+...and these only scratch the surface. With such a variety of approaches out there, even the most experienced cubers have opportunities to learn and grow.

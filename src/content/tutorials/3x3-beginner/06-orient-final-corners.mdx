@@ -1,0 +1,37 @@
+---
+title: Orient Final Corners
+description: Turn the top solid yellow with the Sune and Anti-Sune algorithms.
+series: 3x3-beginner
+order: 6
+legacy: basic6.html
+---
+
+import yellowTop from './images/yellow-top.png';
+
+The next step is to make the top of the cube solid yellow. We will use an algorithm called the Sune ("soo-nay"): (`R U R' U R U2 R'`). We will also use its mirror, the Anti-Sune: (`L' U' L U' L' U2 L`). You can think of these as Right Sune and Left Sune. Here is how they work:
+
+<AlgBlock name="Right Sune" alg="R U R' U R U2 R'" />
+
+<CubeView stickering="OCLL" view="2D" size="sm" alg="R U R' U R U2 R'" setupFromAlgInverse label="Right Sune case, before applying the algorithm" />
+
+<AlgBlock name="Left Sune (Anti-Sune)" alg="L' U' L U' L' U2 L" />
+
+<CubeView stickering="OCLL" view="2D" size="sm" alg="L' U' L U' L' U2 L" setupFromAlgInverse label="Left Sune case, before applying the algorithm" />
+
+The bold edges represent yellow stickers on the side. If the above scenarios occur, the Sune will orient all the corners, making the top solid yellow.
+
+There are five other possible scenarios you may encounter:
+
+<div className="flex flex-wrap justify-center gap-6">
+  <CubeView stickering="OCLL" view="2D" size="sm" setup="R' F' r U R U' r' F U'" label="Bowtie: back right and front left corners unoriented" />
+  <CubeView stickering="OCLL" view="2D" size="sm" setup="F R' F' r U R U' r'" label="Blinkers: both left corners unoriented" />
+  <CubeView stickering="OCLL" view="2D" size="sm" setup="R U2' R D R' U2' R D' R2'" label="Headlights: both front corners unoriented" />
+  <CubeView stickering="OCLL" view="2D" size="sm" setup="R' U2' R2' U R2' U R2' U2' R'" label="Pi: all four corners unoriented, two facing left" />
+  <CubeView stickering="OCLL" view="2D" size="sm" setup="R U2' R' U' R U R' U' R U' R'" label="Double Headlights: all four corners unoriented, two facing left and two facing right" />
+</div>
+
+If one of the above five scenarios occurs, do the Right Sune. (Make sure you are facing the side shown above.) This should give you one correctly oriented corner. You can then finish orienting the third layer using either the Right Sune or Left Sune.
+
+Once the top is solid yellow, you are ready to [position the last layer corners](../position-final-corners/).
+
+<Figure src={yellowTop} alt="Cube with the first two layers solved and the top solid yellow, with the top side stickers gray" width={123} />

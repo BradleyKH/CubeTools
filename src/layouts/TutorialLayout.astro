@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TutorialToc from '@/components/TutorialToc.astro';
+import PrevNext from '@/components/PrevNext.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  seriesTitle: string;
+  toc: { title: string; href: string; current: boolean }[];
+  prev?: { title: string; href: string };
+  next?: { title: string; href: string };
+}
+
+const { title, description, seriesTitle, toc, prev, next } = Astro.props;
+---
+
+<BaseLayout title={`${title} - ${seriesTitle}`} description={description}>
+  <div class="mx-auto grid max-w-5xl gap-8 px-4 py-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+    <aside class="lg:sticky lg:top-4 lg:self-start">
+      <TutorialToc seriesTitle={seriesTitle} items={toc} />
+    </aside>
+    <article class="article max-w-[var(--measure)]">
+      <p class="text-sm text-muted-foreground">{seriesTitle}</p>
+      <h1 class="mb-6 text-3xl font-bold tracking-tight">{title}</h1>
+      <slot />
+      <PrevNext prev={prev} next={next} />
+    </article>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .article h2 { margin: 2rem 0 0.75rem; font-size: 1.5rem; font-weight: 700; }
+  .article h3 { margin: 1.5rem 0 0.5rem; font-size: 1.2rem; font-weight: 600; }
+  .article p { margin: 1rem 0; line-height: 1.7; }
+  .article ul { margin: 1rem 0; padding-left: 1.5rem; list-style: disc; }
+  .article ol { margin: 1rem 0; padding-left: 1.5rem; list-style: decimal; }
+  .article li { margin: 0.25rem 0; line-height: 1.7; }
+  .article p a, .article li a { color: var(--link); text-decoration: underline; }
+  .article :not(.alg) > code:not(.alg), .article p > code { background: var(--muted); border-radius: 0.25rem; padding: 0.1em 0.35em; font-size: 0.9em; }
+  .article table { margin: 1rem 0; border-collapse: collapse; }
+  .article th, .article td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
+  .article .callout-body > :first-child { margin-top: 0; }
+  .article .callout-body > :last-child { margin-bottom: 0; }
+  .article .alg-block ul { list-style: none; padding: 0; margin: 0.25rem 0 0; }
+  .article .alg-block p { margin: 0 0 0.25rem; line-height: 1.4; }
+  .article .alg-block code.alg { background: none; padding: 0; font-size: 1rem; }
+</style>

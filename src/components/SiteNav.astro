@@ -1,0 +1,25 @@
+---
+import { withBase } from '@/lib/url';
+import { site } from '@/data/site';
+import CubeLogo from './CubeLogo.astro';
+import NavMenu from './NavMenu.astro';
+import MobileNav from './MobileNav.astro';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="relative border-b border-border bg-background print:hidden">
+  <div class="mx-auto flex max-w-6xl items-center gap-4 px-4 py-2">
+    <a
+      href={withBase('/')}
+      class="flex items-center gap-2 rounded-md text-lg font-bold tracking-wide uppercase focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+    >
+      <CubeLogo />
+      {site.name}
+    </a>
+    <div class="ml-auto flex items-center gap-1">
+      <NavMenu />
+      <ThemeToggle />
+      <MobileNav />
+    </div>
+  </div>
+</header>

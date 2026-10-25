@@ -1,0 +1,47 @@
+---
+import { site } from '@/data/site';
+import { withBase } from '@/lib/url';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description = site.description, image, noindex = false } = Astro.props;
+
+const fullTitle = title === site.name ? site.name : `${title} | ${site.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const imageUrl = image ? new URL(image, Astro.site).href : undefined;
+const icon = (file: string) => withBase(`favicon/${file}`);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex" />}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+{imageUrl && <meta property="og:image" content={imageUrl} />}
+<meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+{imageUrl && <meta name="twitter:image" content={imageUrl} />}
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+
+<link rel="icon" href={icon('favicon.ico')} sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href={icon('favicon-32x32.png')} />
+<link rel="icon" type="image/png" sizes="16x16" href={icon('favicon-16x16.png')} />
+<link rel="apple-touch-icon" href={icon('apple-touch-icon.png')} />
+<link rel="mask-icon" href={icon('safari-pinned-tab.svg')} color="#5bbad5" />
+<link rel="manifest" href={icon('site.webmanifest')} />
+<meta name="msapplication-config" content={icon('browserconfig.xml')} />

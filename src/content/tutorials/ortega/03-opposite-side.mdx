@@ -1,0 +1,59 @@
+---
+title: Opposite Side
+description: Orient the top layer of the 2x2 with one of seven short algorithms.
+series: ortega
+order: 3
+legacy: ortega3.html
+---
+
+Next, we orient the top layer. The algorithms for these seven cases are generally shorter than their 3x3 counterparts since we have fewer pieces involved.
+
+<div className="my-6 flex flex-wrap items-start gap-4">
+  <CubeView puzzle="2x2x2" alg="(RUR'U) (RU2R')" setupFromAlgInverse stickering="OLL" size="sm" label="Sune case, yellow on top" />
+  <div className="min-w-0 flex-1">
+    <AlgBlock name="Sune" alg="(RUR'U) (RU2R')" />
+  </div>
+</div>
+
+<div className="my-6 flex flex-wrap items-start gap-4">
+  <CubeView puzzle="2x2x2" alg="(R'U'RU') (R'U2R)" setupFromAlgInverse stickering="OLL" size="sm" label="Anti-Sune case, yellow on top" />
+  <div className="min-w-0 flex-1">
+    <AlgBlock name="Anti-Sune" alg="(R'U'RU') (R'U2R)" />
+  </div>
+</div>
+
+<div className="my-6 flex flex-wrap items-start gap-4">
+  <CubeView puzzle="2x2x2" alg="F (RUR'U') F'" setupFromAlgInverse stickering="OLL" size="sm" label="Headlights case, yellow on top" />
+  <div className="min-w-0 flex-1">
+    <AlgBlock name="Headlights" alg="F (RUR'U') F'" />
+  </div>
+</div>
+
+<div className="my-6 flex flex-wrap items-start gap-4">
+  <CubeView puzzle="2x2x2" alg="F (RUR'U')*2 F'" setupFromAlgInverse stickering="OLL" size="sm" label="Pi case, yellow on top" />
+  <div className="min-w-0 flex-1">
+    <AlgBlock name="Pi" alg="F (RUR'U')*2 F'" />
+  </div>
+</div>
+
+<div className="my-6 flex flex-wrap items-start gap-4">
+  <CubeView puzzle="2x2x2" alg="(RUR'U') (R'FRF')" setupFromAlgInverse stickering="OLL" size="sm" label="Blinkers case, yellow on top" />
+  <div className="min-w-0 flex-1">
+    <AlgBlock name="Blinkers" alg="(RUR'U') (R'FRF')" />
+  </div>
+</div>
+
+<div className="my-6 flex flex-wrap items-start gap-4">
+  <CubeView puzzle="2x2x2" alg="(FR'F'R) (URU'R')" setupFromAlgInverse stickering="OLL" size="sm" label="Bowtie case, yellow on top" />
+  <div className="min-w-0 flex-1">
+    <AlgBlock name="Bowtie" alg="(FR'F'R) (URU'R')" alts={["F (RU'R'U') (RUR'F')"]} />
+  </div>
+</div>
+
+<div className="my-6 flex flex-wrap items-start gap-4">
+  <CubeView puzzle="2x2x2" alg="(R2U2) (R'U2R2)" setupFromAlgInverse stickering="OLL" size="sm" label="Double Headlights case, yellow on top" />
+  <div className="min-w-0 flex-1">
+    <AlgBlock name="Double Headlights" alg="(R2U2) (R'U2R2)" alts={["F (RUR'U')*3 F'"]} />
+  </div>
+</div>
+

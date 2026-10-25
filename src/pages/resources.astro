@@ -1,0 +1,82 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+interface Link {
+  name: string;
+  href: string;
+  note?: string;
+  sub?: { name: string; href: string }[];
+}
+
+const sections: { heading: string; links: Link[] }[] = [
+  {
+    heading: 'General pages',
+    links: [
+      { name: 'SpeedSolving.com', href: 'https://www.speedsolving.com' },
+      { name: 'Algorithm Database', href: 'https://algdb.net' },
+      { name: 'World Cube Association (WCA)', href: 'https://www.worldcubeassociation.org' },
+    ],
+  },
+  {
+    heading: 'Personal pages',
+    links: [
+      {
+        name: "J Perm's YouTube Channel",
+        href: 'https://www.youtube.com/channel/UCqTVfT9JQqhA6_Hi_h_h97Q',
+        note: '(Dylan Wang)',
+        sub: [{ name: "J Perm's F2L Document", href: 'https://drive.google.com/file/d/1nzAXYUWZJ6H2wIOXaHdWXep3W57tArbR/view' }],
+      },
+      { name: 'CubeSkills', href: 'https://cubeskills.com/', note: '(Feliks Zemdegs)' },
+      { name: "Rubik's Cube Guides", href: 'https://www.kungfoomanchu.com/', note: '(Andy Klise)' },
+      { name: 'Petrus Method', href: 'https://lar5.com/cube/', note: '(Lars Petrus)' },
+      { name: 'Roux Method Guide', href: 'https://sites.google.com/view/kianroux', note: '(Kian Mansour)' },
+    ],
+  },
+  {
+    heading: 'Supplies',
+    links: [
+      { name: 'The Cubicle', href: 'https://www.thecubicle.com/' },
+      { name: 'SpeedCubeShop', href: 'https://speedcubeshop.com' },
+    ],
+  },
+  {
+    heading: 'Tools',
+    links: [
+      { name: 'csTimer', href: 'https://cstimer.net' },
+      { name: 'Block Trainer', href: 'https://cubegrass.appspot.com/block_trainer/' },
+      { name: 'Corner Lookahead Drill', href: 'https://cube.crider.co.uk/coracle.html' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Resources"
+  description="Cubing community resources: forums, guides, YouTube channels, supplies, and online tools."
+>
+  <div class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold">Resources</h1>
+    {
+      sections.map((s) => (
+        <section class="mt-8">
+          <h2 class="text-xl font-semibold">{s.heading}</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            {s.links.map((l) => (
+              <li>
+                <a class="text-link underline" href={l.href} target="_blank" rel="noopener">{l.name}</a>
+                {l.note && <> {l.note}</>}
+                {l.sub && (
+                  <ul class="mt-2 list-disc space-y-2 pl-6">
+                    {l.sub.map((x) => (
+                      <li><a class="text-link underline" href={x.href} target="_blank" rel="noopener">{x.name}</a></li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

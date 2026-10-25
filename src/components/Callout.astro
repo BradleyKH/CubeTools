@@ -1,0 +1,18 @@
+---
+export interface Props {
+  type?: 'note' | 'tip';
+}
+
+const { type = 'note' } = Astro.props;
+const label = type === 'tip' ? 'Tip' : 'Note';
+---
+
+<aside
+  class:list={[
+    'callout my-6 rounded-lg border-l-4 bg-muted px-4 py-3',
+    type === 'tip' ? 'border-cube-green' : 'border-cube-blue',
+  ]}
+>
+  <p class="mb-1 text-sm font-semibold">{label}</p>
+  <div class="callout-body"><slot /></div>
+</aside>

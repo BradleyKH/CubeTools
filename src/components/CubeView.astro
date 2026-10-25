@@ -1,0 +1,193 @@
+---
+import { invertAlg, normalizeAlg, stickeringMaskOrbitsFor, visualizationFor } from '@/lib/cube';
+
+export interface Props {
+  puzzle?: '3x3x3' | '2x2x2' | '4x4x4' | '5x5x5';
+  alg?: string;
+  setup?: string;
+  setupFromAlgInverse?: boolean;
+  stickering?: string;
+  view?: '2D' | '3D';
+  controls?: boolean;
+  /** Accessible name for the diagram; also shown as its visible caption. */
+  label: string;
+  size?: 'sm' | 'md' | 'lg';
+  /** Show yellow on top and green in front, the CFOP/Roux convention. Defaults on when a stickering is set. */
+  yellowTop?: boolean;
+}
+
+const {
+  puzzle = '3x3x3',
+  alg,
+  setup,
+  setupFromAlgInverse = false,
+  stickering,
+  view = '3D',
+  controls = false,
+  label,
+  size = 'md',
+  yellowTop = Boolean(stickering && stickering !== 'full'),
+} = Astro.props;
+
+const normalizedAlg = alg ? normalizeAlg(alg) : '';
+// z2 keeps green in front while turning yellow to the top; later setup moves read in that frame.
+const setupParts = [yellowTop ? 'z2' : '', setup ? normalizeAlg(setup) : '', setupFromAlgInverse && alg ? invertAlg(alg) : ''];
+const setupAlg = setupParts.filter(Boolean).join(' ');
+const visualization = visualizationFor(view, stickering);
+const stickeringMaskOrbits = await stickeringMaskOrbitsFor(puzzle, stickering, yellowTop);
+---
+
+<figure class:list={['cube-view', `cube-view--${size}`, { 'cube-view--controls': controls }]}>
+  <div
+    class="cube-view__stage"
+    role={controls ? 'group' : 'img'}
+    aria-label={label}
+    data-cube-view
+    data-puzzle={puzzle}
+    data-alg={normalizedAlg || undefined}
+    data-setup-alg={setupAlg || undefined}
+    data-stickering={stickeringMaskOrbits ? undefined : stickering}
+    data-stickering-mask-orbits={stickeringMaskOrbits}
+    data-visualization={visualization}
+    data-controls={controls ? 'bottom-row' : 'none'}
+  >
+  </div>
+  <figcaption class="cube-view__caption" aria-hidden="true">{label}</figcaption>
+  {
+    normalizedAlg && (
+      <noscript>
+        <code class="alg cube-view__alg">{normalizedAlg}</code>
+      </noscript>
+    )
+  }
+  {normalizedAlg && <code class="alg cube-view__alg cube-view__print-alg">{normalizedAlg}</code>}
+</figure>
+
+<style>
+  .cube-view {
+    --cube-view-size: 11rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    margin: 0;
+    max-width: 100%;
+  }
+  .cube-view--sm {
+    --cube-view-size: 7.5rem;
+  }
+  .cube-view--lg {
+    --cube-view-size: 16rem;
+  }
+  .cube-view__stage {
+    width: var(--cube-view-size);
+    max-width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius, 0.5rem);
+    background: var(--muted);
+    outline: 1px solid color-mix(in oklch, var(--sticker-outline) 25%, transparent);
+  }
+  .cube-view__stage[data-upgraded] {
+    background: transparent;
+    outline: none;
+  }
+  .cube-view__stage :global(twisty-player) {
+    width: 100%;
+    height: 100%;
+  }
+  .cube-view--controls .cube-view__stage {
+    aspect-ratio: 4 / 5;
+  }
+  .cube-view__caption {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-align: center;
+  }
+  .cube-view__alg {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.875rem;
+  }
+  .cube-view__print-alg {
+    display: none;
+  }
+  @media print {
+    .cube-view__print-alg {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  type ColorScheme = 'light' | 'dark';
+
+  const stages = document.querySelectorAll<HTMLElement>('[data-cube-view]:not([data-upgraded])');
+  // twisty-player's dark scheme paints an opaque checkered backdrop even with background="none",
+  // so static diagrams stay on the light scheme (transparent) and only interactive ones follow the theme.
+  const interactivePlayers = new Set<HTMLElement>();
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function colorScheme(): ColorScheme {
+    const classes = document.documentElement.classList;
+    if (classes.contains('dark')) return 'dark';
+    if (classes.contains('light')) return 'light';
+    return darkQuery.matches ? 'dark' : 'light';
+  }
+
+  function syncColorScheme(): void {
+    const scheme = colorScheme();
+    for (const player of interactivePlayers) player.setAttribute('color-scheme', scheme);
+  }
+
+  async function upgrade(stage: HTMLElement): Promise<void> {
+    stage.dataset.upgraded = '';
+    await import('cubing/twisty');
+
+    const { puzzle, alg, setupAlg, stickering, stickeringMaskOrbits, visualization, controls } = stage.dataset;
+    const player = document.createElement('twisty-player');
+    const attributes: Record<string, string | undefined> = {
+      puzzle,
+      alg,
+      'experimental-setup-alg': setupAlg,
+      'experimental-stickering': stickering,
+      visualization,
+      'control-panel': controls,
+      background: 'none',
+      'hint-facelets': 'none',
+      'viewer-link': 'none',
+      'color-scheme': controls === 'none' ? 'light' : colorScheme(),
+    };
+    for (const [name, value] of Object.entries(attributes)) {
+      if (value) player.setAttribute(name, value);
+    }
+    if (stickeringMaskOrbits) {
+      // JSON masks carry piece stickerings the compact attribute format cannot express.
+      const mask = stickeringMaskOrbits.startsWith('{') ? JSON.parse(stickeringMaskOrbits) : stickeringMaskOrbits;
+      Object.assign(player, { experimentalStickeringMaskOrbits: mask });
+    }
+    // Without controls the player is pure imagery; the stage's role="img" carries the accessible name.
+    if (controls === 'none') player.setAttribute('aria-hidden', 'true');
+    else interactivePlayers.add(player);
+
+    stage.append(player);
+  }
+
+  if (stages.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          observer.unobserve(entry.target);
+          void upgrade(entry.target as HTMLElement);
+        }
+      },
+      { rootMargin: '300px 0px' },
+    );
+    for (const stage of stages) observer.observe(stage);
+
+    darkQuery.addEventListener('change', syncColorScheme);
+    new MutationObserver(syncColorScheme).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  }
+</script>

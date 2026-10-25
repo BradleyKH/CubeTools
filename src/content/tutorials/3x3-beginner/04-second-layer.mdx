@@ -1,0 +1,79 @@
+---
+title: The Second Layer
+description: Fill the four middle-layer edges by aligning each edge, setting it up with a second layer algorithm, and then solving the white corner.
+series: 3x3-beginner
+order: 4
+legacy: basic4.html
+---
+
+import secondLayer1 from './images/second-layer-1.png';
+import secondLayer2 from './images/second-layer-2.png';
+import secondLayer3 from './images/second-layer-3.png';
+import secondLayer4 from './images/second-layer-4.png';
+import secondLayer5 from './images/second-layer-5.png';
+import secondLayer6 from './images/second-layer-6.png';
+import secondLayer7 from './images/second-layer-7.png';
+import f2lComplete from './images/f2l-complete.png';
+
+Solving an edge in the middle layer entails three steps: align the edge, setup the edge, and solve the white corner. Our second layer algorithm is (`U R U R' U'`) and its mirror (`U' L' U' L U`).
+
+<AlgBlock name="Second layer, front right slot" alg="U R U R' U'" />
+
+<AlgBlock name="Second layer, front left slot (mirror)" alg="U' L' U' L U" />
+
+## Align the Edge
+
+Locate an edge piece on the top layer that has no yellow sticker. The edge piece has a top sticker and a side sticker, so be sure to check them both. (If there is no such piece, and the middle layer is not yet solved, skip to Setup.)
+
+One you have found an edge piece without yellow, turn the top so that the side sticker of the edge piece is aligned with its center (e.g. red with red), and face that side.
+
+<div className="flex flex-wrap items-center justify-center gap-4">
+  <Figure src={secondLayer1} alt="Top-layer edge piece with a blue sticker on top and a red sticker on its side, not yet above the red center" width={123} />
+  <span aria-hidden="true" className="text-3xl">&rarr;</span>
+  <Figure src={secondLayer2} alt="The same edge piece after turning the top, with its red side sticker above the red center and the blue sticker on top" width={123} />
+</div>
+
+## Setup the Edge
+
+Look at the top sticker of the edge piece and the center stickers of the left and right sides to determine where the edge belongs: to the front right slot or the front left slot.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={secondLayer3} alt="Top-layer edge piece with a green sticker on top and a red sticker on its side above the red center, so it belongs in the front right slot" width={123} />
+  <div className="min-w-0 flex-1">If the edge piece belongs in the front right slot, use (`U R U R' U'`).</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={secondLayer2} alt="Top-layer edge piece with a blue sticker on top and a red sticker on its side above the red center, so it belongs in the front left slot" width={123} />
+  <div className="min-w-0 flex-1">If the edge piece belongs in the front left slot, use (`U' L' U' L U`).</div>
+</div>
+
+If all the top edges have a yellow sticker, but the middle layer is not solved, simply face a side that has an incorrect edge in the middle.
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={secondLayer4} alt="Cube with yellow stickers on the sides of the top row and an incorrect edge piece in the front right middle slot" width={123} />
+  <div className="min-w-0 flex-1">If the incorrect edge piece is in the front right slot, use (`U R U R' U'`) or simply (`R U R' U'`) as the initial U is unnecessary. This will bring the incorrect edge piece up to the top layer. Proceed to solving the white corner.</div>
+</div>
+
+<div className="flex flex-wrap items-center gap-4">
+  <Figure src={secondLayer5} alt="Cube with yellow stickers on the sides of the top row and an incorrect edge piece in the front left middle slot, with a blue sticker on the left face" width={123} />
+  <div className="min-w-0 flex-1">If the incorrect edge piece is in the front left slot, use (`U' L' U' L U`) or simply (`L' U' L U`) as the initial U' is unnecessary. This will bring the incorrect edge piece up to the top layer. Proceed to solving the white corner.</div>
+</div>
+
+Note: The arrangement of yellow stickers in the top layer will vary from the diagrams above.
+
+## Solve the White Corner
+
+When we setup the edge, we put one of the white corners in the top layer. Solve the white corner normally (the step after the cross), and the middle edge will be solved along with it automatically.
+
+<div className="flex flex-wrap items-center justify-center gap-4">
+  <Figure src={secondLayer6} alt="Top-layer white corner with its white sticker on the right face, beside a red sticker and a green sticker" width={123} />
+  <div className="text-center">
+    <span aria-hidden="true" className="block text-3xl">&rarr;</span>
+    (`R U R'`)
+  </div>
+  <Figure src={secondLayer7} alt="The same corner and its middle edge now solved in the first two layers on the front right" width={123} />
+</div>
+
+When you place all four middle edges correctly, the first two layers will be complete. We can then start solving the last layer, starting by [orienting the last layer edges](../orient-final-edges/).
+
+<Figure src={f2lComplete} alt="Cube with the first two layers complete: the red and green sides are solved up to the second layer, the last layer is gray, and the top center is yellow" width={123} />

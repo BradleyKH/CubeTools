@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { withBase } from '@/lib/url';
+---
+
+<BaseLayout title="Timer" description="A speedcubing timer is being rebuilt for Cube Tools.">
+  <div class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold">Timer</h1>
+    <p class="mt-4 text-muted-foreground">
+      The Cube Tools timer is being rebuilt and will be back soon. In the meantime, csTimer is an excellent option.
+    </p>
+    <p class="mt-4">
+      <a class="text-link underline" href="https://cstimer.net" target="_blank" rel="noopener">Open csTimer</a>
+    </p>
+    <p class="mt-6"><a class="text-link underline" href={withBase('')}>Back to home</a></p>
+  </div>
+</BaseLayout>
