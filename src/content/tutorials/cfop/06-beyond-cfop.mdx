@@ -1,31 +1,51 @@
 ---
 title: Beyond CFOP
-description: Variants that extend CFOP, such as ZB, VH, OLS, and COLL, plus entirely different methods like Petrus, ZZ, and Roux.
+description: Extensions that build on CFOP, including the extended cross, ZBLS and ZBLL, VHLS, OLS with the Winter and Summer Variations, and COLL, plus a pointer to other methods.
 series: cfop
 order: 6
 legacy: cfop6.html
 ---
 
-## CFOP Variants
+## CFOP Extensions
 
-Because CFOP is so popular, it is very well studied, and many variants have arisen to supplement its core idea.
+Because CFOP is so popular, it is very well studied, and many extensions have grown up around its core idea. None of them replaces the four steps; each one targets a particular moment in the solve.
 
-Some CFOP solvers start with an [extended cross](https://www.speedsolving.com/wiki/index.php/Extended_cross) when it is convenient. The extended cross refers to a cross plus one CE pair. This is essentially a 2x2x2 block plus two edges.
+### Extended Cross
 
-The [ZB method](https://www.speedsolving.com/wiki/index.php/ZB_method), invented by Zbigniew Zborowski and Ron van Bruchem, uses few moves but relies on a large number of algorithms. After solving the F2L minus the last CE pair, there are two steps: [ZBLS](https://www.speedsolving.com/wiki/index.php/ZBLS), which solves the last CE pair and orients the LL edges, and [ZBLL](https://www.speedsolving.com/wiki/index.php/ZBLL), which finishes the last layer in one algorithm. The full ZB method has 795 algorithms (302 in ZBLS, 493 in ZBLL), so it is not popular despite its efficiency.
+Some CFOP solvers start with an [extended cross](https://www.speedsolving.com/wiki/index.php/Extended_cross) (XCross) when it is convenient: the cross plus one CE pair, planned together in inspection. I cover it with a worked example on the [cross page](../the-cross/#xcross).
 
-There is a simplified version of ZBLS called [VHLS](https://www.speedsolving.com/wiki/index.php/VHLS), part of the [VH method](https://www.speedsolving.com/wiki/index.php/VH_method) by Lars Vandenbergh and Dan Harris. VHLS restricts the conditions for inserting the last CE pair, reducing its algorithms to only 32 compared to 302 in ZBLS.
+### ZBLS and ZBLL
 
-[OLS](https://www.speedsolving.com/wiki/index.php/OLS) (Orientation of the Last Slot) is a set of algorithms that solve OLL when the last F2L slot is filled. It is divided into two groups: [VLS](https://www.speedsolving.com/wiki/index.php/VLS) (Valk Last Slot), which uses a connected CE pair, and [HLS](https://www.speedsolving.com/wiki/index.php/HLS) (Hessler Last Slot), which uses a CE pair which can be connected in one move. There is a subset of VLS called the [Winter Variation](https://www.speedsolving.com/wiki/index.php/Winter_Variation) (WV) which uses 27 algorithms (plus mirrors) to skip OLL when the LL edges are already oriented. There is a corresponding subset of HLS called the [Summer Variation](https://www.speedsolving.com/wiki/index.php/Summer_Variation) (SV).
+The [ZB method](https://www.speedsolving.com/wiki/index.php/ZB_method), developed by Zbigniew Zborowski and Ron van Bruchem, finishes the solve in two steps after F2L minus the last pair:
 
-[COLL](https://www.speedsolving.com/wiki/index.php/COLL) (Corners of Last Layer, or Corners and Orient Last Layer) is a set of algorithms that solve LL corner permutation and orientation simultaneously. Including mirrored cases, there are 42 COLL cases (24 without). COLL can be useful when the completed F2L ends with oriented LL edges (as in ZBLS or VHLS); in such cases, COLL and a simple edge permutation solve the cube.
+- [ZBLS](https://www.speedsolving.com/wiki/index.php/ZBLS) solves the last CE pair and orients the last layer edges at the same time (302 cases).
+- [ZBLL](https://www.speedsolving.com/wiki/index.php/ZBLL) then solves the entire last layer in one algorithm (493 cases, including the 21 PLLs).
+
+Very few people learn all of ZB, but ZBLL itself is a normal part of the toolkit at the top level. Many top CFOP solvers know a good portion of ZBLL. Its cases are grouped by the corner orientation pattern into sets (T, U, L, H, Pi, Sune, and Anti-Sune), and most solvers learn it set by set, often starting with T, U, and L.
+
+The trick is getting to a last layer with oriented edges. Rather than learning all of ZBLS, solvers usually get there through:
+
+- **Edge control** during the last pair: choosing between insertions that leave the edges oriented or not, as shown on the [F2L page](../first-two-layers/#last-slot-edge-control).
+- **A forced oriented-edges last slot:** [VHLS](https://www.speedsolving.com/wiki/index.php/VHLS), from the [VH method](https://www.speedsolving.com/wiki/index.php/VH_method) by Lars Vandenbergh and Dan Harris, orients the last layer edges while inserting a connected last pair. Restricting the pair to that one condition cuts the case count to 32.
+- **Lucky solves:** about one solve in eight already has all four last layer edges oriented, with no effort at all.
+
+Once the edges are oriented, a known ZBLL case finishes the solve in one look. If the case is one you have not learned yet, COLL followed by an edge permutation (described below) or OCLL followed by PLL works as a fallback.
+
+### OLS: VLS and HLS
+
+[OLS](https://www.speedsolving.com/wiki/index.php/OLS) (Orientation of the Last Slot) solves the last pair and orients the whole last layer at once, so PLL comes next. It is divided into two groups: [VLS](https://www.speedsolving.com/wiki/index.php/VLS) (Valk Last Slot), which uses a connected CE pair, and [HLS](https://www.speedsolving.com/wiki/index.php/HLS) (Hessler Last Slot), which uses a CE pair that can be connected in one move. Both are large sets, so most solvers learn only their most useful subsets:
+
+- The [Winter Variation](https://www.speedsolving.com/wiki/index.php/Winter_Variation) (WV) is for when the last layer edges are already oriented and the last pair goes in with (R U R'). Its 27 cases orient the corners during the insertion, skipping OLL.
+- The [Summer Variation](https://www.speedsolving.com/wiki/index.php/Summer_Variation) (SV) does the same for a last pair that goes in with (R U' R'), also with 27 cases.
+
+### COLL
+
+[COLL](https://www.speedsolving.com/wiki/index.php/COLL) (Corners of the Last Layer) orients and permutes the last layer corners at the same time, for when the edges are already oriented. It has 42 cases, and every COLL leaves only an edge permutation (the U, H, or Z perm, or nothing). Every COLL case is also a ZBLL case, so COLL is a common stepping stone toward ZBLL.
+
+### OLLCP
+
+The [OLL page](../orient-last-layer/#where-oll-leads) introduces OLLCP, which solves the corners during OLL so that only an edge permutation remains. Like ZBLL, it is usually learned a few cases at a time.
 
 ## Other Methods
 
-There are also entirely different approaches to solving the cube. The [Petrus method](https://www.speedsolving.com/wiki/index.php/Petrus_method) begins by building a 2x2x2 block on one corner, then extending that to a 2x2x3 block, then finishing the first two layers after twisting edges. LL edges are automatically oriented, so the cube is finished after positioning LL corners, orienting LL corners, and positioning LL edges. Petrus is an intuitive approach that uses fewer moves than other methods, but it is not a popular approach for those aiming for speed.
-
-The [ZZ method](https://www.speedsolving.com/wiki/index.php/ZZ_Method), invented by Zbigniew Zborowski, is designed to make turns very quickly. First, all the edges are oriented. Then the right and left layers are solved, followed by the middle layer. This approach uses roughly the same number of moves as the Petrus method.
-
-The [Roux method](https://www.speedsolving.com/wiki/index.php/Roux_method), invented by Gilles Roux, begins by building two 1x2x3 blocks on opposite sides of the cube. This leaves the U and M slices free to turn. Next, the top layer corners are solved. The remaining six edges are oriented and positioned using U and M turns. See my [Rouxtorial](../../roux/).
-
-...and these only scratch the surface. With such a variety of approaches out there, even the most experienced cubers have opportunities to learn and grow.
+CFOP is not the only way to solve the cube quickly. Roux, ZZ, Petrus, and several newer methods take very different approaches; my [methods guide](../../../guides/methods/) compares them, and my [Rouxtorial](../../roux/) covers Roux in detail. With such a variety of approaches out there, even the most experienced cubers have opportunities to learn and grow.

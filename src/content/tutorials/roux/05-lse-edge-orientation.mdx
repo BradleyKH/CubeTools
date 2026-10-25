@@ -29,7 +29,7 @@ In this step, we will orient the last six edges (the 4 on top plus the bottom 2 
 
 First, turn the M slice so that the white or yellow center is facing up. Only then can we easily see if an edge is oriented (good) or disoriented (bad).
 
-Second, count the bad edges:
+Second, count the bad edges using these two rules:
 
 - **An edge is oriented correctly if its yellow or white sticker is on the top or bottom of the cube.** Otherwise, it is a bad edge that needs to be flipped. In other words, when all the edges are oriented, the top and the bottom of the cube will have only yellow or white stickers. Edges are always flipped in pairs, so there will be 0, 2, 4, or 6 bad edges.
 - **Don't look at the DB edge.** Five of the six edges are immediately visible, so the state of the hidden DB edge can be inferred without rotating the cube to look at it. If there is an odd number of bad edges visible, DB is also bad. If there is an even number of bad edges visible, DB is good.
@@ -64,7 +64,7 @@ The case that is easiest to solve is an Arrow case: 3 bad edges on the top and 1
 When you get an Arrow, the bad bottom edge can be on the front or the back. In either case, you turn the U slice so that the top "arrow" points to the bad bottom edge, bring the bad bottom edge up with M or M', then orient all edges with any U turn move followed by any M turn.
 
 - A Front Arrow can be solved `M'U'M'` or `M'UM'` or a similar sequence that begins with M'.
-- A Back Arrow can be solved with `MU'M'` or a similar sequence that begins with M.
+- A Back Arrow can be solved with `MU'M'` or `MUM'` or a similar sequence that begins with M.
 
 ## Arrow Example
 
@@ -89,7 +89,7 @@ Our five visible edges are all good, so we know the DB edge is also good. This c
 We solve the other cases by cycling through the various cases until we get an Arrow case. We use two algorithmic tools to do this:
 
 - `M'UM'` flips the orientation of the UL, UF, UR, and DF edges
-- `M'U2M` switches the position of the UF and DF edges
+- `M'U2M` switches the position of the UF and DF edges (it also trades UL with UR, which does not affect orientation)
 
 These tools are the building blocks of algorithms used to solve edge orientation. The chart below lists the 11 cases for edge orientation, along with the cycles and algorithms for each case.
 
@@ -98,21 +98,21 @@ These tools are the building blocks of algorithms used to solve edge orientation
 After counting the bad edges, turn the U layer until your edges match one of the 11 cases below. The purple edges are bad.
 
 <div class="not-prose flex flex-wrap items-start gap-4">
-  <Figure src={eo_cradle} alt="Cradle case: two bad edges on top in a cradle shape, with the other edges good, shown in purple" caption="Cradle" />
+  <Figure src={eo_cradle} alt="Cradle case: bad edges on the top left and top right and at the bottom front (the hidden bottom back edge is also bad), shown in purple" caption="Cradle" />
   <div class="min-w-64 flex-1"><AlgBlock name="Cradle" alg="(MU2)(M'U2)(M'U'M')" /></div>
 </div>
 
-- `M'U2M'` cycles to Back Arrow
+- `MU2M'` cycles to Front Arrow
 
 <div class="not-prose flex flex-wrap items-start gap-4">
-  <Figure src={eo_cross} alt="Cross case: four bad edges on top forming a cross, shown in purple" caption="Cross" />
+  <Figure src={eo_cross} alt="Cross case: all four top edges bad, shown in purple, with both bottom edges good" caption="Cross" />
   <div class="min-w-64 flex-1"><AlgBlock name="Cross" alg="(M'U2)(M'U2)(M'U'M')" /></div>
 </div>
 
 - `M'U2M'` cycles to Front Arrow
 
 <div class="not-prose flex flex-wrap items-start gap-4">
-  <Figure src={eo_stinger} alt="Stinger case: two bad edges, one on top and one on the bottom, with a stinger shape, shown in purple" caption="Stinger" />
+  <Figure src={eo_stinger} alt="Stinger case: two bad top edges and the bottom front edge bad, shown in purple; the hidden bottom back edge is also bad" caption="Stinger" />
   <div class="min-w-64 flex-1"><AlgBlock name="Stinger" alg="(M2U')(M'U'M')" /></div>
 </div>
 
@@ -126,21 +126,21 @@ After counting the bad edges, turn the U layer until your edges match one of the
 - `M'UM'` cycles to Front Arrow
 
 <div class="not-prose flex flex-wrap items-start gap-4">
-  <Figure src={eo_front_diagonal} alt="Front Diagonal case: two bad edges on diagonal positions, with the bottom front edge bad, shown in purple" caption="Front Diagonal" />
+  <Figure src={eo_front_diagonal} alt="Front Diagonal case: one bad top edge at the back and the bottom front edge bad, shown in purple" caption="Front Diagonal" />
   <div class="min-w-64 flex-1"><AlgBlock name="Front Diagonal" alg="(M'U'M) U' (M'U'M')" /></div>
 </div>
 
 - `MU'M` cycles to Front Arrow
 
 <div class="not-prose flex flex-wrap items-start gap-4">
-  <Figure src={eo_back_diagonal} alt="Back Diagonal case: two bad edges on diagonal positions, with the bottom back edge bad, shown in purple" caption="Back Diagonal" />
+  <Figure src={eo_back_diagonal} alt="Back Diagonal case: one bad top edge; the other bad edge is the hidden bottom back edge, shown in purple" caption="Back Diagonal" />
   <div class="min-w-64 flex-1"><AlgBlock name="Back Diagonal" alg="(M'U'M') U' (MU'M')" /></div>
 </div>
 
 - `M'UM'` cycles to Back Arrow
 
 <div class="not-prose flex flex-wrap items-start gap-4">
-  <Figure src={eo_top_pair} alt="Top Pair case: two adjacent bad edges on top, shown in purple" caption="Top Pair" />
+  <Figure src={eo_top_pair} alt="Top Pair case: two bad edges on opposite sides of the top layer, shown in purple" caption="Top Pair" />
   <div class="min-w-64 flex-1"><AlgBlock name="Top Pair" alg="(M'UM) U' (M'U'M')" alts={["(RUR'U') M' (URU'r')"]} /></div>
 </div>
 
@@ -165,11 +165,11 @@ After counting the bad edges, turn the U layer until your edges match one of the
   <div class="min-w-64 flex-1"><AlgBlock name="Front Arrow" alg="(M'U'M')" /></div>
 </div>
 
-- `M'UM'` solves
+- `M'U'M'` solves (so does `M'UM'`)
 
 <div class="not-prose flex flex-wrap items-start gap-4">
   <Figure src={backArrow} alt="Back Arrow case: three bad edges on top forming an arrow and the back bottom edge bad, shown in purple" caption="Back Arrow" />
   <div class="min-w-64 flex-1"><AlgBlock name="Back Arrow" alg="(MU'M')" /></div>
 </div>
 
-- `MU'M'` solves
+- `MU'M'` solves (so does `MUM'`)

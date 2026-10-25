@@ -1,0 +1,32 @@
+---
+title: Beyond EG
+description: TCLL, LEG-1, and one-look solving, the techniques the fastest 2x2 solvers add after EG.
+series: 2x2-advanced
+order: 4
+---
+
+Full EG takes a long time to learn, but it is not the end of the road. The ideas below push the same principle further: accept a messier first layer, and let a larger set of algorithms clean it up.
+
+## TCLL
+
+TCLL (Twisty Corners of the Last Layer) was proposed in 2013 by Robert Yau and Christopher Olson. You build a first layer with one corner twisted in place, which is often shorter than building a solved layer, and finish with one algorithm that solves the last layer and untwists that corner.
+
+There are two sets, one for each direction the twisted corner can face. TCLL+ covers the corner twisted one way and TCLL- the other, with 43 algorithms each. Along with CLL that makes 128 algorithms, the same total as EG.
+
+TCLL shines on scrambles where a layer with one twisted corner is easy to see in inspection. It is usually learned as a supplement to EG rather than a replacement.
+
+## LEG-1
+
+LEG-1 is a variant of EG-1 where you hold the bar on the left instead of at the back. That saves the rotation many solvers make after building the face, so you can go straight into the algorithm. James Straughan first proposed it in 2012, and Christopher Olson proposed it again in 2014. It has the same 43 cases as EG-1, but some of the algorithms are less comfortable, so it is usually learned after full EG.
+
+## One-look solving
+
+On a 2x2, the 15 seconds of inspection are long compared with the solve. The fastest solvers use that time to plan the first face and predict which CLL, EG, or TCLL case will follow, so the whole solve runs without a pause. The more algorithm sets you know, the more first faces you can choose from, and the more often a one-look solve is possible.
+
+Getting there takes a lot of practice in tracking pieces while you plan. A good way to start is to plan the face and then try to predict just the bottom layer: is it a layer, an EG-1 bar, or an EG-2 diagonal swap?
+
+## Where to find more
+
+- The [SpeedSolving wiki](https://www.speedsolving.com/wiki/index.php/EG_Method) describes EG, LEG-1, and related methods, with links to their authors' pages.
+- [SpeedCubeDB](https://speedcubedb.com/a/2x2) collects community-voted algorithms for CLL, EG, TCLL, and more.
+- My [Resources](../../../resources/) page lists more places to learn.

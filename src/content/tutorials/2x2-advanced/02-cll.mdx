@@ -1,0 +1,84 @@
+---
+title: CLL
+description: Solve the last four corners of the 2x2 in one algorithm, with all 42 CLL cases grouped by orientation.
+series: 2x2-advanced
+order: 2
+---
+
+import { cllGroups, groupById } from '@/data/advanced-2x2-algs';
+
+export const cases = (id) => groupById(cllGroups, id).cases;
+
+CLL (Corners of the Last Layer) is a two-step method:
+
+1. Solve the first layer completely: a face whose side colors also match, just like the first layer of the [beginner method](../../2x2-beginner/).
+2. Solve the last layer with one of 42 algorithms. Each one orients and permutes the four top corners at the same time.
+
+The same 42 cases are the corners step of the 3x3 CFCE method, which Guus Razoux Schultz used at the 1982 World Championship, and CLL makes up a third of the EG method. Two of the 42 cases are already oriented, so their algorithms are the adjacent and diagonal corner swaps you may know from PLL.
+
+## Recognizing a case
+
+Recognition works in two passes:
+
+1. **Orientation.** Look at the yellow stickers. They form one of the seven Ortega patterns (Sune, Anti-Sune, Pi, H, L, T, U), or the top is already yellow.
+2. **Permutation.** Look at the side stickers of the top layer. Within an orientation group, the cases differ by which sides show a matching pair of stickers ("headlights") and which show two different colors, especially opposite colors such as blue and green. Learn to read two sides (front and right, or front and left) so you never have to turn the cube to check the back.
+
+Each diagram shows the top of the cube, yellow up, with the side stickers of the top layer around the edge. Hold the cube so the top matches the diagram, then apply the algorithm. Some algorithms start with a `y` rotation; it is part of the algorithm, so the diagram already accounts for it. A final U turn may be needed to finish.
+
+The algorithms below are the community's top picks on [SpeedCubeDB](https://speedcubedb.com/a/2x2/CLL), with alternates in case the first one does not suit your hands. Every one has been checked by simulation.
+
+## Sune
+
+One corner has yellow on top, and the other three yellow stickers point around the cube like a pinwheel: the case the Sune algorithm solves.
+
+{cases('cll-sune').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## Anti-Sune
+
+The mirror image of the Sune: one corner has yellow on top, and the pinwheel turns the other way.
+
+{cases('cll-anti-sune').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## Pi
+
+No corner has yellow on top. Two yellow stickers face the same side, and the other two point away from each other.
+
+{cases('cll-pi').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## H
+
+No corner has yellow on top. Two yellow stickers face one side and two face the opposite side. Ortega calls this one Double Headlights.
+
+{cases('cll-h').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## L
+
+Two diagonal corners have yellow on top. My [Ortega tutorial](../../ortega/opposite-side/) calls this one Bowtie.
+
+{cases('cll-l').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## T
+
+Two adjacent corners have yellow on top, and the other two yellow stickers point away from each other. Ortega calls this one Blinkers.
+
+{cases('cll-t').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## U
+
+Two adjacent corners have yellow on top, and the other two yellow stickers face the same direction. Ortega calls this one Headlights.
+
+{cases('cll-u').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## Oriented
+
+The top is already yellow, so only the corners' positions are wrong. These two are the PLL cases.
+
+{cases('cll-oriented').map((c) => <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} showCube puzzle="2x2x2" stickering="CLL" />)}
+
+## Learning tips
+
+- Start with the groups you see most and the shortest algorithms. The Sune and Anti-Sune cases include the Ortega algorithms you already know.
+- Until you know all 42, keep Ortega as a fallback: when you do not recognize the CLL case, orient with OLL and finish with PBL.
+- Practice recognition from two sides. On a 2x2, inspection is short and the solve is shorter.
+
+When CLL feels comfortable, move on to [EG](../eg/).

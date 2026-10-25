@@ -1,6 +1,6 @@
 ---
 title: Orient Last Layer (OLL)
-description: How OLL works, how to start with 2-look OLL, and tips for recognizing cases and choosing algorithms.
+description: How OLL works, how to start with 2-look OLL, tips for recognizing cases and choosing algorithms, and where OLLCP, ZBLL, and 1LLL fit.
 series: cfop
 order: 4
 navTitle: Orient Last Layer
@@ -13,12 +13,22 @@ OLL orients the last layer corners and edges in one algorithm. There is nothing 
 
 ...begins with 2-look OLL. I have [flashcards](../../../flashcards/?set=oll2) for the 10 algorithms of 2-look OLL.
 
-When you are ready for full OLL, check out my [flashcards](../../../flashcards/?set=oll).
+When you are ready for full OLL, check out my [flashcards](../../../flashcards/?set=oll) for all 57 cases.
 
 ## Tips
 
 When figuring out which case you have for OLL (or PLL), do not rotate the entire cube. Instead, AUF (adjust the U face) as needed to identify the case. With practice, you can identify last layer cases by looking only at two sides plus the top.
 
-There are often multiple algorithms that accomplish the same thing. Try different ones to see which of them fit your style best. There are good lists of them [here](https://www.speedsolving.com/wiki/index.php/OLL) and [here](http://algdb.net/puzzle/333/oll). Practice them slowly to find the most efficient way to execute them, and then gradually increase your speed. Focus on practicing difficult ones until they become second nature / muscle memory.
+There are often multiple algorithms that accomplish the same thing. Try different ones to see which of them fit your style best. There are good lists of them on the [SpeedSolving wiki](https://www.speedsolving.com/wiki/index.php/OLL) and [jperm.net](https://jperm.net/algs/oll). Practice them slowly to find the most efficient way to execute them, and then gradually increase your speed. Focus on practicing difficult ones until they become second nature / muscle memory.
+
+Recognize OLL while you insert the last pair. The last layer is already visible on top, so with practice you can know your OLL case before the last pair is in, and start the algorithm without a pause.
+
+## Where OLL Leads
+
+Full OLL plus full PLL is where most CFOP solvers settle, and it is plenty to get very fast. Once both feel comfortable, there are a few directions to grow:
+
+- **OLLCP** (OLL plus corner permutation) gives each OLL case several algorithms, one for each way the corners can be permuted, so that after OLL the corners are solved and only an edge permutation (EPLL, the U, H, and Z perms) remains. It is a large set, so solvers usually learn it a few cases at a time, starting with OLLs they see often and can recognize easily.
+- **ZBLL** solves the whole last layer in one algorithm when the edges are already oriented. When edges are oriented, OLL is one of the 7 corner-only cases, so ZBLL replaces that OLL and the PLL that follows it. Many top solvers know some of ZBLL; see [Beyond CFOP](../beyond-cfop/) for how they reach it.
+- **1LLL** (one-look last layer) means knowing an algorithm for every last layer case. There are close to 4,000 of them, so full 1LLL is a frontier rather than a goal; in practice, solvers pick up subsets such as ZBLL that come up often enough to be worth learning.
 
 The final step of CFOP is [PLL](../permute-last-layer/).

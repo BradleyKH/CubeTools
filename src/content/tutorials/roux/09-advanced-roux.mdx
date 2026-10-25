@@ -1,20 +1,38 @@
 ---
 title: Advanced Roux
-description: Where to learn more about Roux, with links to experienced solvers and a list of advanced concepts to explore.
+description: Techniques that take a Roux solve further, including EOLR, non-matching blocks, second-block efficiency, and CMLL recognition, with links to experienced Roux solvers.
 series: roux
 order: 9
 legacy: roux9.html
 ---
 
-I am not a Roux expert, but I can point you to those who are.
+I am not a Roux expert, but the basics above are enough to start practicing, and this page collects the ideas that experienced solvers use to speed up. For depth, learn from those who live and breathe Roux.
 
-[Kian Mansour](https://www.worldcubeassociation.org/persons/2015MANS03) has achieved sub-7 averages with the Roux method. His [homepage](https://sites.google.com/view/kianroux) and [YouTube channel](https://www.youtube.com/channel/UCdEm9-DsuOzNoWmTAYNLRoQ) have great resources to help you progress in Roux.
+## Where to learn more
 
-Some advanced concepts in Roux include:
+- [Kian Mansour's Roux guide](https://sites.google.com/view/kianroux) covers second block, CMLL, EO, and EOLR, and he also posts on [YouTube](https://www.youtube.com/channel/UCdEm9-DsuOzNoWmTAYNLRoQ). His [WCA profile](https://www.worldcubeassociation.org/persons/2015MANS03) lists his results.
+- [Gilles Roux's own site](http://grrroux.free.fr/) describes the method as its inventor intended (the site is served over plain http only).
+- The [SpeedSolving wiki](https://www.speedsolving.com/wiki/index.php?title=Roux) has a thorough overview and links to more resources.
 
-- Build the blocks in a different order. Sometimes the center is last!
-- Influencing the second block while building the first.
-- Build the two blocks simultaneously.
-- EOLR: solve edge orientation while setting up UL/UR. Kian has a nice [tutorial](https://sites.google.com/view/kianroux/eolr) on this, and [Gilles Roux's tutorial](http://grrroux.free.fr/method/Step_4.html) also deals with it.
+## Combining the last six edges steps
+
+Normally you orient the last six edges (EO), place UL and UR (4b), and then finish the M slice. **EOLR** combines the first two: you choose an EO solution that also sends UL and UR to the bottom layer, ready for the M2 that places them. Many of the cases are related by symmetry. Kian's [EOLR page](https://sites.google.com/view/kianroux/eolr) has a video playlist and the algorithms. Treat EOLR as a trick for when you recognize the case; regular EO is still the fallback.
+
+## Building the blocks
+
+- **Square first:** after the first block, build a 1x2x2 square on the other side (the DR edge and one corner-edge pair around the right center), then add the last pair. A square keeps the remaining pair easy to see and solve.
+- **Use the M slice and r turns:** the second block is not an F2L problem. `r` and `M` turns can pair and insert pieces without disturbing the first block, as in the [second block examples](../second-block/).
+- **Build the blocks in a different order:** sometimes a block's center is placed last.
+- **Influence the second block while building the first,** and build the two blocks simultaneously when the pieces line up.
+
+## Non-matching blocks
+
+The two blocks do not have to match the centers they are built around. If you build a block on the wrong centers, a short M-slice adjustment before CMLL, such as `u M' u'` or `u' M' u`, brings the centers into agreement. Roux describes the idea on his site, and it can save moves in the second block at the cost of harder CMLL recognition.
+
+## CMLL recognition and influence
+
+- Recognize CMLL by the corner orientations first, then by how the corner stickers on the left and right line up with the block colors. With practice you can do this while finishing the second block.
+- Influence CMLL during the second block: finish the block in a way that leaves the corners in a case you know and like, or in a skipped or easy case.
+- Learn full CMLL gradually after [2-look CMLL](../cmll/); the [flashcards](../../../flashcards/?set=cmll) include all 42 cases.
 
 Happy cubing!

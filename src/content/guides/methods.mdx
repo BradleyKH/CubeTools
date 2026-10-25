@@ -1,0 +1,171 @@
+---
+title: 3x3 Methods
+description: A side-by-side look at CFOP, Roux, ZZ, Petrus, Mehta, YruRU, CFCE, and ZB, with their steps, move and algorithm counts, strengths, and who each one suits.
+order: 1
+---
+
+There is more than one way to solve a cube quickly. Every speedsolving method breaks the solve into a handful of steps, but the methods disagree about what those steps should be: build layers or blocks, orient edges first or last, memorize hundreds of algorithms or lean on intuition. This guide walks through the methods you are most likely to run into and what each one asks of you.
+
+If you are still learning to solve the cube at all, start with the [layer-by-layer tutorial](../../tutorials/3x3-beginner/). Every method below assumes you can already solve the cube and are comfortable with [cube notation](../../notation/).
+
+<Callout>
+Move counts below are rough averages for speedsolves in the slice turn metric (STM), where a slice move like M counts as one turn. Real solves vary a lot, and a lower move count only helps if you can turn just as fast. Algorithm counts are for the full version of each step; most methods have two-look versions with far fewer.
+</Callout>
+
+## At a glance
+
+<div style={{ overflowX: 'auto' }}>
+
+| Method | Steps | Moves (approx.) | Algorithms | Rotations after inspection |
+| --- | --- | --- | --- | --- |
+| CFOP | Cross, F2L, OLL, PLL | 55 to 60 | 78 (16 for two-look) | A few |
+| Roux | First block, second block, CMLL, last six edges | 48 | 42 | None |
+| ZZ | EOCross (or EOLine), F2L, last layer | 45 to 55 | 28 to 493, by last layer choice | None |
+| Petrus | 2x2x2, 2x2x3, edge orientation, F2L, last layer | Fewer than CFOP | Last layer only | One |
+| Mehta | First block, 3QB, EOLE, then two or three algorithm steps | 45 to 50 | Depends on the path | None |
+| YruRU | CP-line, block plus partial EO, EO and line, F2L, 2GLL | 45 to 55 | 84 (2GLL) plus intuitive EO | None |
+| CFCE | Cross, F2L, CLL, ELL | About 51 | 71 (CLL 42, ELL 29) | A few |
+| ZB | Cross and F2L minus one pair, ZBLS, ZBLL | About 48 | About 800 | A few |
+
+</div>
+
+## CFOP
+
+CFOP, also called the Fridrich method, is the most widely used speedsolving method. Jessica Fridrich popularized it by publishing it online in the 1990s, though its pieces came from several cubers in the late 1970s and early 1980s.
+
+1. **Cross:** solve the four edges around one center, usually planned entirely during inspection.
+2. **F2L:** pair each first-layer corner with its middle-layer edge and insert the pairs one at a time.
+3. **OLL:** orient the last layer so the top face is one color (57 algorithms).
+4. **PLL:** permute the last layer pieces into place (21 algorithms).
+
+Full CFOP uses 78 last layer algorithms, but you can start with a two-look last layer of 16 and grow from there. F2L is mostly intuitive. CFOP averages roughly 55 to 60 moves.
+
+**Strengths:** it has by far the most tutorials, algorithm sheets, and example solves, and its steps are easy to recognize. Turning is fast and ergonomic, mostly R, U, and F turns with the occasional rotation.
+
+**Who it suits:** almost anyone. It is the safest default if you want lots of learning material and a clear path from beginner to advanced.
+
+Learn it: my [CFOP tutorial series](../../tutorials/cfop/), or [J Perm's CFOP tutorial](https://jperm.net/3x3/cfop).
+
+## Roux
+
+Gilles Roux invented the Roux method, built on blockbuilding rather than layers.
+
+1. **First block:** build a 1x2x3 block on the left side.
+2. **Second block:** build a matching 1x2x3 block on the right side without disturbing the first.
+3. **CMLL:** solve the four top corners in one algorithm (42 algorithms), ignoring the edges and the M slice.
+4. **Last six edges (LSE):** orient and place the remaining six edges using only M and U turns.
+
+Roux averages around 48 moves, noticeably fewer than CFOP, and needs only 42 algorithms for the full method.
+
+**Strengths:** low move count, no rotations after the first block, and a last step made of very fast M and U turns. Most of the solve is intuitive, so improvement comes from understanding rather than memorization.
+
+**Who it suits:** solvers who enjoy planning and blockbuilding and are willing to practice M turns until they feel natural. It is also a strong one-handed method.
+
+Learn it: my [Roux tutorial series](../../tutorials/roux/), or [Gilles Roux's own beginner page](http://grrroux.free.fr/begin/Begin.html).
+
+## ZZ
+
+The ZZ method is named for Zbigniew Zborowski, who developed and published it in 2006. Its key idea is to orient every edge at the start so the rest of the solve needs only R, U, and L turns.
+
+1. **EOCross:** orient all twelve edges while solving the cross. The older form, **EOLine**, places only the front and back bottom edges along with edge orientation. EOCross is the more common choice for speed because the F2L that follows is easier to look ahead through.
+2. **F2L:** solve the first two layers using only R, U, and L turns, with no rotations. With EOCross this looks a lot like CFOP F2L, but every edge is already oriented, so there are fewer cases and nothing needs F or B turns.
+3. **Last layer:** because the edges are already oriented, the last layer never has an edge orientation step. A common start is OCLL plus PLL (28 algorithms), then COLL plus EPLL (46). The last layer pairs naturally with ZBLL, which solves any edges-oriented last layer in one algorithm (472 algorithms, or 493 cases counting the PLLs).
+
+ZZ averages roughly 45 to 55 moves depending on whether you use EOLine or EOCross and which last layer you choose.
+
+**Strengths:** rotationless, ergonomic F2L and a simpler last layer. It is one of the most natural homes for ZBLL.
+
+**Who it suits:** solvers who want CFOP-like F2L without rotations, and anyone planning to learn ZBLL eventually. Planning the full EOCross in inspection takes practice.
+
+Learn it: [zzmethod.com](https://zzmethod.com/), or the [SpeedSolving wiki's ZZ page](https://www.speedsolving.com/wiki/index.php/ZZ_method).
+
+## Petrus
+
+Lars Petrus devised this blockbuilding method in the early 1980s. It was once the second most popular speedsolving method.
+
+1. **2x2x2 block:** build a 2x2x2 block anywhere on the cube.
+2. **2x2x3 block:** expand it to a 2x2x3 block.
+3. **Edge orientation:** orient the remaining edges.
+4. **F2L:** finish the first two layers using only two faces, typically R and U.
+5. **Last layer:** with edges oriented, use OCLL plus PLL, COLL plus EPLL, or ZBLL.
+
+Petrus is efficient, typically taking fewer moves than CFOP, and needs no algorithms before the last layer.
+
+**Strengths:** very intuitive and move-efficient, and it teaches blockbuilding skills that carry over to Roux, ZZ, and fewest moves solving.
+
+**Who it suits:** solvers who like thinking in blocks and want to learn efficient solving. For pure speed, most Petrus ideas live on inside ZZ, which keeps the edge orientation idea but moves it to the start.
+
+Learn it: [Lars Petrus's own guide](https://lar5.com/cube/).
+
+## Mehta
+
+Yash Mehta proposed the Mehta method in 2020. It mixes blockbuilding with a series of short algorithmic steps, aiming for a low move count and high turning speed.
+
+1. **First block (FB):** build a 1x2x3 block on the bottom left.
+2. **3QB:** solve three of the four middle-layer edges.
+3. **EOLE:** insert the last middle-layer edge while orienting all edges.
+4. **Finish:** one of several algorithmic paths. One example is 6CO (orient the six remaining corners), 6CP (permute them), and L5EP (permute the last five edges). Other paths end with PLL or ZBLL.
+
+Mehta averages roughly 45 to 50 moves. How many algorithms you need depends on the path you choose, and a beginner version keeps the count low.
+
+**Strengths:** no rotations, a move count in Roux's range, and long stretches of R, U, and D turns that are fast to execute.
+
+**Who it suits:** experimenters who enjoy learning algorithm sets and do not mind a smaller community and less learning material.
+
+Learn it: the [SpeedSolving wiki's Mehta page](https://www.speedsolving.com/wiki/index.php/Mehta) or [Ruwix's Mehta tutorial](https://ruwix.com/the-rubiks-cube/different-rubiks-cube-solving-methods/metha-method/).
+
+## YruRU
+
+YruRU, also proposed by Yash Mehta, is built for one-handed solving. It solves corner permutation at the very start, which lets the rest of the solve use an ever smaller set of turns.
+
+1. **CP-line:** build a 1x1x3 line on the bottom left while solving corner permutation.
+2. **Block with partial EO:** extend the line to a 1x2x3 block while orienting some of the remaining edges.
+3. **EO and line:** finish edge orientation and place the bottom front and back edges.
+4. **F2L:** finish the first two layers using only R and U turns.
+5. **2GLL:** solve the last layer with one R and U algorithm (84 cases).
+
+It averages about 45 to 55 moves.
+
+**Strengths:** after the opening line, the solve uses only r, u, R, and U turns, narrowing to pure R and U for F2L and the last layer, which is about as comfortable as one-handed turning gets. 2GLL recognition is simpler than ZBLL because corner permutation is already solved.
+
+**Who it suits:** one-handed specialists. For two-handed solving, the other methods here are better tested.
+
+Learn it: the [SpeedSolving wiki's YruRU page](https://www.speedsolving.com/wiki/index.php/YruRU).
+
+## CFCE
+
+CFCE stands for Cross, F2L, CLL, ELL. It starts exactly like CFOP but splits the last layer by piece type instead of by orientation and permutation. Guus Razoux Schultz used it in the 1982 World Championship finals.
+
+1. **Cross** and **F2L**, as in CFOP.
+2. **CLL:** solve all four last layer corners (42 algorithms).
+3. **ELL:** solve all four last layer edges (29 algorithms).
+
+CFCE averages about 51 moves with 71 last layer algorithms.
+
+**Strengths:** if you already use CFOP, only the last layer changes. CLL algorithms are short, and the corners-then-edges split is easy to reason about.
+
+**Who it suits:** CFOP solvers curious about an alternative last layer, or anyone who finds OLL and PLL recognition awkward.
+
+Learn it: the [SpeedSolving wiki's CFCE page](https://www.speedsolving.com/wiki/index.php/CFCE).
+
+## ZB
+
+ZB, short for Zborowski-Bruchem, is named after Zbigniew Zborowski and Ron van Bruchem. It is less a separate method than the far end of CFOP: solve the last F2L slot and the last layer each in one algorithm.
+
+1. **Cross and F2L minus one pair**, as in CFOP.
+2. **ZBLS:** insert the last pair while orienting the last layer edges (around 300 cases).
+3. **ZBLL:** solve the entire last layer in one algorithm (472 algorithms, or 493 cases counting the PLLs).
+
+Full ZB averages around 48 moves but takes about 800 algorithms. Most solvers adopt it piece by piece: they learn ZBLL, use it whenever edges happen to be oriented after F2L, and force that state with edge control during the last slot.
+
+**Strengths:** the lowest move count of the CFOP family, with almost no recognition pauses once fully learned.
+
+**Who it suits:** dedicated CFOP or ZZ solvers with plenty of time for algorithms. My [Beyond CFOP](../../tutorials/cfop/beyond-cfop/) page covers some of the steps in between.
+
+Learn it: [J Perm's ZBLL page](https://jperm.net/algs/zbll) or the [SpeedSolving wiki's ZB page](https://www.speedsolving.com/wiki/index.php/ZB_method).
+
+## Choosing a method
+
+All of these methods can be fast. The best solvers in the world use several of them, so the right choice depends more on what you enjoy than on any one method's ceiling. If you want to see who holds the records and which methods they use, check the [WCA records page](https://www.worldcubeassociation.org/results/records).
+
+My suggestion: if you are not sure, start with CFOP for its wealth of material. If you find yourself enjoying the intuitive parts and dreading algorithms, give Roux a try. If cube rotations bother you, look at ZZ. You can always switch later, and every method you learn makes you better at the others.

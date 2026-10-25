@@ -45,7 +45,21 @@ export const nav: readonly NavItem[] = [
       },
       {
         heading: 'Advanced',
-        links: [{ label: '3x3 Roux', href: 'tutorials/roux/' }],
+        links: [
+          { label: '3x3 Roux', href: 'tutorials/roux/' },
+          { label: '2x2 Advanced (CLL, EG)', href: 'tutorials/2x2-advanced/' },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Guides',
+    groups: [
+      {
+        links: [
+          { label: 'Methods', href: 'guides/methods/' },
+          { label: 'Choosing a Cube', href: 'guides/choosing-a-cube/' },
+        ],
       },
     ],
   },

@@ -46,6 +46,13 @@ export const series: readonly Series[] = [
     level: 'Advanced',
     summary: 'Block building, CMLL, and the last six edges for a low move count.',
   },
+  {
+    slug: '2x2-advanced',
+    title: '2x2 Advanced (CLL and EG)',
+    puzzle: '2x2x2',
+    level: 'Advanced',
+    summary: 'Solve the last layer in one look with CLL, then the whole cube from one face with EG.',
+  },
 ];
 
 const bySlug = new Map(series.map((s) => [s.slug, s]));

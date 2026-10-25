@@ -1,6 +1,6 @@
 ---
 title: The Cross
-description: Advanced cross concepts for CFOP, including efficiency, relative positioning, inspection planning, and color neutrality.
+description: Advanced cross concepts for CFOP, including efficiency, relative positioning, planning the cross and first pair in inspection, XCross, and color neutrality.
 series: cfop
 order: 2
 legacy: cfop2.html
@@ -10,7 +10,7 @@ In my beginner tutorial, I cover the [basics of making the cross](../../3x3-begi
 
 ## Efficiency
 
-Try to make the cross in 8 moves or less. It can be made in 7 moves or less over 99% of the time, with an average of 6.5 moves. Even at only 2 turns per second (tps), the cross should take no more than 4 seconds to make. With practice, a consistent 2-second cross (or faster) is viable.
+Try to make the cross in 8 moves or fewer. Every cross can be solved in 8 moves or fewer, 7 or fewer is enough more than 99.9% of the time, and the shortest solution averages about 5.8 moves. Even at only 2 turns per second (tps), the cross should take no more than 4 seconds to make. With practice, a consistent 2-second cross (or faster) is viable.
 
 For example, face green with white on top, and do this scramble:<br />L2 U D B' U' B' F L B' D' F2 B2 R' U2 B2 U' F D B2 R D F' D2 B R'
 
@@ -40,12 +40,39 @@ For example, face green with white on top, and do this scramble:<br />U' B' L' D
 
 If you face the red center with the yellow center on top, one possible cross solution is (L'BDR'B'D). The initial L'B puts the green and red cross pieces in position with respect to each other. D prepares to receive the other two cross pieces into the bottom layer, and R'B' puts them there. The final D move moves all four cross pieces into position, completing the cross. If we had tried first to align the cross pieces with their corresponding side colors, the solution would be much longer, something like (LU2RFLF2U'RB2).
 
-## Planning
+## Planning in Inspection
 
-In a competitive setting, you typically get 15 seconds inspection time before solving. During this time, plan your cross moves in advance so that you can begin making the cross without thinking. That way, while making the cross, you can be looking for your first CE pair. This helps you to transition smoothly from the cross to F2L. After planning the cross becomes a habit, you can even start to plan your first CE pair during inspection.
+In competition, you get 15 seconds of inspection before the solve. Use it to plan the whole cross, so that you can make it without thinking. Then, while your hands execute the cross, your eyes are free to look for your first CE pair. This is what makes the transition from the cross to F2L smooth instead of a pause.
+
+Once planning the cross is a habit, go one step further and plan your first pair during inspection too:
+
+1. Plan the full cross first, and rehearse it in your head.
+2. Find the corner and edge of a pair you can see without rotating the cube, and work out where your cross moves will carry them.
+3. Pick the pair whose pieces your cross moves leave in the top layer or in a convenient spot, so you can start F2L the moment the cross is done.
+
+Do not worry if you cannot track the pair yet. Even knowing which pair you will solve first, and roughly where it will be, saves time. Practice this with untimed solves where you allow yourself the full 15 seconds every time.
+
+## XCross
+
+Sometimes a cross solution moves one F2L pair into its slot at the same time, or can be changed slightly so that it does. Solving the cross and a pair together is called an XCross (extended cross). It usually costs only a few moves more than the cross alone, and it saves a whole F2L pair. Finding one in inspection takes practice, so start by looking for pairs that are already joined, or a corner and edge that sit right next to their cross edge.
+
+Here is a worked example. Face green with white on top, and do this scramble:<br />L' D2 L' F' R' D L' R U2 D B' L2 D' R' F D' U F2 R' L
+
+Then turn the cube over (z2) so the white center is on the bottom, keeping green in front. One XCross solution is (R' U R2 L' F2 B' R), only 7 moves. The first six moves solve three cross edges and, without any extra effort, join the front-right corner and edge into a pair sitting in the bottom layer under the right face. The last cross edge waits in the back-right slot. The final R lifts the pair into its slot and drops the last cross edge home, finishing the cross and the first pair together. Step through it below.
+
+<CubeView
+  setup="L' D2 L' F' R' D L' R U2 D B' L2 D' R' F D' U F2 R' L z2"
+  alg="R' U R2 L' F2 B' R"
+  yellowTop={false}
+  controls
+  size="lg"
+  label="XCross example: the cube after the scramble and z2, solved with R' U R2 L' F2 B' R"
+/>
 
 ## Color Neutrality
 
-Some people like to practice making the cross with different colors. If you become equally comfortable starting with any of the six colors, you are "color neutral", and you can choose the most convenient color to start with. The benefit of color neutrality decreases as one becomes more efficient at making the cross. Because color neutrality can arguably hinder look-ahead, some recommend being "dual color neutral" - comfortable starting with either of two colors, such as white and yellow. That way if you get an awkward cross case in white, you can fall back to yellow.
+Some people practice making the cross with different colors. If you are equally comfortable starting with any of the six colors, you are "color neutral", and you can choose the most convenient cross in every solve. With six crosses to choose from, there is almost always a short one, and often one that leads straight into an easy first pair or an XCross. Full color neutrality is common among top solvers for exactly this reason.
+
+The cost is that you have to recognize F2L pairs and last layer cases with any color on top, which slows down look-ahead while you are learning. A popular middle ground is "dual color neutral": comfortable with two opposite colors, usually white and yellow. Both crosses share the same four side colors, so much of your F2L recognition carries over between them, and an awkward white cross can often be replaced by a better yellow one. If you are just starting CFOP, it is fine to stick with one color; you can add a second color later without unlearning anything.
 
 Next is the most important phase of CFOP: the [first two layers](../first-two-layers/).

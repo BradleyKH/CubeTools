@@ -1,0 +1,84 @@
+---
+title: EG-1 and EG-2
+description: Finish the 2x2 from any first face with one algorithm, using all 43 EG-1 and 43 EG-2 cases.
+series: 2x2-advanced
+order: 3
+navTitle: EG
+---
+
+import { eg1Groups, eg2Groups, groupById } from '@/data/advanced-2x2-algs';
+
+export const GROUPS = [
+  ['sune', 'Sune'],
+  ['anti-sune', 'Anti-Sune'],
+  ['pi', 'Pi'],
+  ['h', 'H'],
+  ['l', 'L'],
+  ['t', 'T'],
+  ['u', 'U'],
+  ['oriented', 'Oriented'],
+];
+
+The EG method was proposed in 2006 by Erik Akkersdijk and Gunnar Krig, and its name comes from their first names. Like Ortega, it starts with a face instead of a full layer. Unlike Ortega, it finishes the whole cube with a single algorithm.
+
+1. Build a face on the bottom. The side colors do not need to match.
+2. Look at the bottom layer. There are only three possibilities:
+   - It is already a solved layer. Use [CLL](../cll/).
+   - One side of the bottom matches (a "bar") and the other two corners are swapped. Use **EG-1**.
+   - No side of the bottom matches, because two diagonal corners are swapped. Use **EG-2**.
+3. Recognize the top case exactly as you would for CLL, and apply the algorithm. A final U turn, and occasionally a D turn, finishes the solve.
+
+Each set has 43 cases: the 40 cases where the top is not yet oriented, plus three where it is. Those three are Ortega's PBL cases, so you already know them. CLL, EG-1, and EG-2 together make 128 algorithms.
+
+## Why EG is fast
+
+Building a face takes fewer moves than building a layer, and a face is often visible during inspection. With EG you can plan the face and know which algorithm comes next before the timer starts. That is the main reason top solvers learn it.
+
+The cost is a third step of recognition. You have to identify the top case and also note where the bottom swap is. For EG-1, the position of the bar relative to the top matters, so you usually adjust the top with a U turn before the algorithm as well as after it.
+
+## Recognition tips
+
+- **Find the bar first.** On EG-1, look at the four sides of the bottom layer for the one side whose two stickers match. That is the bar. Many EG-1 lists, including the algorithms here, are written for a particular bar position; the diagram for each case shows the whole cube, so match the bottom as well as the top before you start.
+- **No bar means EG-2.** If none of the four bottom sides match, you have a diagonal swap and an EG-2 case. A diagonal swap looks the same from every side, so you only need to line up the top.
+- **Reuse your CLL recognition.** The orientation groups and the side-sticker patterns are the same as in CLL. Learn the CLL case first; then the EG-1 and EG-2 versions are the same top with a different bottom.
+- **Learn in stages.** Many cubers learn EG-1 before EG-2. Until you know a case, build a full layer and use CLL, or fall back to Ortega.
+
+Each diagram below shows the whole cube unfolded, yellow on top and white on the bottom, before the algorithm. The algorithms are the community's top picks on SpeedCubeDB ([EG-1](https://speedcubedb.com/a/2x2/EG1), [EG-2](https://speedcubedb.com/a/2x2/EG2)), with the Ortega PBL algorithms for the oriented cases. Every one has been checked by simulation to swap the right bottom corners and to match its case.
+
+## EG-1
+
+EG-1 algorithms finish the cube when two adjacent bottom corners are swapped.
+
+{GROUPS.map(([id, name]) => (
+  <>
+    <h3>{name}</h3>
+    {groupById(eg1Groups, `eg1-${id}`).cases.map((c) => (
+      <div className="my-6 flex flex-wrap items-start gap-4">
+        <CubeView puzzle="2x2x2" alg={c.algs[0]} setupFromAlgInverse stickering="full" yellowTop view="2D" size="md" label={`EG-1 ${c.name} case, yellow on top`} />
+        <div className="min-w-56 flex-1">
+          <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} />
+        </div>
+      </div>
+    ))}
+  </>
+))}
+
+## EG-2
+
+EG-2 algorithms finish the cube when two diagonal bottom corners are swapped.
+
+{GROUPS.map(([id, name]) => (
+  <>
+    <h3>{name}</h3>
+    {groupById(eg2Groups, `eg2-${id}`).cases.map((c) => (
+      <div className="my-6 flex flex-wrap items-start gap-4">
+        <CubeView puzzle="2x2x2" alg={c.algs[0]} setupFromAlgInverse stickering="full" yellowTop view="2D" size="md" label={`EG-2 ${c.name} case, yellow on top`} />
+        <div className="min-w-56 flex-1">
+          <AlgBlock name={c.name} alg={c.algs[0]} alts={c.algs.slice(1)} />
+        </div>
+      </div>
+    ))}
+  </>
+))}
+
+For where to go after EG, see [Beyond EG](../beyond-eg/).

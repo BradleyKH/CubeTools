@@ -8,15 +8,17 @@ export interface Props {
   moves: string[];
   /** What the symbol does, e.g. "r'R" for M or "R" for x. */
   equals?: string;
+  /** Puzzle the card's cube shows; big-cube moves such as 3Rw need 4x4x4 or larger. */
+  puzzle?: '3x3x3' | '4x4x4' | '5x5x5';
 }
 
-const { symbol, moves, equals } = Astro.props;
+const { symbol, moves, equals, puzzle = '3x3x3' } = Astro.props;
 ---
 
 <article class="notation-move rounded-lg border bg-card p-4 text-card-foreground" data-notation-move>
   <h3 class="mb-2 text-lg font-semibold"><code class="alg">{symbol}</code></h3>
   <div class="flex justify-center">
-    <CubeView alg={moves[0]} yellowTop={false} size="md" label={`Cube turning with ${symbol} moves`} />
+    <CubeView puzzle={puzzle} alg={moves[0]} yellowTop={false} size="md" label={`${puzzle === '3x3x3' ? 'Cube' : puzzle} turning with ${symbol} moves`} />
   </div>
   <p class="mt-2 min-h-6 text-center font-mono font-bold" data-now aria-live="polite"></p>
   <div class="mt-2 flex flex-wrap justify-center gap-2" role="group" aria-label={`Play a ${symbol} move`}>
