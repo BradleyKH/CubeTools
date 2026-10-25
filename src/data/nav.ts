@@ -59,6 +59,7 @@ export const nav: readonly NavItem[] = [
         links: [
           { label: 'Methods', href: 'guides/methods/' },
           { label: 'Choosing a Cube', href: 'guides/choosing-a-cube/' },
+          { label: 'All guides', href: 'guides/' },
         ],
       },
     ],
