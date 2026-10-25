@@ -1,6 +1,3 @@
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { runInNewContext } from 'node:vm';
 import { Alg } from 'cubing/alg';
 import { describe, expect, it } from 'vitest';
 import { puzzles } from 'cubing/puzzles';
@@ -34,29 +31,6 @@ describe('normalizeAlg', () => {
     const normalized = normalizeAlg(input);
     expect(normalized).toBe(expected);
     expect(() => Alg.fromString(normalized)).not.toThrow();
-  });
-
-  it('normalizes every legacy flashcard algorithm into parseable cubing.js syntax', () => {
-    const source = readFileSync(
-      fileURLToPath(new URL('../../scripts/flashcardSets.js', import.meta.url)),
-      'utf8',
-    );
-    const sandbox: Record<string, unknown> = {};
-    runInNewContext(source, sandbox);
-
-    const algs = Object.entries(sandbox)
-      .filter(([name]) => name.startsWith('algs'))
-      .flatMap(([, groups]) => groups as string[][])
-      .flatMap((group) => group.slice(1))
-      .flatMap((cell) => cell.split(/<br>\s*(?:Alt:|If [^:]*:)?/i))
-      .map((alg) => alg.trim())
-      .filter(Boolean);
-
-    expect(algs.length).toBeGreaterThan(100);
-    for (const alg of algs) {
-      const normalized = normalizeAlg(alg);
-      expect(() => Alg.fromString(normalized), `${alg} -> ${normalized}`).not.toThrow();
-    }
   });
 });
 

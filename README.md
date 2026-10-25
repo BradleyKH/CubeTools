@@ -9,7 +9,9 @@ It is an [Astro](https://astro.build) static site. Tutorials are MDX, and cube d
 - Tutorial series: 3x3 Beginner, 2x2 Beginner, CFOP, Ortega (2x2), and Roux.
 - Notation and Common Triggers reference pages.
 - Resources page.
-- Flashcards, Timer, and Scrambler pages, which are placeholders.
+- Algorithm flashcards (F2L, OLL, PLL, CMLL, and their 2-look subsets) with drill and spaced-repetition review.
+- A speedcubing timer with WCA inspection penalties, rolling averages, and sessions saved in the browser.
+- A random-state scrambler for every WCA event, with a scramble checker.
 
 ## Requirements
 

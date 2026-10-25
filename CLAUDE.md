@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Cube Tools is an Astro 7 static site for speedcubing: tutorial series (3x3 beginner, 2x2 beginner, CFOP, Ortega, Roux), notation and triggers reference pages, and a resources page. Flashcards, timer, and scrambler routes exist as placeholders. It is deployed to GitHub Pages at https://bradleykh.github.io/CubeTools/ from pushes to `master`.
+Cube Tools is an Astro 7 static site for speedcubing: tutorial series (3x3 beginner, 2x2 beginner, CFOP, Ortega, Roux), notation and triggers reference pages, and a resources page. The flashcards, timer, and scrambler routes are interactive tools, described under Interactive tools. It is deployed to GitHub Pages at https://bradleykh.github.io/CubeTools/ from pushes to `master`.
 
-Stack: TypeScript (strict), pnpm (version in `packageManager`), Node 24 (`.nvmrc`), Astro with the MDX and React integrations and `@astrojs/sitemap`, Tailwind 4 through `@tailwindcss/vite`, shadcn/ui under `src/components/ui/`, cubing.js for diagrams, Vitest for tests.
+Stack: TypeScript (strict), pnpm (version in `packageManager`), Node 24 (`.nvmrc`), Astro with the MDX and React integrations and `@astrojs/sitemap`, Tailwind 4 through `@tailwindcss/vite`, shadcn/ui under `src/components/ui/`, cubing.js for diagrams and scrambles, Vitest for tests.
 
 ## Commands
 
@@ -16,17 +16,19 @@ Stack: TypeScript (strict), pnpm (version in `packageManager`), Node 24 (`.nvmrc
 - `pnpm check`: `astro check` only
 - `pnpm test`: Vitest, `src/**/*.test.ts`
 
-`pnpm build` fails with `EBUSY` or `EPERM` on `dist/.prerender` inside a Dropbox-synced folder. Build from a copy of the repo outside Dropbox. `pnpm check` and `pnpm test` run in place.
+In a Dropbox-synced checkout, `pnpm build` can fail with `EBUSY` or `EPERM` on `dist/.prerender`; see Dropbox. `pnpm check` and `pnpm test` run in place.
 
 ## Dropbox
 
-The repo sits in a Dropbox folder. `node_modules/`, `dist/`, and `.astro/` must be ignored by Dropbox or they will sync and collide with local builds. Mark each one from PowerShell:
+If the checkout is in a Dropbox-synced folder, mark `node_modules/`, `dist/`, and `.astro/` as ignored so they do not sync and collide with local builds. Mark each one from PowerShell:
 
 ```
 Set-Content -Path '<dir>' -Stream com.dropbox.ignored -Value 1
 ```
 
 Confirm with `Get-Content -Path '<dir>' -Stream com.dropbox.ignored`.
+
+In a synced folder, `pnpm build` fails with `EBUSY` or `EPERM` on `dist/.prerender`. Build from a checkout outside Dropbox.
 
 ## Architecture
 
@@ -44,7 +46,27 @@ Confirm with `Get-Content -Path '<dir>' -Stream com.dropbox.ignored`.
 - **Stickering names.** `STICKERINGS` and `stickeringFor` in `src/lib/cube.ts` map case and set names (`oll`, `2-look PLL`, `firstblock`, `F2L`) to cubing.js stickerings. Last-layer stickerings render with `experimental-2D-LL`.
 - **Styling.** `src/styles/global.css` holds the Tailwind 4 theme tokens. Dark mode follows the OS unless `<html>` has `.dark` or `.light`. `src/styles/print.css` is imported by `BaseLayout`. Fonts are Inter and JetBrains Mono from `@fontsource-variable`.
 - **Public assets.** `public/` holds favicons and `robots.txt`. Page images go through `astro:assets` (`Figure` uses `Image`).
-- **Tests.** Vitest covers the pure helpers: `src/lib/cube.test.ts`, `src/lib/tutorials.test.ts`, `src/lib/url.test.ts`. Components have no tests.
+- **Tests.** Vitest covers the pure helpers: `src/lib/cube.test.ts`, `src/lib/tutorials.test.ts`, `src/lib/url.test.ts`, `src/lib/scramble.test.ts`, `src/lib/srs.test.ts`, `src/lib/flashcard-storage.test.ts`, the timer tests under `src/lib/timer/`, and `src/data/algsets/algsets.test.ts`. Components have no tests.
+
+## Interactive tools
+
+The flashcards, timer, and scrambler pages (`src/pages/flashcards.astro`, `timer.astro`, `scrambler.astro`) each mount one React app from `src/components/tools/<tool>/`. `TimerApp` and `FlashcardsApp` use `client:only="react"`, so they render only in the browser and the page shows a fallback until then. `ScramblerApp` uses `client:load`.
+
+- **TwistyView** (`src/components/tools/TwistyView.tsx`) is the React counterpart of `CubeView`. It creates a `<twisty-player>` in a `useEffect` after `import('cubing/twisty')`, updates its attributes when props change, and removes it on unmount. Its yellow-top handling matches `CubeView`: with a non-`full` stickering and `yellowTop` on (the default), the setup starts with `z2`, and the mask goes through `stickeringMaskOrbitsFor` in `src/lib/cube.ts`.
+- **Scrambles.** `src/lib/events.ts` lists the 13 WCA events with `id`, `name`, and the cubing.js `puzzle`. `getScramble(eventId)` in `src/lib/scramble.ts` returns a random-state scramble and starts generating the next one for that event in advance. `parseScramble(text)` normalizes and validates a pasted scramble with `Alg.fromString`; its `puzzle` argument is accepted but unused. The `no-module-preload` Vite plugin in `astro.config.mjs` is required: Vite's preload helper touches `document`, which crashes cubing.js's scramble worker in production builds.
+- **Timer** (`src/components/tools/timer/`, logic in `src/lib/timer/`).
+  - Storage: the localStorage key `cubetools.timer.v1` holds `{ version: 1, sessions, currentSessionId, settings }`, written in full after every change. `loadTimerData` never throws. Unreadable JSON or unavailable storage falls back to one default session, and `sanitizeTimerData` drops malformed sessions and solves instead of rejecting the file. JSON import uses the same sanitizer.
+  - Penalties: a solve's time is truncated to hundredths before its penalty applies. `+2` adds 2 seconds, and DNF is infinite.
+  - Averages (`stats.ts`): the best and worst `ceil(n * 5%)` solves are dropped (1 each for ao5 and ao12, 5 for ao100). An average is DNF when DNFs outnumber the dropped solves, and it rounds half up to hundredths. mo3 is DNF when any solve is DNF. The session mean excludes DNFs. Each average appears once that many solves exist.
+  - Inspection (`inspection.ts`): durations of 8, 10, 12, 15, or 20 seconds, or off. Warnings fire 7 and 3 seconds before the limit (the 8 and 12 second calls for the default 15). A solve started within the limit has no penalty, one started up to 2 seconds past it is `+2`, and any later one is DNF.
+  - Keys: Space holds and releases to start (`useHoldToStart.ts`), Escape cancels inspection, and Alt+2 and Alt+D toggle the penalty on the last solve.
+- **Flashcards** (`src/components/tools/flashcards/`, logic in `src/lib/srs.ts` and `src/lib/flashcard-storage.ts`).
+  - Set: `?set=<id>` selects the set. A legacy numeric hash (`#0` to `#6`) maps through `legacyIndexToId` and is rewritten to `?set=` with `history.replaceState`. A missing or unknown id opens F2L.
+  - Storage: the localStorage key `cubetools.flashcards.v1` holds `{ version: 1, sets: { [setId]: prefs } }`. A document with another version, or unparseable JSON, reads as empty. Each set's preferences are sanitized field by field: selected group and case ids, display mode, shuffle, study mode, preferred alg index per case, and SRS card state per case.
+  - Algorithm data (`src/data/algsets/`): case ids are stable strings prefixed by their set (`f2l-12`, `oll-27`, `pll-ua`), and saved progress is keyed on them. `algs[0]` is the primary and the rest are alternates, all in normalized notation. `index.ts` exports `algSets` in legacy order and `legacyIndexToId`. `algsets.test.ts` checks the case counts and that each primary leaves the other pieces solved. It also applies every alternate with cubing.js `KPuzzle` and requires it to solve the same case as the primary, up to whole-cube rotations and AUFs, with the comparison mask chosen per set and group.
+  - Setup rotation (`caseSetup` in `FlashCard.tsx`): the diagram setup is the inverse of the chosen alg. When that leaves the U center off the top, as happens with algs that rotate, use wide turns, or use slice moves, the setup searches whole-cube rotations and an optional M slice for one that returns the centers and D-layer corners home. If none is found, the plain inverse is used.
+  - Study: Drill walks the selected cases in order or shuffled. Review draws from `dueCards`: overdue cards first (oldest due first), then unseen cards. Grades are Again, Hard, Good, and Easy (`srs.ts`, SM-2 style). Again schedules a 10-minute relearn and resets the interval. Recognition time runs from card shown to reveal.
+  - Keys: Space, Enter, or Right reveals, then advances; Left goes back in drill; 1 to 4 grade; R toggles shuffle; A cycles display mode.
 
 ## Deployment
 

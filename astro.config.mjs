@@ -80,6 +80,11 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [mdx(), react(), sitemap(), legacyRedirects()],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      // Astro's modulePreload setting makes Vite wrap dynamic imports in a helper that touches
+      // `document`, which crashes cubing.js's scramble worker in production builds.
+      { name: 'no-module-preload', config: () => ({ build: { modulePreload: false } }) },
+    ],
   },
 });
